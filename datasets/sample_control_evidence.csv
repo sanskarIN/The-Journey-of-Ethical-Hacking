@@ -1,0 +1,7 @@
+evidence_id,control_area,criticality,evidence_age_days,exception_open,recovery_tested,owner
+EV-001,Access review,High,12,No,Yes,Example IAM
+EV-002,Backup validation,High,44,Yes,No,Example Resilience
+EV-003,Patch governance,Medium,19,No,Yes,Example Endpoint
+EV-004,Logging coverage,High,33,Yes,Yes,Example SOC
+EV-005,Vendor review,Medium,71,No,No,Example Third Party
+EV-006,Data retention,Medium,28,Yes,Yes,Example Privacy
