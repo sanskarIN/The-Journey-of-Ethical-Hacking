@@ -6,11 +6,13 @@ from tools.dataset_contracts import validate_catalog, validate_dataset
 
 def test_valid_dataset_contract_passes(tmp_path: Path) -> None:
     csv_path = tmp_path / "sample.csv"
-    csv_path.write_text("id,status\nA-1,Current\n", encoding="utf-8")
+    csv_path.write_text("id,status,age\nA-1,Current,12\n", encoding="utf-8")
     contract = {
         "primary_id": "id",
-        "required_columns": ["id", "status"],
+        "required_columns": ["id", "status", "age"],
         "allow_extra_columns": False,
+        "allowed_values": {"status": ["Current", "Review-Due"]},
+        "integer_ranges": {"age": {"min": 0, "max": 365}},
     }
     assert validate_dataset(csv_path, contract) == []
 
@@ -25,6 +27,38 @@ def test_missing_required_column_is_reported(tmp_path: Path) -> None:
     }
     issues = validate_dataset(csv_path, contract)
     assert any("missing required columns: status" in issue for issue in issues)
+
+
+def test_disallowed_categorical_value_is_reported(tmp_path: Path) -> None:
+    csv_path = tmp_path / "sample.csv"
+    csv_path.write_text("id,status\nA-1,Unknown\n", encoding="utf-8")
+    contract = {
+        "primary_id": "id",
+        "required_columns": ["id", "status"],
+        "allowed_values": {"status": ["Current", "Review-Due"]},
+    }
+    issues = validate_dataset(csv_path, contract)
+    assert any("is not allowed" in issue for issue in issues)
+
+
+def test_integer_range_violation_is_reported(tmp_path: Path) -> None:
+    csv_path = tmp_path / "sample.csv"
+    csv_path.write_text("id,age\nA-1,999\n", encoding="utf-8")
+    contract = {
+        "primary_id": "id",
+        "required_columns": ["id", "age"],
+        "integer_ranges": {"age": {"min": 0, "max": 365}},
+    }
+    issues = validate_dataset(csv_path, contract)
+    assert any("above 365" in issue for issue in issues)
+
+
+def test_duplicate_primary_id_is_reported(tmp_path: Path) -> None:
+    csv_path = tmp_path / "sample.csv"
+    csv_path.write_text("id,status\nA-1,Current\nA-1,Current\n", encoding="utf-8")
+    contract = {"primary_id": "id", "required_columns": ["id", "status"]}
+    issues = validate_dataset(csv_path, contract)
+    assert any("duplicate primary identifier A-1" in issue for issue in issues)
 
 
 def test_catalog_reports_uncontracted_csv(tmp_path: Path) -> None:
