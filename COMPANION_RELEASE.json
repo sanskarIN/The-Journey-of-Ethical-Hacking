@@ -1,7 +1,7 @@
 {
   "project": "The Journey of Ethical Hacking — Companion Resources",
   "edition": "2026 Edition",
-  "companion_release": "2026.08.18.5",
+  "companion_release": "2026.08.18.6",
   "author": "Ram Sandesh",
   "repository": "https://github.com/sanskarIN/The-Journey-of-Ethical-Hacking",
   "official_gumroad": "https://ramsandesh.gumroad.com",
@@ -15,6 +15,7 @@
     "safe templates and checklists",
     "fictional tabletop exercises",
     "release integrity validators",
+    "tagged release manifest automation",
     "tests and contribution documentation"
   ],
   "release_integrity_checks": [
@@ -23,12 +24,20 @@
     "dataset contracts",
     "JSON metadata",
     "release version consistency",
+    "Parts 1-200 learning index integrity",
     "synthetic-data sensitivity",
     "documentation accessibility",
     "relative Markdown links",
     "Gumroad storefront presence",
     "public resource manifest generation"
   ],
+  "github_maintenance": {
+    "checkout_action_major": 7,
+    "setup_python_action_major": 7,
+    "upload_artifact_action_major": 7,
+    "dependabot_github_actions": "monthly",
+    "tagged_manifest_workflow": true
+  },
   "code_license": "Apache-2.0",
   "commercial_book_rights": "Copyright © 2026 Ram Sandesh. All rights reserved.",
   "commercial_manuscript_in_public_repo": false,
