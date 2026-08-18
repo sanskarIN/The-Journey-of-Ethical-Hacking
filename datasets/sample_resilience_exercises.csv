@@ -1,0 +1,7 @@
+exercise_id,service,criticality,recovery_objective_hours,last_test_age_days,dependency_status,communications_status,decision_log_status
+RES-001,Customer-Portal,Critical,4,35,Documented,Ready,Complete
+RES-002,Billing-Service,Critical,2,62,Partial,Ready,Complete
+RES-003,Analytics-Platform,High,8,91,Documented,Review-Due,Partial
+RES-004,Internal-Messaging,High,6,44,Partial,Ready,Complete
+RES-005,Archive-Service,Medium,24,133,Documented,Review-Due,Complete
+RES-006,Training-Portal,Low,48,157,Documented,Ready,Partial
