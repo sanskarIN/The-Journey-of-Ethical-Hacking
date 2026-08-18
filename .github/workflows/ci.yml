@@ -29,7 +29,15 @@ jobs:
         run: python tools/dataset_contracts.py schemas/dataset_contracts.json datasets
       - name: Validate JSON metadata
         run: python tools/json_metadata.py COMPANION_RELEASE.json schemas/dataset_contracts.json
+      - name: Check synthetic data for sensitive-looking values
+        run: python tools/synthetic_safety.py datasets/*.csv
       - name: Check documentation accessibility basics
-        run: python tools/doc_accessibility.py README.md docs resources schemas exercises
+        run: python tools/doc_accessibility.py README.md docs resources schemas exercises examples
       - name: Check relative Markdown links
-        run: python tools/markdown_links.py README.md docs resources schemas exercises ERRATA.md ROADMAP.md CHANGELOG.md what_changed.md
+        run: python tools/markdown_links.py README.md docs resources schemas exercises examples ERRATA.md ROADMAP.md CHANGELOG.md what_changed.md
+      - name: Check official Gumroad storefront presence
+        run: python tools/gumroad_presence.py --root .
+      - name: Generate public resource manifest as a smoke test
+        run: python tools/resource_manifest.py --root . --output /tmp/public-resource-manifest.json
+      - name: Run consolidated repository health check
+        run: python tools/repo_health.py --root .
