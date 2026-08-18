@@ -1,0 +1,7 @@
+control_id,control_domain,owner_role,criticality,evidence_age_days,exception_status,review_status,board_visibility
+GOV-001,Identity,Identity-Governance-Lead,Critical,18,None,Current,High
+GOV-002,Data-Protection,Data-Security-Lead,High,42,Open,Review-Due,High
+GOV-003,Third-Party,Supplier-Risk-Lead,High,27,None,Current,Medium
+GOV-004,Resilience,BCDR-Lead,Critical,63,Open,Review-Due,High
+GOV-005,Secure-Development,Product-Security-Lead,High,14,None,Current,Medium
+GOV-006,Awareness,Security-Culture-Lead,Medium,51,None,Review-Due,Low
