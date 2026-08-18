@@ -4,7 +4,7 @@
 
 **Official Gumroad:** https://ramsandesh.gumroad.com
 
-This directory validates the repository's local-only defensive and release-integrity utilities.
+This directory validates the repository's local-only defensive, release-integrity, and repository-policy utilities.
 
 ## Repeatable test environment
 
@@ -31,12 +31,16 @@ The suite includes tests for:
 - control-review scoring;
 - CSV structure quality;
 - richer dataset contracts and duplicate-ID checks;
-- generated dataset data dictionaries;
+- generated dataset data dictionaries and freshness;
 - release/schema JSON metadata;
 - release-version and citation-version consistency;
 - dataset summaries;
 - Parts 1–200 learning-index integrity;
 - documentation TOC generation and freshness;
+- immutable GitHub Actions SHA pinning;
+- contributor/CI Python and dependency consistency;
+- public repository governance/publication boundaries;
+- generated repository policy status;
 - Markdown accessibility;
 - relative Markdown links;
 - repository health orchestration;
