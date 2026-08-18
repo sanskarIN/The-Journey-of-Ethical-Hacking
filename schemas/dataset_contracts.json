@@ -1,55 +1,132 @@
 {
-  "version": 1,
+  "version": 2,
   "datasets": {
     "sample_asset_inventory.csv": {
       "primary_id": "asset_id",
       "required_columns": ["asset_id", "asset_class", "criticality", "owner_group", "managed", "patch_age_days", "telemetry_status", "support_status"],
-      "allow_extra_columns": false
+      "allow_extra_columns": false,
+      "allowed_values": {
+        "criticality": ["Low", "Medium", "High", "Critical"],
+        "managed": ["Yes", "Limited"],
+        "telemetry_status": ["Fresh", "Partial", "Stale", "Missing"],
+        "support_status": ["Supported", "Extended"]
+      },
+      "integer_ranges": {"patch_age_days": {"min": 0, "max": 365}}
     },
     "sample_control_evidence.csv": {
       "primary_id": "evidence_id",
       "required_columns": ["evidence_id", "control_area", "criticality", "evidence_age_days", "exception_open", "recovery_tested", "owner"],
-      "allow_extra_columns": false
+      "allow_extra_columns": false,
+      "allowed_values": {
+        "criticality": ["Low", "Medium", "High", "Critical"],
+        "exception_open": ["Yes", "No"],
+        "recovery_tested": ["Yes", "No"]
+      },
+      "integer_ranges": {"evidence_age_days": {"min": 0, "max": 365}}
     },
     "sample_risk_signals.csv": {
       "primary_id": "signal_id",
       "required_columns": ["signal_id", "domain", "criticality", "age_days", "open_exception", "telemetry_gap", "recovery_gap"],
-      "allow_extra_columns": false
+      "allow_extra_columns": false,
+      "allowed_values": {
+        "criticality": ["Low", "Medium", "High", "Critical"],
+        "open_exception": ["Yes", "No"],
+        "telemetry_gap": ["Yes", "No"],
+        "recovery_gap": ["Yes", "No"]
+      },
+      "integer_ranges": {"age_days": {"min": 0, "max": 365}}
     },
     "sample_cloud_posture.csv": {
       "primary_id": "asset_id",
       "required_columns": ["asset_id", "environment", "criticality", "owner_group", "baseline_status", "identity_review_age_days", "logging_status", "backup_status", "open_exception"],
-      "allow_extra_columns": false
+      "allow_extra_columns": false,
+      "allowed_values": {
+        "criticality": ["Low", "Medium", "High", "Critical"],
+        "baseline_status": ["Aligned", "Partial", "Review-Due"],
+        "logging_status": ["Fresh", "Stale", "Limited"],
+        "backup_status": ["Current", "Needs-Test"],
+        "open_exception": ["Yes", "No"]
+      },
+      "integer_ranges": {"identity_review_age_days": {"min": 0, "max": 365}}
     },
     "sample_privacy_controls.csv": {
       "primary_id": "record_id",
       "required_columns": ["record_id", "data_domain", "data_classification", "retention_status", "minimization_review", "access_review_age_days", "transfer_basis_status", "deletion_test_status"],
-      "allow_extra_columns": false
+      "allow_extra_columns": false,
+      "allowed_values": {
+        "data_classification": ["Public", "Internal", "Confidential", "Restricted"],
+        "retention_status": ["Current", "Review-Due"],
+        "minimization_review": ["Complete", "Partial"],
+        "transfer_basis_status": ["Documented", "Review-Due", "Not-Applicable"],
+        "deletion_test_status": ["Passed", "Needs-Retest"]
+      },
+      "integer_ranges": {"access_review_age_days": {"min": 0, "max": 365}}
     },
     "sample_endpoint_fleet.csv": {
       "primary_id": "device_id",
       "required_columns": ["device_id", "device_class", "criticality", "enrollment_status", "patch_age_days", "telemetry_status", "support_status", "data_classification"],
-      "allow_extra_columns": false
+      "allow_extra_columns": false,
+      "allowed_values": {
+        "criticality": ["Low", "Medium", "High", "Critical"],
+        "enrollment_status": ["Managed", "Limited"],
+        "telemetry_status": ["Fresh", "Partial", "Stale", "Missing"],
+        "support_status": ["Supported", "Extended"],
+        "data_classification": ["Public", "Internal", "Confidential", "Restricted"]
+      },
+      "integer_ranges": {"patch_age_days": {"min": 0, "max": 365}}
     },
     "sample_saas_governance.csv": {
       "primary_id": "tenant_id",
       "required_columns": ["tenant_id", "service_class", "criticality", "identity_integration", "admin_review_age_days", "logging_status", "external_sharing_status", "backup_export_status"],
-      "allow_extra_columns": false
+      "allow_extra_columns": false,
+      "allowed_values": {
+        "criticality": ["Low", "Medium", "High", "Critical"],
+        "identity_integration": ["Federated", "Standalone"],
+        "logging_status": ["Fresh", "Partial", "Stale", "Limited"],
+        "external_sharing_status": ["Restricted", "Review-Due", "Open"],
+        "backup_export_status": ["Current", "Needs-Test", "Not-Required"]
+      },
+      "integer_ranges": {"admin_review_age_days": {"min": 0, "max": 365}}
     },
     "sample_resilience_exercises.csv": {
       "primary_id": "exercise_id",
       "required_columns": ["exercise_id", "service", "criticality", "recovery_objective_hours", "last_test_age_days", "dependency_status", "communications_status", "decision_log_status"],
-      "allow_extra_columns": false
+      "allow_extra_columns": false,
+      "allowed_values": {
+        "criticality": ["Low", "Medium", "High", "Critical"],
+        "dependency_status": ["Documented", "Partial"],
+        "communications_status": ["Ready", "Review-Due"],
+        "decision_log_status": ["Complete", "Partial"]
+      },
+      "integer_ranges": {
+        "recovery_objective_hours": {"min": 0, "max": 168},
+        "last_test_age_days": {"min": 0, "max": 730}
+      }
     },
     "sample_governance_controls.csv": {
       "primary_id": "control_id",
       "required_columns": ["control_id", "control_domain", "owner_role", "criticality", "evidence_age_days", "exception_status", "review_status", "board_visibility"],
-      "allow_extra_columns": false
+      "allow_extra_columns": false,
+      "allowed_values": {
+        "criticality": ["Low", "Medium", "High", "Critical"],
+        "exception_status": ["None", "Open"],
+        "review_status": ["Current", "Review-Due"],
+        "board_visibility": ["Low", "Medium", "High"]
+      },
+      "integer_ranges": {"evidence_age_days": {"min": 0, "max": 365}}
     },
     "sample_workforce_capability.csv": {
       "primary_id": "role_id",
       "required_columns": ["role_id", "role_family", "criticality", "staffing_status", "training_age_days", "exercise_status", "backup_coverage", "development_plan_status"],
-      "allow_extra_columns": false
+      "allow_extra_columns": false,
+      "allowed_values": {
+        "criticality": ["Low", "Medium", "High", "Critical"],
+        "staffing_status": ["Adequate", "Thin"],
+        "exercise_status": ["Current", "Review-Due"],
+        "backup_coverage": ["Full", "Partial", "Limited"],
+        "development_plan_status": ["Current", "Review-Due"]
+      },
+      "integer_ranges": {"training_age_days": {"min": 0, "max": 365}}
     }
   }
 }
