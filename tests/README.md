@@ -21,16 +21,19 @@ The suite includes tests for:
 - evidence freshness;
 - control-review scoring;
 - CSV structure quality;
-- dataset contracts;
+- richer dataset contracts and duplicate-ID checks;
 - release/schema JSON metadata;
+- release-version consistency;
 - dataset summaries;
+- Parts 1–200 learning-index integrity;
+- documentation TOC generation;
 - Markdown accessibility;
 - relative Markdown links;
 - repository health orchestration;
 - public-resource manifest generation;
 - synthetic-data sensitivity linting;
-- Gumroad storefront presence;
-- CLI `--help` smoke coverage for every local tool.
+- Gumroad storefront presence across core docs and all learning stages;
+- CLI `--help` smoke coverage for local tools.
 
 The tests use deterministic local data and do not require network access, accounts, credentials, devices, or external services.
 
