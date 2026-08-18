@@ -1,5 +1,9 @@
 # Stage 17 — Parts 161–170
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** GRC, board oversight, cybersecurity strategy, transformation, M&A, investment, and enterprise maturity.
 
 1. **Part 161 — Enterprise Security Governance, Policy Architecture, Compliance Assurance & Board Oversight**
