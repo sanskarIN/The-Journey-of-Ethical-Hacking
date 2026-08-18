@@ -1,5 +1,9 @@
 # Stage 02 — Parts 11–20
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** Secure web, APIs, identity, cryptography, cloud, containers, DevSecOps, and mobile foundations.
 
 1. **Part 11 — Web Application Security Foundations and Safe Local Analysis**
