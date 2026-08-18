@@ -8,6 +8,7 @@ This page is the central index for public companion-repository documentation.
 
 ## Start here
 
+- [`TOC.md`](TOC.md) — generated table of contents for files in `docs/`.
 - [`../README.md`](../README.md) — repository overview and quick start.
 - [`GUMROAD.md`](GUMROAD.md) — official storefront and GitHub badge guidance.
 - [`USAGE.md`](USAGE.md) — companion-resource usage guidance.
@@ -36,6 +37,8 @@ Key validation entry points:
 ```bash
 python -m pytest --cov=tools --cov-report=term-missing -q
 python tools/repo_health.py --root .
+python tools/release_consistency.py --root .
+python tools/docs_toc.py --docs-dir docs --output docs/TOC.md
 python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.json
 ```
 
