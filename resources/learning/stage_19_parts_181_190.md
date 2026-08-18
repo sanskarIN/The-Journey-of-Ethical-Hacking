@@ -1,5 +1,9 @@
 # Stage 19 — Parts 181–190
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** Cyber-risk economics, insurance, investment, financial resilience, legal/ethical governance, privacy, investigations, and cross-border assurance.
 
 1. **Part 181 — Cyber Risk Economics, Loss Modeling & Financial Decision Governance**
