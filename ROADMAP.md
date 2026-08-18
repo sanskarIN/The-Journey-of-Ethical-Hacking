@@ -75,15 +75,26 @@
 - [x] Record maintenance evidence in the current companion release snapshot.
 - [x] Add automated freshness validation for the generated dataset data dictionary.
 
-## Repository policy automation phase
+## Repository policy automation phase — completed
 
-- [ ] Add a local validator that enforces full-length SHA pinning for external GitHub Actions.
-- [ ] Add a validator for `.python-version`, workflow Python versions, and pinned dev dependency consistency.
-- [ ] Add tests for repository-policy validators and wire them into CI/repository health.
-- [ ] Add a generated repository policy/status summary for release review.
-- [ ] Add validation that required GitHub community files remain present.
-- [ ] Add a lightweight check that commercial publication file types are not committed publicly.
-- [ ] Add release-snapshot evidence for each policy automation result.
+- [x] Add a local validator that enforces full-length SHA pinning for external GitHub Actions.
+- [x] Add a validator for `.python-version`, workflow Python versions, and pinned dev dependency consistency.
+- [x] Add tests for repository-policy validators and wire them into CI/repository health.
+- [x] Add a generated repository policy/status summary for release review.
+- [x] Add validation that required GitHub community/governance files remain present.
+- [x] Add a public-repository boundary check that rejects commercial publication/archive formats.
+- [x] Add a direct X/Twitter URL exclusion check without storing disallowed URL literals in policy/test source files.
+- [x] Add release-snapshot evidence for the repository policy automation results.
+- [x] Enforce generated policy-status freshness in CI and the consolidated health command.
+
+## Next maintenance and release-operations phase
+
+- [ ] Create the first `companion-v2026.08.18.6` tag when the release snapshot is intentionally ready to freeze.
+- [ ] Review the generated manifest artifact from the tagged-release workflow after the first tag.
+- [ ] Apply the documented GitHub About description, Gumroad website, and recommended topics manually if repository-settings API support remains unavailable.
+- [ ] Review future Dependabot PRs for Actions and pip updates before merging.
+- [ ] Record future errata and edition-refresh changes without publishing paid manuscript text.
+- [ ] Re-run the complete policy/test/release gate before every tagged companion release.
 
 The public repository will continue to exclude the paid master manuscript and commercial publication files.
 
