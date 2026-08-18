@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Get the book on Gumroad
+    url: https://ramsandesh.gumroad.com
+    about: View the official publication storefront and current book listings.
+  - name: Security and responsible-use policy
+    url: https://github.com/sanskarIN/The-Journey-of-Ethical-Hacking/blob/main/SECURITY.md
+    about: Read the repository security policy before reporting a security-sensitive concern.
