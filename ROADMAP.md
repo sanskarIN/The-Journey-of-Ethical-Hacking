@@ -49,16 +49,30 @@
 - [x] Add a release snapshot checklist that records validation expectations and companion version context.
 - [x] Integrate release-integrity checks into GitHub Actions CI.
 
-## Future maintenance phase
+## Future maintenance phase — completed in release 2026.08.18.6
 
-- [ ] Generate and review a public-resource manifest for each tagged companion release.
-- [ ] Add release-version consistency checks across `COMPANION_RELEASE.json`, changelog entries, and release snapshots.
-- [ ] Add richer dataset contract constraints for approved categorical values where useful.
-- [ ] Add a documentation table-of-contents generator for larger guide sets.
-- [ ] Add a contributor onboarding checklist for first-time pull requests.
-- [ ] Add issue-triage guidance for errata, documentation, datasets, tests, and release maintenance.
-- [ ] Review GitHub repository metadata/topics and storefront visibility when connector support permits those settings.
-- [ ] Continue periodic dependency/action review against official upstream documentation.
+- [x] Generate and review a public-resource manifest for tagged companion releases through an automated workflow.
+- [x] Add release-version consistency checks across `COMPANION_RELEASE.json`, changelog entries, release snapshots, and `CITATION.cff`.
+- [x] Add richer dataset contract constraints for approved categorical values, integer ranges, and duplicate identifiers.
+- [x] Add a documentation table-of-contents generator for larger guide sets.
+- [x] Add a contributor onboarding checklist for first-time pull requests.
+- [x] Add issue-triage guidance for errata, documentation, datasets, tests, and release maintenance.
+- [x] Review GitHub repository metadata/topics and document recommended settings; the connected maintenance API still cannot write repository About/topics settings directly.
+- [x] Review current GitHub Actions majors against official upstream releases and upgrade CI/release workflows to v7 lines.
+- [x] Add monthly Dependabot checks for GitHub Actions.
+- [x] Add GitHub-native citation metadata, funding/storefront link, and issue-chooser storefront visibility.
+- [x] Add automated Parts 1–200 learning-index integrity validation.
+
+## Long-term repository quality phase
+
+- [ ] Add a generated dataset data dictionary from `schemas/dataset_contracts.json`.
+- [ ] Add automated freshness validation for `docs/TOC.md`.
+- [ ] Add dedicated issue forms for dataset improvements and tool/test bugs.
+- [ ] Add a contributor-facing development environment file for repeatable local test setup.
+- [ ] Add a GitHub release-note category configuration for companion releases.
+- [ ] Add CODEOWNERS/review-boundary documentation if repository collaboration expands.
+- [ ] Evaluate SHA-pinning policy for third-party/GitHub Actions while preserving maintainability.
+- [ ] Add periodic maintenance evidence to each future companion release snapshot.
 
 The public repository will continue to exclude the paid master manuscript and commercial publication files.
 
