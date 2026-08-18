@@ -1,5 +1,9 @@
 # Errata Review Process
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official Gumroad:** https://ramsandesh.gumroad.com
+
 The public repository tracks correction reports without exposing the commercial manuscript.
 
 ## 1. Submit a concise report
@@ -47,3 +51,5 @@ Before an errata item is marked corrected:
 ## Privacy and safety
 
 Do not submit credentials, private customer information, personal data, confidential screenshots, exploit evidence from third-party systems, or other sensitive material in public errata reports.
+
+For the current commercial publication listing, use **https://ramsandesh.gumroad.com**.
