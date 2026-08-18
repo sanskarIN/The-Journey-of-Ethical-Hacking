@@ -1,5 +1,9 @@
 # Documentation Accessibility Guide
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official Gumroad:** https://ramsandesh.gumroad.com
+
 Public companion documentation should remain readable with keyboard navigation, screen readers, zoom, high-contrast settings, and plain-text Markdown renderers.
 
 ## Authoring rules
@@ -15,13 +19,14 @@ Public companion documentation should remain readable with keyboard navigation, 
 - Put commands and code in fenced code blocks.
 - Avoid tabs in prose and tables because rendering differs across tools.
 - Expand uncommon acronyms at first use when practical.
+- Keep storefront links descriptive; the official direct publication URL is `https://ramsandesh.gumroad.com`.
 
 ## Automated check
 
 Run:
 
 ```bash
-python tools/doc_accessibility.py README.md docs resources
+python tools/doc_accessibility.py README.md docs resources schemas exercises examples
 ```
 
 The local checker currently verifies:
@@ -43,3 +48,5 @@ These checks are deliberately conservative and do not replace human accessibilit
 6. Does zooming or narrow-screen reading preserve the logical order?
 
 Accessibility improvements are welcome through pull requests and documentation issues.
+
+For the complete publication and current listings, use **https://ramsandesh.gumroad.com**.
