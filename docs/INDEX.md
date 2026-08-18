@@ -19,6 +19,8 @@ This page is the central index for public companion-repository documentation.
 
 - [`../SECURITY.md`](../SECURITY.md) — responsible-use and private security reporting.
 - [`../CONTRIBUTING.md`](../CONTRIBUTING.md) — safe contribution requirements.
+- [`CONTRIBUTOR_ONBOARDING.md`](CONTRIBUTOR_ONBOARDING.md) — first-time contributor checklist.
+- [`ISSUE_TRIAGE.md`](ISSUE_TRIAGE.md) — issue classification and maintenance guidance.
 - [`ACCESSIBILITY.md`](ACCESSIBILITY.md) — Markdown accessibility guidance.
 - [`RESOURCE_STYLE_GUIDE.md`](RESOURCE_STYLE_GUIDE.md) — dataset/template writing style.
 - [`../CODE_OF_CONDUCT.md`](../CODE_OF_CONDUCT.md) — community conduct.
@@ -38,6 +40,7 @@ Key validation entry points:
 python -m pytest --cov=tools --cov-report=term-missing -q
 python tools/repo_health.py --root .
 python tools/release_consistency.py --root .
+python tools/learning_index_check.py --root .
 python tools/docs_toc.py --docs-dir docs --output docs/TOC.md
 python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.json
 ```
@@ -53,10 +56,14 @@ python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.jso
 - [`ERRATA_PROCESS.md`](ERRATA_PROCESS.md) — correction workflow.
 - [`RELEASE_CHECKLIST.md`](RELEASE_CHECKLIST.md) — companion release gate.
 - [`RELEASE_SNAPSHOT.md`](RELEASE_SNAPSHOT.md) — current release-integrity expectations.
+- [`TAGGED_RELEASES.md`](TAGGED_RELEASES.md) — tag naming and automatic release-manifest workflow.
+- [`PUBLIC_RESOURCE_MANIFEST.md`](PUBLIC_RESOURCE_MANIFEST.md) — manifest generation/review guidance.
 - [`RELEASE_NOTES_AUTOMATION.md`](RELEASE_NOTES_AUTOMATION.md) — release-note workflow guidance.
 - [`ANNUAL_EDITION_MAINTENANCE.md`](ANNUAL_EDITION_MAINTENANCE.md) — yearly refresh checklist.
 - [`DEPENDENCY_ACTION_REVIEW.md`](DEPENDENCY_ACTION_REVIEW.md) — dependency/action review decisions.
+- [`REPOSITORY_METADATA.md`](REPOSITORY_METADATA.md) — recommended GitHub About description, website, and topics.
 - [`REPOSITORY_STRUCTURE.md`](REPOSITORY_STRUCTURE.md) — current public repository layout.
+- [`../CITATION.cff`](../CITATION.cff) — repository and book citation metadata.
 - [`../COMPANION_RELEASE.json`](../COMPANION_RELEASE.json) — machine-readable release/storefront metadata.
 - [`../CHANGELOG.md`](../CHANGELOG.md) — notable repository changes.
 - [`../ROADMAP.md`](../ROADMAP.md) — completed and future phases.
