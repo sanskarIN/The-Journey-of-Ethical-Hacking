@@ -15,12 +15,15 @@ from pathlib import Path
 
 def build_checks(root: Path) -> list[list[str]]:
     py = sys.executable
+    datasets = [str(path) for path in sorted((root / "datasets").glob("*.csv"))]
     return [
-        [py, "tools/csv_quality.py", *[str(path) for path in sorted((root / "datasets").glob("*.csv"))]],
+        [py, "tools/csv_quality.py", *datasets],
         [py, "tools/dataset_contracts.py", "schemas/dataset_contracts.json", "datasets"],
         [py, "tools/json_metadata.py", "COMPANION_RELEASE.json", "schemas/dataset_contracts.json"],
+        [py, "tools/synthetic_safety.py", *datasets],
         [py, "tools/doc_accessibility.py", "README.md", "docs", "resources", "schemas", "exercises", "examples"],
         [py, "tools/markdown_links.py", "README.md", "docs", "resources", "schemas", "exercises", "examples", "ERRATA.md", "ROADMAP.md", "CHANGELOG.md", "what_changed.md"],
+        [py, "tools/gumroad_presence.py", "--root", str(root)],
     ]
 
 
