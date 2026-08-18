@@ -18,6 +18,7 @@ Generated from the level-1 headings of Markdown files in `docs/`.
 - [Documentation Index](INDEX.md)
 - [Issue Triage Guidance](ISSUE_TRIAGE.md)
 - [Offline Analysis Examples](OFFLINE_ANALYSIS_EXAMPLES.md)
+- [Repository Policy Status](POLICY_STATUS.md)
 - [Public Resource Manifest](PUBLIC_RESOURCE_MANIFEST.md)
 - [Companion Release Checklist](RELEASE_CHECKLIST.md)
 - [Release Notes Automation Guidance](RELEASE_NOTES_AUTOMATION.md)
