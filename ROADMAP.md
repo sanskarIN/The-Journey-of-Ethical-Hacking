@@ -1,5 +1,9 @@
 # Repository Roadmap
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official Gumroad:** https://ramsandesh.gumroad.com
+
 ## 2026 companion release — completed
 
 - [x] Establish licensing and commercial-book rights boundary.
@@ -23,14 +27,27 @@
 - [x] Add automated checks for broken relative Markdown links.
 - [x] Add a public release checklist for companion-resource versions.
 
-## Next repository phase
+## Maintenance and contributor phase — completed
 
-- [ ] Add JSON-format validation for release/schema metadata.
-- [ ] Add a small offline dataset-summary utility and tests.
-- [ ] Add more tabletop packs for privacy, SaaS, endpoint, and workforce governance.
-- [ ] Add a contributor example showing how to add a new synthetic dataset plus contract.
-- [ ] Add repository release-notes automation guidance.
-- [ ] Add a maintenance checklist for annual edition refreshes.
-- [ ] Review dependency/action versions periodically and document upgrade decisions.
+- [x] Add JSON-format validation for release/schema metadata.
+- [x] Add a small offline dataset-summary utility and tests.
+- [x] Add tabletop packs for privacy, SaaS, endpoint, and workforce governance.
+- [x] Add a contributor example showing how to add a new synthetic dataset plus contract.
+- [x] Add repository release-notes automation guidance.
+- [x] Add a maintenance checklist for annual edition refreshes.
+- [x] Review dependency/action versions periodically and document upgrade decisions.
+- [x] Promote the official Gumroad storefront throughout major public-facing repository documentation.
+
+## Release integrity and discoverability phase
+
+- [ ] Add a central documentation index for all repository guides and resources.
+- [ ] Add one repository-health command that runs local structural checks from a single entry point.
+- [ ] Add a machine-readable public-resource manifest generator and tests.
+- [ ] Add a synthetic-data privacy/sensitivity linter for accidental email, token-like, or URL-like values.
+- [ ] Add CLI smoke tests for every local tool.
+- [ ] Add a Gumroad-presence checker for public-facing Markdown and release metadata.
+- [ ] Add a release snapshot checklist that records validation results and companion version.
 
 The public repository will continue to exclude the paid master manuscript and commercial publication files.
+
+For the complete publication and current listings, use **https://ramsandesh.gumroad.com**.
