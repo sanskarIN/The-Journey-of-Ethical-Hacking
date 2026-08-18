@@ -1,11 +1,12 @@
 {
   "project": "The Journey of Ethical Hacking — Companion Resources",
   "edition": "2026 Edition",
-  "companion_release": "2026.08.18.4",
+  "companion_release": "2026.08.18.5",
   "author": "Ram Sandesh",
   "repository": "https://github.com/sanskarIN/The-Journey-of-Ethical-Hacking",
   "official_gumroad": "https://ramsandesh.gumroad.com",
   "gumroad_highlighted_in_public_docs": true,
+  "gumroad_highlighted_in_all_learning_stages": true,
   "series_parts": 200,
   "public_scope": [
     "defensive learning indexes",
@@ -21,6 +22,7 @@
     "CSV structure",
     "dataset contracts",
     "JSON metadata",
+    "release version consistency",
     "synthetic-data sensitivity",
     "documentation accessibility",
     "relative Markdown links",
