@@ -15,6 +15,10 @@ Official defensive, authorization-first companion repository for **The Journey o
 - [Complete documentation index](docs/INDEX.md)
 - [Gumroad storefront and badge guide](docs/GUMROAD.md)
 - [Complete 200-part learning index](resources/learning_stage_index.md)
+- [First-time contributor onboarding](docs/CONTRIBUTOR_ONBOARDING.md)
+- [Issue triage guidance](docs/ISSUE_TRIAGE.md)
+- [Tagged companion releases](docs/TAGGED_RELEASES.md)
+- [Recommended GitHub repository metadata](docs/REPOSITORY_METADATA.md)
 - [Synthetic dataset catalog](datasets/README.md)
 - [Dataset contract schemas](schemas/README.md)
 - [Fictional tabletop exercises](exercises/README.md)
@@ -28,6 +32,7 @@ Official defensive, authorization-first companion repository for **The Journey o
 - [Book errata log](ERRATA.md)
 - [Safe contribution guide](CONTRIBUTING.md)
 - [Responsible-use and security policy](SECURITY.md)
+- [Repository citation metadata](CITATION.cff)
 - [Repository roadmap](ROADMAP.md)
 - [Detailed change audit](what_changed.md)
 - [`COMPANION_RELEASE.json`](COMPANION_RELEASE.json) — machine-readable release metadata
@@ -38,11 +43,11 @@ This public repository contains safe companion material: synthetic datasets, off
 
 ### Learning resources
 
-The series index is split into **20 stages covering Parts 1–200**, with corrected part titles and safe companion-practice guidance for every stage.
+The series index is split into **20 stages covering Parts 1–200**, with corrected part titles and safe companion-practice guidance for every stage. CI verifies that every Part 1–200 appears exactly once across those stage files.
 
 ### Synthetic datasets
 
-The repository contains small fictional datasets for asset posture, control evidence, risk signals, cloud posture, privacy controls, endpoint fleets, SaaS governance, resilience exercises, governance controls, and workforce capability. Machine-readable contracts under `schemas/` define expected columns.
+The repository contains small fictional datasets for asset posture, control evidence, risk signals, cloud posture, privacy controls, endpoint fleets, SaaS governance, resilience exercises, governance controls, and workforce capability. Machine-readable contracts under `schemas/` define expected columns, primary IDs, allowed categorical values, and useful integer constraints.
 
 ### Offline utilities
 
@@ -55,10 +60,13 @@ Current local-only Python helpers include:
 - `tools/csv_quality.py`
 - `tools/dataset_contracts.py`
 - `tools/json_metadata.py`
+- `tools/release_consistency.py`
+- `tools/learning_index_check.py`
 - `tools/synthetic_safety.py`
 - `tools/doc_accessibility.py`
 - `tools/markdown_links.py`
 - `tools/gumroad_presence.py`
+- `tools/docs_toc.py`
 - `tools/resource_manifest.py`
 - `tools/repo_health.py`
 
@@ -74,6 +82,12 @@ Run all repository structural checks from one entry point:
 python tools/repo_health.py --root .
 ```
 
+Verify the Parts 1–200 stage index directly:
+
+```bash
+python tools/learning_index_check.py --root .
+```
+
 Generate a machine-readable public-resource manifest:
 
 ```bash
@@ -85,14 +99,24 @@ python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.jso
 The repository CI and local health tooling validate:
 
 - synthetic CSV structure;
-- dataset contracts;
+- richer dataset contracts;
 - release/schema JSON metadata;
+- release-version consistency;
+- Parts 1–200 learning-index integrity;
 - sensitive-looking values in public synthetic datasets;
 - Markdown accessibility basics;
 - relative Markdown links;
-- the exact official Gumroad storefront URL on core public-facing pages;
+- the exact official Gumroad storefront URL on core public-facing pages and all 20 learning-stage pages;
 - public-resource manifest generation;
 - unit tests, CLI smoke tests, and test coverage.
+
+A `companion-v*` tag triggers `.github/workflows/release-manifest.yml`, which validates the tagged snapshot and uploads a SHA-256 public-resource manifest artifact.
+
+## Maintenance automation
+
+- GitHub Actions uses current v7 major lines for checkout/setup and release-manifest artifact upload.
+- Dependabot checks GitHub Actions dependencies monthly.
+- `docs/DEPENDENCY_ACTION_REVIEW.md` records accepted/deferred maintenance decisions.
 
 ## Safety boundary
 
