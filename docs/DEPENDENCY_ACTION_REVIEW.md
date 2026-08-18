@@ -13,27 +13,24 @@ The repository currently relies on:
 - Python **3.12** as the repository/CI baseline (`.python-version`).
 - `pytest==9.1.1` in `requirements-dev.txt`.
 - `pytest-cov==7.1.0` in `requirements-dev.txt`.
-- `actions/checkout@v7`.
-- `actions/setup-python@v7`.
-- `actions/upload-artifact@v7` in the tagged-release manifest workflow.
+- `actions/checkout` release **v7.0.1**, pinned to full SHA `3d3c42e5aac5ba805825da76410c181273ba90b1`.
+- `actions/setup-python` release **v7.0.0**, pinned to full SHA `5fda3b95a4ea91299a34e894583c3862153e4b97`.
+- `actions/upload-artifact` release **v7.0.1**, pinned to full SHA `043fb46d1a93c77aae656e7c1c64a875d1fc6a0a` in the tagged-release manifest workflow.
 
 CI installs the same `requirements-dev.txt` used by contributors so local and GitHub test environments do not silently drift apart.
 
-## 2026-08-18 upstream review
+## Action pinning policy
 
-The official GitHub-maintained action projects were reviewed before upgrading the repository workflows.
+GitHub documents full-length commit SHAs as the immutable way to reference an action. This repository therefore pins external GitHub-maintained actions to verified full release SHAs and keeps the human-readable release version as an inline comment.
 
-- `actions/checkout` uses the v7 major line; the repository CI was upgraded from v4 to v7.
-- `actions/setup-python` uses the v7 major line; the repository CI was upgraded from v5 to v7.
-- `actions/upload-artifact` uses the v7 major line and is used by the release-manifest workflow.
-- The repository continues to explicitly request Python 3.12 for deterministic CI behavior.
-- The repository uses GitHub-hosted `ubuntu-latest` runners rather than self-hosted runners.
+Policy:
 
-Official upstream projects:
-
-- https://github.com/actions/checkout
-- https://github.com/actions/setup-python
-- https://github.com/actions/upload-artifact
+1. Resolve the SHA from the official upstream GitHub action repository/release.
+2. Use the full 40-character SHA in workflow `uses:` references.
+3. Keep a version comment such as `# v7.0.1` on the same line.
+4. Let Dependabot monitor GitHub Actions references monthly.
+5. Review and validate every proposed action update before merge.
+6. Keep workflow `permissions` at the minimum needed for the job.
 
 ## Automated maintenance
 
@@ -51,13 +48,22 @@ At least during each edition refresh:
 1. Check official upstream release/security information for actions and Python test dependencies in use.
 2. Review breaking changes before changing a major version.
 3. Prefer a dedicated maintenance commit for each dependency/action upgrade.
-4. Run the full test and validation workflow after each change.
-5. Document why an upgrade was accepted, deferred, or rejected.
-6. Avoid adding unnecessary runtime dependencies when the Python standard library is sufficient.
-7. Review Dependabot-generated updates and reject updates that do not fit the repository's compatibility policy.
-8. Keep `.python-version`, `requirements-dev.txt`, contributor documentation, and CI installation steps synchronized.
+4. Resolve and verify the full upstream SHA for accepted action releases.
+5. Run the full test and validation workflow after each change.
+6. Document why an upgrade was accepted, deferred, or rejected.
+7. Avoid adding unnecessary runtime dependencies when the Python standard library is sufficient.
+8. Review Dependabot-generated updates and reject updates that do not fit the repository's compatibility policy.
+9. Keep `.python-version`, `requirements-dev.txt`, contributor documentation, and CI installation steps synchronized.
 
 ## Decision record
+
+### 2026-08-18 — immutable GitHub Actions references
+
+- Replaced movable v7 action tags in repository workflows with verified full commit SHAs.
+- Pinned checkout to the v7.0.1 release commit.
+- Pinned setup-python to the v7.0.0 release commit.
+- Pinned upload-artifact to the v7.0.1 release commit.
+- Retained version comments for human readability and Dependabot maintenance.
 
 ### 2026-08-18 — repeatable contributor environment
 
@@ -69,9 +75,9 @@ At least during each edition refresh:
 
 ### 2026-08-18 — action major-version refresh
 
-- Upgraded `actions/checkout` from v4 to v7.
-- Upgraded `actions/setup-python` from v5 to v7.
-- Added `actions/upload-artifact@v7` for tagged public-resource manifests.
+- Upgraded `actions/checkout` from v4 to the v7 release line.
+- Upgraded `actions/setup-python` from v5 to the v7 release line.
+- Added `actions/upload-artifact` v7 release line for tagged public-resource manifests.
 - Added monthly Dependabot checks for GitHub Actions.
 - Retained Python 3.12 as the CI interpreter for this companion-resource snapshot.
 - No runtime networking/security-tool dependencies were introduced.
