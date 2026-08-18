@@ -2,12 +2,17 @@
 
 Official defensive, authorization-first companion repository for **The Journey of Ethical Hacking — 2026 Edition**.
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
 **Author:** Ram Sandesh  
 **Repository:** https://github.com/sanskarIN/The-Journey-of-Ethical-Hacking  
+**Official Gumroad:** https://ramsandesh.gumroad.com  
 **Contact:** sanskarin@outlook.in
 
 ## Quick navigation
 
+- [Get the book on Gumroad](https://ramsandesh.gumroad.com)
+- [Gumroad storefront and badge guide](docs/GUMROAD.md)
 - [Complete 200-part learning index](resources/learning_stage_index.md)
 - [Synthetic dataset catalog](datasets/README.md)
 - [Dataset contract schemas](schemas/README.md)
@@ -73,6 +78,12 @@ Use these resources only for lawful, authorized, defensive learning. The reposit
 - Book manuscript, publication PDF/EPUB, cover, diagrams, and commercial publishing assets: **Copyright © 2026 Ram Sandesh. All rights reserved**, unless a specific file explicitly states otherwise.
 
 The paid master manuscript and complete commercial eBook files are intentionally **not** stored in this public repository.
+
+## Official book storefront
+
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Direct link:** https://ramsandesh.gumroad.com
 
 ## Publication note
 
