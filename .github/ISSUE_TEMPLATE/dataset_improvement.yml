@@ -1,0 +1,57 @@
+name: Synthetic dataset improvement
+description: Suggest a safe improvement to one of the fictional/offline datasets.
+title: "[Dataset] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the public companion datasets. Use only fictional/synthetic examples. Do not include credentials, secrets, personal data, real target details, or sensitive production evidence.
+
+        Official publication storefront: https://ramsandesh.gumroad.com
+
+  - type: input
+    id: dataset
+    attributes:
+      label: Dataset file
+      description: Name the dataset you want to improve.
+      placeholder: datasets/sample_cloud_posture.csv
+    validations:
+      required: true
+
+  - type: dropdown
+    id: change_type
+    attributes:
+      label: Improvement type
+      options:
+        - Documentation/clarity
+        - New fictional rows
+        - Contract constraint
+        - Column naming/structure
+        - Data dictionary update
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed improvement
+      description: Explain the change and why it improves defensive/offline learning.
+    validations:
+      required: true
+
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation notes
+      description: Mention any relevant local checks you ran, such as dataset contracts or repository health.
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public-data safety confirmation
+      options:
+        - label: I will use only fictional/synthetic information and will not include credentials, secrets, personal data, or real target details.
+          required: true
+        - label: I understand commercial book files do not belong in the public companion repository.
+          required: true
