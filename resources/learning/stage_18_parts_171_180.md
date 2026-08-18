@@ -1,5 +1,9 @@
 # Stage 18 — Parts 171–180
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** Workforce/talent leadership, organizational learning, research, innovation, and emerging-technology readiness.
 
 1. **Part 171 — Cybersecurity Workforce Strategy, Talent Governance & Operating-Capability Planning**
