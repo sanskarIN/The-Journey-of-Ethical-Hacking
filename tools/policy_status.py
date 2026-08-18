@@ -9,7 +9,11 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from tools.action_pinning import validate as validate_actions
 from tools.data_dictionary import is_current as data_dictionary_is_current
