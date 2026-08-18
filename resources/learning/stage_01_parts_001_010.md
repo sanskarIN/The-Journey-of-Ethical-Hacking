@@ -1,5 +1,9 @@
 # Stage 01 — Parts 1–10
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** Foundations, ethics, systems, networking, assessment methodology, and safe vulnerability-management basics.
 
 This stage is authorization-first and defensive. Any practical work should remain inside owned or explicitly permitted lab environments.
