@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Generate a Markdown data dictionary from local dataset contracts.
+"""Generate or validate a Markdown data dictionary from local dataset contracts.
 
-The generator reads only repository JSON metadata and writes documentation.
+The utility reads only repository JSON metadata and documentation files.
 It performs no network, account, device, or security-system interaction.
 """
 
@@ -82,13 +82,33 @@ def build_markdown(contracts: dict[str, dict[str, object]]) -> str:
     return "\n".join(lines)
 
 
+def expected_text(contracts_path: Path) -> str:
+    return build_markdown(load_contracts(contracts_path))
+
+
+def is_current(contracts_path: Path, output: Path) -> bool:
+    if not output.is_file():
+        return False
+    return output.read_text(encoding="utf-8") == expected_text(contracts_path)
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate a Markdown data dictionary from dataset contracts.")
+    parser = argparse.ArgumentParser(description="Generate or validate a Markdown data dictionary from dataset contracts.")
     parser.add_argument("contracts", type=Path)
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--check", action="store_true", help="Fail if the existing output is not current")
     args = parser.parse_args()
 
-    text = build_markdown(load_contracts(args.contracts))
+    if args.check:
+        if args.output is None:
+            parser.error("--check requires --output")
+        if not is_current(args.contracts, args.output):
+            print(f"Data dictionary is stale: {args.output}")
+            raise SystemExit(1)
+        print(f"Data dictionary is current: {args.output}")
+        return
+
+    text = expected_text(args.contracts)
     if args.output:
         args.output.write_text(text, encoding="utf-8")
         print(args.output)
