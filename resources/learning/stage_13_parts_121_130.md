@@ -1,5 +1,9 @@
 # Stage 13 — Parts 121–130
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** Cloud-native/platform security, Kubernetes, infrastructure/policy as code, cloud identity, developer platforms, zero trust, privileged access, identity threat defense, access governance, and integrated identity maturity.
 
 1. **Part 121 — Cloud-Native & Platform-Security Governance**
