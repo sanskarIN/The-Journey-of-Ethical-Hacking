@@ -1,5 +1,9 @@
 # Stage 08 — Parts 71–80
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** Third-party assurance, supply-chain governance, SSDLC, DevSecOps, cloud-native platforms, cloud architecture, identity, data, network, and endpoint security.
 
 1. **Part 71 — Third-Party Security Assurance, Supplier-Risk Governance & Contractual Control Engineering**
