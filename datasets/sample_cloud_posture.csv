@@ -1,0 +1,7 @@
+asset_id,environment,criticality,owner_group,baseline_status,identity_review_age_days,logging_status,backup_status,open_exception
+CLD-001,Development,Medium,Platform-Team,Aligned,12,Fresh,Current,No
+CLD-002,Production,Critical,Commerce-Team,Partial,31,Fresh,Current,Yes
+CLD-003,Analytics,High,Data-Team,Aligned,18,Stale,Current,No
+CLD-004,Shared-Services,High,Core-IT,Partial,44,Fresh,Needs-Test,Yes
+CLD-005,Research,Medium,Innovation-Team,Aligned,9,Fresh,Current,No
+CLD-006,Archive,Low,Records-Team,Review-Due,67,Limited,Current,No
