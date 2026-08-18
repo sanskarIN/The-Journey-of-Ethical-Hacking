@@ -25,7 +25,9 @@ jobs:
         run: python -m pytest -q
       - name: Check synthetic CSV structure
         run: python tools/csv_quality.py datasets/*.csv
+      - name: Validate dataset contracts
+        run: python tools/dataset_contracts.py schemas/dataset_contracts.json datasets
       - name: Check documentation accessibility basics
-        run: python tools/doc_accessibility.py README.md docs resources
+        run: python tools/doc_accessibility.py README.md docs resources schemas
       - name: Check relative Markdown links
-        run: python tools/markdown_links.py README.md docs resources ERRATA.md ROADMAP.md CHANGELOG.md what_changed.md
+        run: python tools/markdown_links.py README.md docs resources schemas ERRATA.md ROADMAP.md CHANGELOG.md what_changed.md
