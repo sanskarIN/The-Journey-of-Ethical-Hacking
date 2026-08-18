@@ -1,5 +1,9 @@
 # Stage 10 — Parts 91–100
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** Cryptographic services, telemetry, SOC architecture, forensic readiness, threat-hunting governance, detection engineering, control validation, exposure management, case management, and major-incident command.
 
 1. **Part 91 — Enterprise Cryptographic Services, PKI, Certificate & Secrets-Management Security Architecture**
