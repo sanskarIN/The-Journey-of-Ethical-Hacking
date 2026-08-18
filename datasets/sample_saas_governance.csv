@@ -1,0 +1,7 @@
+tenant_id,service_class,criticality,identity_integration,admin_review_age_days,logging_status,external_sharing_status,backup_export_status
+SAS-001,Collaboration,High,Federated,14,Fresh,Restricted,Current
+SAS-002,CRM,Critical,Federated,31,Fresh,Review-Due,Current
+SAS-003,Project-Tracking,Medium,Federated,22,Partial,Restricted,Current
+SAS-004,Design-Workspace,Medium,Standalone,48,Stale,Review-Due,Needs-Test
+SAS-005,Finance-Workflow,Critical,Federated,9,Fresh,Restricted,Current
+SAS-006,Survey-Platform,Low,Standalone,61,Limited,Open,Not-Required
