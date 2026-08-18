@@ -1,0 +1,58 @@
+name: Local tool or test bug
+description: Report a reproducible problem in a local-only utility, test, or repository validation workflow.
+title: "[Tool/Test] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Report only issues involving this repository's local/offline companion tooling. Do not include secrets, credentials, private logs, personal data, or sensitive production evidence.
+
+        Official publication storefront: https://ramsandesh.gumroad.com
+
+  - type: input
+    id: path
+    attributes:
+      label: Affected path
+      description: Name the tool, test, or workflow file.
+      placeholder: tools/repo_health.py
+    validations:
+      required: true
+
+  - type: textarea
+    id: behavior
+    attributes:
+      label: What happened?
+      description: Describe the observed behavior and the expected behavior.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Safe reproduction steps
+      description: Provide only local/offline reproduction steps using repository files or synthetic data.
+    validations:
+      required: true
+
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      placeholder: Python 3.12.x
+
+  - type: textarea
+    id: output
+    attributes:
+      label: Relevant error output
+      description: Paste only non-sensitive output needed to understand the issue.
+      render: shell
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: This report does not contain credentials, secrets, personal data, private logs, or real target details.
+          required: true
+        - label: The reproduction is local/offline and does not require interacting with third-party systems or accounts.
+          required: true
