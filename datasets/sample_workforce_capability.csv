@@ -1,0 +1,7 @@
+role_id,role_family,criticality,staffing_status,training_age_days,exercise_status,backup_coverage,development_plan_status
+WRK-001,SOC-Analyst,High,Adequate,21,Current,Partial,Current
+WRK-002,Incident-Commander,Critical,Thin,46,Review-Due,Limited,Current
+WRK-003,Cloud-Security,High,Adequate,33,Current,Partial,Current
+WRK-004,Product-Security,High,Thin,58,Review-Due,Limited,Review-Due
+WRK-005,GRC-Analyst,Medium,Adequate,17,Current,Full,Current
+WRK-006,Security-Architect,Critical,Thin,72,Review-Due,Limited,Review-Due
