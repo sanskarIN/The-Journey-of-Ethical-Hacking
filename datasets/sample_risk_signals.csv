@@ -1,0 +1,7 @@
+signal_id,domain,criticality,age_days,open_exception,telemetry_gap,recovery_gap
+SG-001,Identity,High,8,No,No,No
+SG-002,Endpoint,High,29,Yes,Yes,No
+SG-003,Data,Medium,41,No,No,Yes
+SG-004,SaaS,Medium,36,Yes,No,No
+SG-005,Resilience,High,52,Yes,Yes,Yes
+SG-006,Third Party,Medium,67,No,Yes,No
