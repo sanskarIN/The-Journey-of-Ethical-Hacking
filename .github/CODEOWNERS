@@ -1,0 +1,9 @@
+# Default repository owner for public companion-resource changes.
+* @sanskarIN
+
+# Protect maintenance and review policy files with the same owner.
+/.github/ @sanskarIN
+/SECURITY.md @sanskarIN
+/BOOK_CONTENT_LICENSE.md @sanskarIN
+/COMPANION_RELEASE.json @sanskarIN
+/CITATION.cff @sanskarIN
