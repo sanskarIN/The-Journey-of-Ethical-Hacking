@@ -24,6 +24,7 @@ PUBLIC_MARKDOWN = (
     "docs/ACCESSIBILITY.md",
     "docs/ANNUAL_EDITION_MAINTENANCE.md",
     "docs/CONTRIBUTOR_ONBOARDING.md",
+    "docs/DATA_DICTIONARY.md",
     "docs/DEPENDENCY_ACTION_REVIEW.md",
     "docs/ERRATA_PROCESS.md",
     "docs/GIT_COMMIT_IDENTITY.md",
