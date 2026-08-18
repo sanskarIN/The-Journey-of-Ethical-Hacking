@@ -1,0 +1,7 @@
+asset_id,asset_class,criticality,owner_group,managed,patch_age_days,telemetry_status,support_status
+AS-001,Corporate laptop,High,Example IT,Yes,5,Fresh,Supported
+AS-002,Managed phone,Medium,Example Mobility,Yes,12,Fresh,Supported
+AS-003,Shared kiosk,High,Example Operations,Yes,31,Partial,Supported
+AS-004,Rugged tablet,Medium,Example Field Team,Yes,18,Stale,Extended
+AS-005,Contractor laptop,High,Example Vendor Team,Limited,37,Missing,Supported
+AS-006,Executive tablet,High,Example Executive Support,Yes,9,Fresh,Supported
