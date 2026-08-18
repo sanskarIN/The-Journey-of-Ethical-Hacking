@@ -1,5 +1,9 @@
 # Stage 20 — Parts 191–200
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** Critical-service resilience, ecosystem coordination, enterprise mastery, professional practice, and final integration.
 
 1. **Part 191 — Critical-Service & Societal Cyber Resilience Governance**
