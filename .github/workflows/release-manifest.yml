@@ -1,0 +1,39 @@
+name: Companion Release Manifest
+
+on:
+  push:
+    tags:
+      - "companion-v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Run repository health checks
+        run: python tools/repo_health.py --root .
+
+      - name: Validate release version consistency
+        run: python tools/release_consistency.py --root .
+
+      - name: Generate public resource manifest
+        run: python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.json
+
+      - name: Upload release manifest artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: public-resource-manifest-${{ github.ref_name }}
+          path: PUBLIC_RESOURCE_MANIFEST.json
+          if-no-files-found: error
+          retention-days: 90
