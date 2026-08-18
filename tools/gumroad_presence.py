@@ -23,17 +23,22 @@ PUBLIC_MARKDOWN = (
     "CHANGELOG.md",
     "docs/ACCESSIBILITY.md",
     "docs/ANNUAL_EDITION_MAINTENANCE.md",
+    "docs/CONTRIBUTOR_ONBOARDING.md",
     "docs/DEPENDENCY_ACTION_REVIEW.md",
     "docs/ERRATA_PROCESS.md",
     "docs/GIT_COMMIT_IDENTITY.md",
     "docs/GUMROAD.md",
     "docs/INDEX.md",
+    "docs/ISSUE_TRIAGE.md",
     "docs/OFFLINE_ANALYSIS_EXAMPLES.md",
+    "docs/PUBLIC_RESOURCE_MANIFEST.md",
     "docs/RELEASE_CHECKLIST.md",
     "docs/RELEASE_NOTES_AUTOMATION.md",
     "docs/RELEASE_SNAPSHOT.md",
+    "docs/REPOSITORY_METADATA.md",
     "docs/REPOSITORY_STRUCTURE.md",
     "docs/RESOURCE_STYLE_GUIDE.md",
+    "docs/TAGGED_RELEASES.md",
     "docs/USAGE.md",
     "resources/README.md",
     "resources/learning_stage_index.md",
@@ -64,6 +69,18 @@ def validate(root: Path) -> list[str]:
     for path in learning_stages:
         if GUMROAD not in path.read_text(encoding="utf-8"):
             errors.append(f"missing Gumroad URL: {path.relative_to(root)}")
+
+    citation_path = root / "CITATION.cff"
+    if not citation_path.is_file():
+        errors.append("missing CITATION.cff")
+    elif GUMROAD not in citation_path.read_text(encoding="utf-8"):
+        errors.append("missing Gumroad URL: CITATION.cff")
+
+    funding_path = root / ".github" / "FUNDING.yml"
+    if not funding_path.is_file():
+        errors.append("missing .github/FUNDING.yml")
+    elif GUMROAD not in funding_path.read_text(encoding="utf-8"):
+        errors.append("missing Gumroad URL: .github/FUNDING.yml")
 
     release_path = root / "COMPANION_RELEASE.json"
     if not release_path.is_file():
