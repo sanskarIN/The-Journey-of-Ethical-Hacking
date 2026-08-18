@@ -1,5 +1,9 @@
 # Stage 11 — Parts 101–110
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** Enterprise resilience, control assurance, program measurement, third-party and software supply-chain governance, product security operations, remediation, architecture review, application/API assurance, and integrated security engineering.
 
 1. **Part 101 — Enterprise Cyber-Resilience Engineering, Business-Impact Analysis, Secure Degraded Modes, Disaster-Recovery Integration & Recovery Assurance**
