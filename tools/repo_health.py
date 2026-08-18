@@ -45,7 +45,12 @@ def run_checks(root: Path) -> int:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run local companion-repository health checks.")
-    parser.add_argument("--root", type=Path, default=Path.cwd(), help="Repository root (default: current directory")
+    parser.add_argument(
+        "--root",
+        type=Path,
+        default=Path.cwd(),
+        help="Repository root (default: current directory)",
+    )
     args = parser.parse_args()
     raise SystemExit(run_checks(args.root.resolve()))
 
