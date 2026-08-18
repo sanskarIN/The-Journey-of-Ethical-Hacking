@@ -1,0 +1,16 @@
+{
+  "sample_service_assurance.csv": {
+    "primary_id": "service_id",
+    "required_columns": [
+      "service_id",
+      "service_class",
+      "criticality",
+      "owner_group",
+      "evidence_age_days",
+      "recovery_status",
+      "dependency_status",
+      "review_status"
+    ],
+    "allow_extra_columns": false
+  }
+}
