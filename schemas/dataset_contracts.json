@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "datasets": {
+    "sample_asset_inventory.csv": {
+      "primary_id": "asset_id",
+      "required_columns": ["asset_id", "asset_class", "criticality", "owner_group", "managed", "patch_age_days", "telemetry_status", "support_status"],
+      "allow_extra_columns": false
+    },
+    "sample_control_evidence.csv": {
+      "primary_id": "evidence_id",
+      "required_columns": ["evidence_id", "control_area", "criticality", "evidence_age_days", "exception_open", "recovery_tested", "owner"],
+      "allow_extra_columns": false
+    },
+    "sample_risk_signals.csv": {
+      "primary_id": "signal_id",
+      "required_columns": ["signal_id", "domain", "criticality", "age_days", "open_exception", "telemetry_gap", "recovery_gap"],
+      "allow_extra_columns": false
+    },
+    "sample_cloud_posture.csv": {
+      "primary_id": "asset_id",
+      "required_columns": ["asset_id", "environment", "criticality", "owner_group", "baseline_status", "identity_review_age_days", "logging_status", "backup_status", "open_exception"],
+      "allow_extra_columns": false
+    },
+    "sample_privacy_controls.csv": {
+      "primary_id": "record_id",
+      "required_columns": ["record_id", "data_domain", "data_classification", "retention_status", "minimization_review", "access_review_age_days", "transfer_basis_status", "deletion_test_status"],
+      "allow_extra_columns": false
+    },
+    "sample_endpoint_fleet.csv": {
+      "primary_id": "device_id",
+      "required_columns": ["device_id", "device_class", "criticality", "enrollment_status", "patch_age_days", "telemetry_status", "support_status", "data_classification"],
+      "allow_extra_columns": false
+    },
+    "sample_saas_governance.csv": {
+      "primary_id": "tenant_id",
+      "required_columns": ["tenant_id", "service_class", "criticality", "identity_integration", "admin_review_age_days", "logging_status", "external_sharing_status", "backup_export_status"],
+      "allow_extra_columns": false
+    },
+    "sample_resilience_exercises.csv": {
+      "primary_id": "exercise_id",
+      "required_columns": ["exercise_id", "service", "criticality", "recovery_objective_hours", "last_test_age_days", "dependency_status", "communications_status", "decision_log_status"],
+      "allow_extra_columns": false
+    },
+    "sample_governance_controls.csv": {
+      "primary_id": "control_id",
+      "required_columns": ["control_id", "control_domain", "owner_role", "criticality", "evidence_age_days", "exception_status", "review_status", "board_visibility"],
+      "allow_extra_columns": false
+    },
+    "sample_workforce_capability.csv": {
+      "primary_id": "role_id",
+      "required_columns": ["role_id", "role_family", "criticality", "staffing_status", "training_age_days", "exercise_status", "backup_coverage", "development_plan_status"],
+      "allow_extra_columns": false
+    }
+  }
+}
