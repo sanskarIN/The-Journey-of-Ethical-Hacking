@@ -13,6 +13,7 @@ Official defensive, authorization-first companion repository for **The Journey o
 
 - [Get the book on Gumroad](https://ramsandesh.gumroad.com)
 - [Complete documentation index](docs/INDEX.md)
+- [Repository policy status](docs/POLICY_STATUS.md)
 - [Gumroad storefront and badge guide](docs/GUMROAD.md)
 - [Complete 200-part learning index](resources/learning_stage_index.md)
 - [Contributor development setup](docs/DEVELOPMENT.md)
@@ -49,11 +50,11 @@ The series index is split into **20 stages covering Parts 1–200**, with correc
 
 ### Synthetic datasets
 
-The repository contains small fictional datasets for asset posture, control evidence, risk signals, cloud posture, privacy controls, endpoint fleets, SaaS governance, resilience exercises, governance controls, and workforce capability. Machine-readable contracts under `schemas/` define expected columns, primary IDs, allowed categorical values, and useful integer constraints. `docs/DATA_DICTIONARY.md` provides a generated human-readable view of those contracts.
+The repository contains small fictional datasets for asset posture, control evidence, risk signals, cloud posture, privacy controls, endpoint fleets, SaaS governance, resilience exercises, governance controls, and workforce capability. Machine-readable contracts under `schemas/` define expected columns, primary IDs, allowed categorical values, and useful integer constraints. `docs/DATA_DICTIONARY.md` provides a generated human-readable view of those contracts and is freshness-checked by CI.
 
 ### Repeatable contributor environment
 
-The local/CI baseline is Python **3.12** with pinned test dependencies in `requirements-dev.txt`. See `docs/DEVELOPMENT.md` for Windows, Linux, and macOS setup commands.
+The local/CI baseline is Python **3.12** with pinned test dependencies in `requirements-dev.txt`. See `docs/DEVELOPMENT.md` for Windows, Linux, and macOS setup commands. CI validates that workflow Python versions match `.python-version` and that development dependencies remain exactly pinned.
 
 ### Offline utilities
 
@@ -69,6 +70,10 @@ Current local-only Python helpers include:
 - `tools/json_metadata.py`
 - `tools/release_consistency.py`
 - `tools/learning_index_check.py`
+- `tools/action_pinning.py`
+- `tools/dev_environment.py`
+- `tools/public_repo_policy.py`
+- `tools/policy_status.py`
 - `tools/synthetic_safety.py`
 - `tools/doc_accessibility.py`
 - `tools/markdown_links.py`
@@ -89,16 +94,16 @@ Run the test suite with coverage reporting:
 python -m pytest --cov=tools --cov-report=term-missing -q
 ```
 
-Run all repository structural checks from one entry point:
+Run all repository structural and policy checks from one entry point:
 
 ```bash
 python tools/repo_health.py --root .
 ```
 
-Verify the Parts 1–200 stage index directly:
+Review the generated policy summary:
 
 ```bash
-python tools/learning_index_check.py --root .
+python tools/policy_status.py --root . --output docs/POLICY_STATUS.md --check
 ```
 
 Generate a machine-readable public-resource manifest:
@@ -107,20 +112,24 @@ Generate a machine-readable public-resource manifest:
 python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.json
 ```
 
-## Release integrity
+## Release integrity and repository policy
 
 The repository CI and local health tooling validate:
 
-- synthetic CSV structure;
-- richer dataset contracts;
-- release/schema JSON metadata;
-- release/citation-version consistency;
+- immutable full-SHA GitHub Actions references;
+- contributor/CI Python and pinned development dependency consistency;
+- required public community/governance files;
+- exclusion of commercial publication/archive file types from the public repository;
+- exclusion of direct X/Twitter URLs;
+- synthetic CSV structure and richer dataset contracts;
+- generated data-dictionary freshness;
+- release/schema JSON metadata and release/citation-version consistency;
 - Parts 1–200 learning-index integrity;
 - documentation TOC freshness;
 - sensitive-looking values in public synthetic datasets;
-- Markdown accessibility basics;
-- relative Markdown links;
+- Markdown accessibility basics and relative links;
 - the exact official Gumroad storefront URL on core public-facing pages, citation/funding metadata, and all 20 learning-stage pages;
+- generated repository policy-status freshness;
 - public-resource manifest generation;
 - unit tests, CLI smoke tests, and test coverage.
 
@@ -128,9 +137,11 @@ A `companion-v*` tag triggers `.github/workflows/release-manifest.yml`, which va
 
 ## Maintenance automation
 
-- GitHub Actions uses v7 major lines for checkout/setup and release-manifest artifact upload.
+- External GitHub Actions are pinned to verified full commit SHAs, with release-version comments for readability.
 - Dependabot checks GitHub Actions and pip development dependencies monthly.
 - CI and contributor machines install the same pinned `requirements-dev.txt`.
+- `.github/CODEOWNERS` assigns `@sanskarIN` as the default review owner.
+- `.github/release.yml` configures generated release notes.
 - `docs/DEPENDENCY_ACTION_REVIEW.md` records accepted/deferred maintenance decisions.
 
 ## Safety boundary
