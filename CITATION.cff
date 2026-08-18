@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use the public companion resources, please cite this repository. For the commercial book, use the preferred book citation below."
+title: "The Journey of Ethical Hacking — Companion Resources"
+type: software
+authors:
+  - family-names: "Sandesh"
+    given-names: "Ram"
+version: "2026.08.18.5"
+date-released: "2026-08-18"
+repository-code: "https://github.com/sanskarIN/The-Journey-of-Ethical-Hacking"
+url: "https://ramsandesh.gumroad.com"
+license: "Apache-2.0"
+keywords:
+  - cybersecurity
+  - ethical-hacking
+  - defensive-security
+  - security-engineering
+  - education
+preferred-citation:
+  type: book
+  title: "The Journey of Ethical Hacking"
+  authors:
+    - family-names: "Sandesh"
+      given-names: "Ram"
+  year: 2026
+  url: "https://ramsandesh.gumroad.com"
