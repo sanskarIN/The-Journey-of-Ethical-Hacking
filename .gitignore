@@ -1,0 +1,33 @@
+# OS/editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Local secrets and environment files
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local lab outputs
+output/
+reports/local/
+tmp/
+
+# Commercial publication files are intentionally excluded
+*.epub
+The_Journey_of_Ethical_Hacking_Complete_Master.docx
+The_Journey_of_Ethical_Hacking_Complete_Ebook.pdf
+The_Journey_of_Ethical_Hacking_Print_Ready.pdf
