@@ -1,5 +1,9 @@
 # Offline Defensive Analysis Examples
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official Gumroad:** https://ramsandesh.gumroad.com
+
 These examples use only the fictional CSV files committed in this repository. They perform no network access, scanning, authentication, account access, device access, exploitation, or system changes.
 
 ## Risk-priority example
@@ -34,6 +38,14 @@ python tools/csv_quality.py datasets/*.csv
 
 The quality checker looks for structural problems such as blank/duplicate headers, duplicate primary identifiers, blank identifiers, and inconsistent row widths.
 
+## Dataset-summary example
+
+```bash
+python tools/dataset_summary.py datasets/*.csv
+```
+
+The summary helper reports each fictional dataset's row count, column count, blank-cell count, and field names. It is useful for quick repository review without sending data to an external service.
+
 ## Suggested learning workflow
 
 1. Read the CSV manually before running a utility.
@@ -47,3 +59,5 @@ The quality checker looks for structural problems such as blank/duplicate header
 ## Important limitation
 
 These utilities deliberately avoid production integrations and automated remediation. They are small teaching aids for reasoning about defensive evidence, not enterprise security products.
+
+For the complete publication and current listings, use **https://ramsandesh.gumroad.com**.
