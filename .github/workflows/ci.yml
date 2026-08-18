@@ -27,3 +27,5 @@ jobs:
         run: python tools/csv_quality.py datasets/*.csv
       - name: Check documentation accessibility basics
         run: python tools/doc_accessibility.py README.md docs resources
+      - name: Check relative Markdown links
+        run: python tools/markdown_links.py README.md docs resources ERRATA.md ROADMAP.md CHANGELOG.md what_changed.md
