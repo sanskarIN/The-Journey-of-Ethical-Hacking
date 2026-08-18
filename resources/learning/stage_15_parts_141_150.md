@@ -1,5 +1,9 @@
 # Stage 15 — Parts 141–150
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** IoT/edge security and mobile/endpoint/device governance.
 
 1. **Part 141 — IoT, Edge & Connected-Product Security Governance**
