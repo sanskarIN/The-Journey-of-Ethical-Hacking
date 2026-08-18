@@ -29,6 +29,8 @@ jobs:
         run: python tools/action_pinning.py --root .
       - name: Validate contributor and CI environment consistency
         run: python tools/dev_environment.py --root .
+      - name: Enforce public repository publication boundary
+        run: python tools/public_repo_policy.py --root .
       - name: Check synthetic CSV structure
         run: python tools/csv_quality.py datasets/*.csv
       - name: Validate dataset contracts
