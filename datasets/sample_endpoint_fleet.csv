@@ -1,0 +1,7 @@
+device_id,device_class,criticality,enrollment_status,patch_age_days,telemetry_status,support_status,data_classification
+EP-001,Corporate-Laptop,High,Managed,4,Fresh,Supported,Confidential
+EP-002,Managed-Phone,Medium,Managed,11,Fresh,Supported,Internal
+EP-003,Shared-Kiosk,High,Managed,29,Partial,Supported,Internal
+EP-004,Rugged-Tablet,Medium,Managed,18,Stale,Extended,Internal
+EP-005,Contractor-Laptop,High,Limited,35,Missing,Supported,Confidential
+EP-006,Executive-Tablet,High,Managed,8,Fresh,Supported,Restricted
