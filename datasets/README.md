@@ -1,5 +1,9 @@
 # Synthetic Datasets
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official Gumroad:** https://ramsandesh.gumroad.com
+
 All datasets in this directory are fictional and designed for **offline defensive learning**. They must not be treated as real operational records.
 
 ## Core samples
@@ -18,6 +22,14 @@ All datasets in this directory are fictional and designed for **offline defensiv
 - `sample_governance_controls.csv` — fictional control ownership, evidence age, exception, review, and board-visibility records.
 - `sample_workforce_capability.csv` — fictional staffing, training, exercise, backup-coverage, and development-plan records.
 
+## Local validation and summary
+
+```bash
+python tools/csv_quality.py datasets/*.csv
+python tools/dataset_contracts.py schemas/dataset_contracts.json datasets
+python tools/dataset_summary.py datasets/*.csv
+```
+
 ## Safe-use rules
 
 - Keep exercises offline unless you are working inside an explicitly authorized environment.
@@ -26,3 +38,5 @@ All datasets in this directory are fictional and designed for **offline defensiv
 - When sharing completed exercises publicly, keep all identifiers fictional and non-sensitive.
 
 The datasets are intentionally small and readable so learners can inspect them manually as well as with local scripts.
+
+For the complete publication and current listings, use **https://ramsandesh.gumroad.com**.
