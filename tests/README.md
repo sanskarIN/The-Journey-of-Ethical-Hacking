@@ -6,10 +6,19 @@
 
 This directory validates the repository's local-only defensive and release-integrity utilities.
 
+## Repeatable test environment
+
+The repository baseline is Python **3.12** (`.python-version`) with pinned development dependencies from `requirements-dev.txt`.
+
+Install them with:
+
+```bash
+python -m pip install -r requirements-dev.txt
+```
+
 Run the test suite from the repository root:
 
 ```bash
-python -m pip install pytest pytest-cov
 python -m pytest --cov=tools --cov-report=term-missing -q
 ```
 
@@ -22,17 +31,18 @@ The suite includes tests for:
 - control-review scoring;
 - CSV structure quality;
 - richer dataset contracts and duplicate-ID checks;
+- generated dataset data dictionaries;
 - release/schema JSON metadata;
-- release-version consistency;
+- release-version and citation-version consistency;
 - dataset summaries;
 - Parts 1–200 learning-index integrity;
-- documentation TOC generation;
+- documentation TOC generation and freshness;
 - Markdown accessibility;
 - relative Markdown links;
 - repository health orchestration;
 - public-resource manifest generation;
 - synthetic-data sensitivity linting;
-- Gumroad storefront presence across core docs and all learning stages;
+- Gumroad storefront presence across core docs, citation/funding metadata, and all learning stages;
 - CLI `--help` smoke coverage for local tools.
 
 The tests use deterministic local data and do not require network access, accounts, credentials, devices, or external services.
