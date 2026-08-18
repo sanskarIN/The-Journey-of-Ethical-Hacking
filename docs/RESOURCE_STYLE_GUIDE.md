@@ -1,5 +1,9 @@
 # Companion Resource Style Guide
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official Gumroad:** https://ramsandesh.gumroad.com
+
 This guide keeps public companion contributions consistent, safe, accessible, and easy to review.
 
 ## General writing
@@ -9,6 +13,7 @@ This guide keeps public companion contributions consistent, safe, accessible, an
 - Expand uncommon acronyms at first use when practical.
 - Separate facts, assumptions, and fictional exercise data.
 - Do not imply that a toy score is a production security or risk model.
+- Use the direct Gumroad storefront `https://ramsandesh.gumroad.com` when linking to the commercial publication.
 
 ## Safety language
 
@@ -26,7 +31,7 @@ Every practical resource should make its scope clear when needed:
 - Use one stable primary identifier in the first column.
 - Do not include real company/customer names unless they are generic category labels.
 - Update `schemas/dataset_contracts.json` when adding a CSV dataset.
-- Run both CSV quality and contract validation before committing.
+- Run CSV quality, contract, summary, and sensitivity checks before committing.
 
 ## Markdown resources
 
@@ -35,7 +40,7 @@ Every practical resource should make its scope clear when needed:
 - Give informative images useful alt text.
 - Avoid decorative person/avatar imagery in this repository.
 - Keep tables small and explain them in surrounding prose.
-- Run accessibility and relative-link checks before committing.
+- Run accessibility, relative-link, and Gumroad-presence checks before committing.
 
 ## Python utilities
 
@@ -54,3 +59,5 @@ Use concise, scoped commit messages such as:
 - `docs: clarify errata workflow`
 
 Prefer meaningful atomic commits over empty or artificial commit-count padding.
+
+For the complete publication and current listings, use **https://ramsandesh.gumroad.com**.
