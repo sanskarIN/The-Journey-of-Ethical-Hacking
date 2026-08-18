@@ -19,7 +19,7 @@ The utilities in this directory operate only on local repository files.
 - `dataset_contracts.py` — validates datasets against machine-readable contracts, including required columns, duplicate IDs, approved categorical values, and bounded integer ranges.
 - `json_metadata.py` — validates release and dataset-contract JSON structure.
 - `synthetic_safety.py` — flags sensitive-looking values such as email, URL, IP, or token-like strings in public synthetic CSV files.
-- `data_dictionary.py` — generates `docs/DATA_DICTIONARY.md` from the machine-readable dataset contracts.
+- `data_dictionary.py` — generates `docs/DATA_DICTIONARY.md` and can fail when the committed dictionary is stale.
 
 ## Documentation and storefront validation
 
@@ -28,18 +28,26 @@ The utilities in this directory operate only on local repository files.
 - `gumroad_presence.py` — enforces the direct official Gumroad URL across core public-facing docs, all 20 learning-stage pages, citation/funding metadata, and release metadata.
 - `docs_toc.py` — generates the documentation TOC and can fail when the committed TOC is stale.
 
-## Release and series integrity helpers
+## Repository policy and release integrity
 
+- `action_pinning.py` — rejects movable external GitHub Actions references and requires full 40-character SHAs.
+- `dev_environment.py` — checks `.python-version`, workflow Python versions, and exact development dependency pins.
+- `public_repo_policy.py` — requires core community/governance files and blocks commercial publication formats and direct X/Twitter URLs from the public repository.
+- `policy_status.py` — generates/checks `docs/POLICY_STATUS.md` from deterministic local repository-policy results.
 - `release_consistency.py` — verifies the companion release version matches `COMPANION_RELEASE.json`, the changelog, release snapshot, and `CITATION.cff`.
 - `learning_index_check.py` — verifies the 20 stage files cover Parts 1–200 exactly once with ten parts per stage.
 - `resource_manifest.py` — generates SHA-256 metadata for public companion resources while excluding commercial publication formats.
-- `repo_health.py` — runs the repository's structural validation checks from one command.
+- `repo_health.py` — runs the repository's structural and policy validation checks from one command.
 
 ## Common commands
 
 ```bash
+python tools/action_pinning.py --root .
+python tools/dev_environment.py --root .
+python tools/public_repo_policy.py --root .
+python tools/policy_status.py --root . --output docs/POLICY_STATUS.md --check
 python tools/dataset_summary.py datasets/*.csv
-python tools/data_dictionary.py schemas/dataset_contracts.json --output docs/DATA_DICTIONARY.md
+python tools/data_dictionary.py schemas/dataset_contracts.json --output docs/DATA_DICTIONARY.md --check
 python tools/learning_index_check.py --root .
 python tools/release_consistency.py --root .
 python tools/docs_toc.py --docs-dir docs --output docs/TOC.md --check
