@@ -29,6 +29,8 @@ jobs:
         run: python tools/dataset_contracts.py schemas/dataset_contracts.json datasets
       - name: Validate JSON metadata
         run: python tools/json_metadata.py COMPANION_RELEASE.json schemas/dataset_contracts.json
+      - name: Validate release version consistency
+        run: python tools/release_consistency.py --root .
       - name: Check synthetic data for sensitive-looking values
         run: python tools/synthetic_safety.py datasets/*.csv
       - name: Check documentation accessibility basics
