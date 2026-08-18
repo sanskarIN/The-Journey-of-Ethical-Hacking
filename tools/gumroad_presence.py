@@ -33,6 +33,7 @@ PUBLIC_MARKDOWN = (
     "docs/INDEX.md",
     "docs/ISSUE_TRIAGE.md",
     "docs/OFFLINE_ANALYSIS_EXAMPLES.md",
+    "docs/POLICY_STATUS.md",
     "docs/PUBLIC_RESOURCE_MANIFEST.md",
     "docs/RELEASE_CHECKLIST.md",
     "docs/RELEASE_NOTES_AUTOMATION.md",
