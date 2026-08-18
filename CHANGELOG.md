@@ -6,6 +6,30 @@
 
 All notable companion-repository changes are recorded here.
 
+## 2026-08-18 — Companion release 2026.08.18.5
+
+### Added
+
+- Release-version consistency checker and tests.
+- Gumroad storefront badge/direct link on all 20 detailed learning-stage pages covering Parts 1–200.
+- Release metadata indicating learning-stage storefront coverage.
+
+### Improved
+
+- Synchronized `COMPANION_RELEASE.json`, `CHANGELOG.md`, and `docs/RELEASE_SNAPSHOT.md` around release `2026.08.18.5`.
+- Expanded release validation expectations to include version consistency and learning-stage storefront presence.
+- Continued the repository maintenance phase with granular, reviewable commits.
+
+### Storefront
+
+The official publication storefront remains **https://ramsandesh.gumroad.com** and is intentionally preferred over temporary URL shorteners or social-profile links.
+
+### Publication and privacy boundary
+
+- The commercial manuscript/PDF/EPUB/store-delivery files remain outside this public repository.
+- X/Twitter links remain omitted.
+- No author avatar/photo/person image is used for publication-resource promotion.
+
 ## 2026-08-18 — Gumroad visibility and release-integrity completion
 
 ### Added
