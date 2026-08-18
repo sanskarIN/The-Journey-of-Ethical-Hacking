@@ -27,6 +27,8 @@ jobs:
         run: python tools/csv_quality.py datasets/*.csv
       - name: Validate dataset contracts
         run: python tools/dataset_contracts.py schemas/dataset_contracts.json datasets
+      - name: Validate JSON metadata
+        run: python tools/json_metadata.py COMPANION_RELEASE.json schemas/dataset_contracts.json
       - name: Check documentation accessibility basics
         run: python tools/doc_accessibility.py README.md docs resources schemas exercises
       - name: Check relative Markdown links
