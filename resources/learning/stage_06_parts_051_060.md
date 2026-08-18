@@ -1,5 +1,9 @@
 # Stage 06 — Parts 51–60
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** Client security at scale, AI-enabled applications, developer tooling, IoT/OT, transportation, space systems, and critical-infrastructure resilience.
 
 1. **Part 51 — Mobile Application & Client Security Engineering at Scale**
