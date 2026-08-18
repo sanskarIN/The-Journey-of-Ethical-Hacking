@@ -29,6 +29,22 @@ This file records the repository-side validation expectations for the current pu
 - CI installs the same pinned development requirements used locally.
 - Dependabot checks both GitHub Actions and pip dependencies monthly.
 
+## Repository policy automation evidence
+
+The current release includes deterministic local validators for:
+
+- immutable full-SHA external GitHub Actions references (`tools/action_pinning.py`);
+- local/CI Python and exact development dependency consistency (`tools/dev_environment.py`);
+- required community/governance files, commercial publication-file exclusion, and direct X/Twitter URL exclusion (`tools/public_repo_policy.py`);
+- release/citation version consistency (`tools/release_consistency.py`);
+- exact Parts 1–200 learning-stage coverage (`tools/learning_index_check.py`);
+- generated data dictionary freshness (`tools/data_dictionary.py --check`);
+- generated docs TOC freshness (`tools/docs_toc.py --check`);
+- official Gumroad storefront presence (`tools/gumroad_presence.py`);
+- generated repository policy summary freshness (`tools/policy_status.py --check`).
+
+`docs/POLICY_STATUS.md` provides the generated reviewer-facing summary of these repository policy results.
+
 ## Validation gate
 
 Before a companion release/tag, run:
@@ -37,16 +53,22 @@ Before a companion release/tag, run:
 python -m pip install -r requirements-dev.txt
 python -m pytest --cov=tools --cov-report=term-missing -q
 python tools/repo_health.py --root .
+python tools/policy_status.py --root . --output docs/POLICY_STATUS.md --check
 python tools/release_consistency.py --root .
 python tools/learning_index_check.py --root .
 python tools/docs_toc.py --docs-dir docs --output docs/TOC.md --check
+python tools/data_dictionary.py schemas/dataset_contracts.json --output docs/DATA_DICTIONARY.md --check
 python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.json
 ```
 
 The consolidated health command covers:
 
+- immutable action references;
+- contributor/CI environment consistency;
+- public repository publication/governance boundaries;
 - synthetic CSV structural quality;
 - richer dataset contract validation;
+- generated data dictionary freshness;
 - release/schema JSON validation;
 - release/citation-version consistency;
 - Parts 1–200 learning-index integrity;
@@ -54,7 +76,8 @@ The consolidated health command covers:
 - synthetic-data sensitivity checks;
 - Markdown accessibility basics;
 - relative Markdown links;
-- official Gumroad storefront presence across core public pages, citation/funding metadata, and all 20 learning stages.
+- official Gumroad storefront presence across core public pages, citation/funding metadata, and all 20 learning stages;
+- generated policy-status freshness.
 
 ## GitHub Actions and release automation
 
@@ -81,11 +104,12 @@ Additional release/maintenance controls:
 - [ ] Confirm `CHANGELOG.md` and this snapshot mention the same companion-release version.
 - [ ] Confirm `CITATION.cff` records the intended companion version.
 - [ ] Confirm external actions remain pinned to verified full upstream SHAs.
+- [ ] Confirm `.python-version`, workflow Python versions, and `requirements-dev.txt` remain aligned.
+- [ ] Confirm `docs/POLICY_STATUS.md`, `docs/TOC.md`, and `docs/DATA_DICTIONARY.md` pass their freshness checks.
 - [ ] Confirm `https://ramsandesh.gumroad.com` is the direct storefront URL.
 - [ ] Confirm all 20 learning-stage pages retain the Gumroad badge/direct URL.
 - [ ] Confirm Parts 1–200 pass `tools/learning_index_check.py`.
-- [ ] Confirm generated documentation indexes are current.
-- [ ] Confirm X/Twitter remains omitted.
+- [ ] Confirm direct X/Twitter URLs remain absent.
 - [ ] Confirm no author avatar/photo/person image was introduced.
 - [ ] Confirm no commercial manuscript/PDF/EPUB/store-delivery file is committed publicly.
 - [ ] Confirm synthetic datasets contain no secrets, personal data, real target details, or sensitive-looking values.
