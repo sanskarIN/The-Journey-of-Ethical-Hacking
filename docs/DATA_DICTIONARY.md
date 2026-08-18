@@ -19,30 +19,6 @@ This file is generated from `schemas/dataset_contracts.json` and documents the p
 | `telemetry_status` | Allowed: Fresh, Partial, Stale, Missing |
 | `support_status` | Allowed: Supported, Extended |
 
-## `sample_control_evidence.csv`
-
-| Column | Constraint |
-|---|---|
-| `evidence_id` | Primary identifier; values must be unique |
-| `control_area` | No additional contract constraint |
-| `criticality` | Allowed: Low, Medium, High, Critical |
-| `evidence_age_days` | Integer range: 0–365 |
-| `exception_open` | Allowed: Yes, No |
-| `recovery_tested` | Allowed: Yes, No |
-| `owner` | No additional contract constraint |
-
-## `sample_risk_signals.csv`
-
-| Column | Constraint |
-|---|---|
-| `signal_id` | Primary identifier; values must be unique |
-| `domain` | No additional contract constraint |
-| `criticality` | Allowed: Low, Medium, High, Critical |
-| `age_days` | Integer range: 0–365 |
-| `open_exception` | Allowed: Yes, No |
-| `telemetry_gap` | Allowed: Yes, No |
-| `recovery_gap` | Allowed: Yes, No |
-
 ## `sample_cloud_posture.csv`
 
 | Column | Constraint |
@@ -57,18 +33,17 @@ This file is generated from `schemas/dataset_contracts.json` and documents the p
 | `backup_status` | Allowed: Current, Needs-Test |
 | `open_exception` | Allowed: Yes, No |
 
-## `sample_privacy_controls.csv`
+## `sample_control_evidence.csv`
 
 | Column | Constraint |
 |---|---|
-| `record_id` | Primary identifier; values must be unique |
-| `data_domain` | No additional contract constraint |
-| `data_classification` | Allowed: Public, Internal, Confidential, Restricted |
-| `retention_status` | Allowed: Current, Review-Due |
-| `minimization_review` | Allowed: Complete, Partial |
-| `access_review_age_days` | Integer range: 0–365 |
-| `transfer_basis_status` | Allowed: Documented, Review-Due, Not-Applicable |
-| `deletion_test_status` | Allowed: Passed, Needs-Retest |
+| `evidence_id` | Primary identifier; values must be unique |
+| `control_area` | No additional contract constraint |
+| `criticality` | Allowed: Low, Medium, High, Critical |
+| `evidence_age_days` | Integer range: 0–365 |
+| `exception_open` | Allowed: Yes, No |
+| `recovery_tested` | Allowed: Yes, No |
+| `owner` | No additional contract constraint |
 
 ## `sample_endpoint_fleet.csv`
 
@@ -83,18 +58,31 @@ This file is generated from `schemas/dataset_contracts.json` and documents the p
 | `support_status` | Allowed: Supported, Extended |
 | `data_classification` | Allowed: Public, Internal, Confidential, Restricted |
 
-## `sample_saas_governance.csv`
+## `sample_governance_controls.csv`
 
 | Column | Constraint |
 |---|---|
-| `tenant_id` | Primary identifier; values must be unique |
-| `service_class` | No additional contract constraint |
+| `control_id` | Primary identifier; values must be unique |
+| `control_domain` | No additional contract constraint |
+| `owner_role` | No additional contract constraint |
 | `criticality` | Allowed: Low, Medium, High, Critical |
-| `identity_integration` | Allowed: Federated, Standalone |
-| `admin_review_age_days` | Integer range: 0–365 |
-| `logging_status` | Allowed: Fresh, Partial, Stale, Limited |
-| `external_sharing_status` | Allowed: Restricted, Review-Due, Open |
-| `backup_export_status` | Allowed: Current, Needs-Test, Not-Required |
+| `evidence_age_days` | Integer range: 0–365 |
+| `exception_status` | Allowed: None, Open |
+| `review_status` | Allowed: Current, Review-Due |
+| `board_visibility` | Allowed: Low, Medium, High |
+
+## `sample_privacy_controls.csv`
+
+| Column | Constraint |
+|---|---|
+| `record_id` | Primary identifier; values must be unique |
+| `data_domain` | No additional contract constraint |
+| `data_classification` | Allowed: Public, Internal, Confidential, Restricted |
+| `retention_status` | Allowed: Current, Review-Due |
+| `minimization_review` | Allowed: Complete, Partial |
+| `access_review_age_days` | Integer range: 0–365 |
+| `transfer_basis_status` | Allowed: Documented, Review-Due, Not-Applicable |
+| `deletion_test_status` | Allowed: Passed, Needs-Retest |
 
 ## `sample_resilience_exercises.csv`
 
@@ -109,18 +97,30 @@ This file is generated from `schemas/dataset_contracts.json` and documents the p
 | `communications_status` | Allowed: Ready, Review-Due |
 | `decision_log_status` | Allowed: Complete, Partial |
 
-## `sample_governance_controls.csv`
+## `sample_risk_signals.csv`
 
 | Column | Constraint |
 |---|---|
-| `control_id` | Primary identifier; values must be unique |
-| `control_domain` | No additional contract constraint |
-| `owner_role` | No additional contract constraint |
+| `signal_id` | Primary identifier; values must be unique |
+| `domain` | No additional contract constraint |
 | `criticality` | Allowed: Low, Medium, High, Critical |
-| `evidence_age_days` | Integer range: 0–365 |
-| `exception_status` | Allowed: None, Open |
-| `review_status` | Allowed: Current, Review-Due |
-| `board_visibility` | Allowed: Low, Medium, High |
+| `age_days` | Integer range: 0–365 |
+| `open_exception` | Allowed: Yes, No |
+| `telemetry_gap` | Allowed: Yes, No |
+| `recovery_gap` | Allowed: Yes, No |
+
+## `sample_saas_governance.csv`
+
+| Column | Constraint |
+|---|---|
+| `tenant_id` | Primary identifier; values must be unique |
+| `service_class` | No additional contract constraint |
+| `criticality` | Allowed: Low, Medium, High, Critical |
+| `identity_integration` | Allowed: Federated, Standalone |
+| `admin_review_age_days` | Integer range: 0–365 |
+| `logging_status` | Allowed: Fresh, Partial, Stale, Limited |
+| `external_sharing_status` | Allowed: Restricted, Review-Due, Open |
+| `backup_export_status` | Allowed: Current, Needs-Test, Not-Required |
 
 ## `sample_workforce_capability.csv`
 
