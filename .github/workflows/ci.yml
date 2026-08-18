@@ -25,6 +25,10 @@ jobs:
         run: python -m pip install -r requirements-dev.txt
       - name: Run unit tests with coverage report
         run: python -m pytest --cov=tools --cov-report=term-missing -q
+      - name: Validate immutable GitHub Actions references
+        run: python tools/action_pinning.py --root .
+      - name: Validate contributor and CI environment consistency
+        run: python tools/dev_environment.py --root .
       - name: Check synthetic CSV structure
         run: python tools/csv_quality.py datasets/*.csv
       - name: Validate dataset contracts
