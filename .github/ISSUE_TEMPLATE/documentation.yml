@@ -1,0 +1,27 @@
+name: Documentation improvement
+description: Report a documentation issue or suggest a safe learning-resource improvement
+title: "[Docs]: "
+labels:
+  - documentation
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What should be improved?
+      description: Identify the file or topic and explain the problem clearly.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested improvement
+      description: Keep suggestions defensive, authorized, and safe for offline learning.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I have not included passwords, secrets, personal data, or sensitive real-world target information.
+          required: true
+        - label: This request does not ask for unauthorized access, malware, destructive actions, credential theft, evasion, or bypass instructions.
+          required: true
