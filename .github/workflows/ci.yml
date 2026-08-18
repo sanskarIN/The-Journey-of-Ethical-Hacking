@@ -23,5 +23,7 @@ jobs:
         run: python -m pip install --upgrade pytest
       - name: Run unit tests
         run: python -m pytest -q
+      - name: Check synthetic CSV structure
+        run: python tools/csv_quality.py datasets/*.csv
       - name: Check documentation accessibility basics
         run: python tools/doc_accessibility.py README.md docs resources
