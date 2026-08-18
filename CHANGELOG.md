@@ -11,29 +11,60 @@ All notable companion-repository changes are recorded here.
 ### Added
 
 - Tagged companion-release workflow that validates the repository and uploads `PUBLIC_RESOURCE_MANIFEST.json` as a release artifact.
-- Monthly Dependabot checks for GitHub Actions dependencies.
+- Monthly Dependabot checks for GitHub Actions and pinned pip development dependencies.
 - Recommended GitHub About metadata/topics guide with Gumroad as the preferred repository website.
 - GitHub `CITATION.cff` metadata for the companion repository and commercial book citation.
 - GitHub custom funding/storefront link pointing to `https://ramsandesh.gumroad.com`.
 - Issue chooser contact links for the official Gumroad storefront and security policy.
+- Dedicated issue forms for synthetic-dataset improvements and local tool/test bugs.
 - Parts 1–200 learning-index integrity checker and unit tests.
 - Tagged-release workflow documentation.
+- Generated synthetic dataset data dictionary plus freshness validation.
+- Documentation TOC freshness validation.
+- Repeatable Python 3.12 contributor environment with pinned `requirements-dev.txt`.
+- `.github/CODEOWNERS` with `@sanskarIN` as the default review owner.
+- `.github/release.yml` for generated GitHub release-note categorization.
+- Immutable GitHub Actions SHA-pinning validator and tests.
+- Contributor/CI environment consistency validator and tests.
+- Public repository boundary validator and tests.
+- Generated `docs/POLICY_STATUS.md` plus freshness validation.
 
 ### Improved
 
-- Upgraded `actions/checkout` from v4 to v7.
-- Upgraded `actions/setup-python` from v5 to v7.
-- Added `actions/upload-artifact@v7` to tagged-release manifest generation.
+- Upgraded `actions/checkout` from v4 to release v7.0.1 and pinned it to full SHA `3d3c42e5aac5ba805825da76410c181273ba90b1`.
+- Upgraded `actions/setup-python` from v5 to release v7.0.0 and pinned it to full SHA `5fda3b95a4ea91299a34e894583c3862153e4b97`.
+- Added `actions/upload-artifact` release v7.0.1 to tagged-release manifest generation, pinned to full SHA `043fb46d1a93c77aae656e7c1c64a875d1fc6a0a`.
 - Strengthened dataset contracts with duplicate-ID, approved categorical-value, and integer-range validation.
-- Updated documentation index, README, tool catalog, and test catalog for the current release-integrity tooling.
-- Added learning-index validation to GitHub Actions and the consolidated repository-health command.
-- Simplified Dependabot configuration so it does not depend on repository labels that cannot be verified by the connected maintenance API.
+- Synchronized `CITATION.cff` with the active companion release and added citation-version checking.
+- Updated documentation index, README, tool catalog, test catalog, tagged-release guide, and dependency/action review documentation.
+- Added learning-index, generated-data-dictionary, documentation-TOC, repository-policy, and policy-status checks to GitHub Actions and the consolidated repository-health command.
+- CI now installs the same pinned `requirements-dev.txt` used by contributors.
+- Simplified Dependabot configuration so it does not depend on custom repository labels.
+- Added direct public-repository enforcement for required governance/community files, commercial publication/archive exclusion, and direct X/Twitter URL exclusion.
+- Removed literal disallowed social-URL fixtures from the policy validator/tests so the repository can enforce the no-direct-X/Twitter-URL rule without self-matching.
+- Confirmed GitHub code search returned no stored direct X/Twitter URL matches after the policy fixture cleanup.
 - Confirmed the live repository had no open issues or pull requests during this maintenance pass.
+
+### Policy and release automation
+
+Release `2026.08.18.6` now enforces deterministic local checks for:
+
+- full-SHA external GitHub Actions references;
+- Python/development-environment consistency;
+- public repository governance/publication boundaries;
+- Parts 1–200 learning-index integrity;
+- release/citation version consistency;
+- generated data-dictionary freshness;
+- generated documentation-TOC freshness;
+- Gumroad storefront presence;
+- generated repository policy-status freshness;
+- synthetic dataset quality/contracts/sensitivity;
+- Markdown accessibility and relative links.
 
 ### Storefront and publication boundary
 
 - Gumroad remains the official publication storefront: **https://ramsandesh.gumroad.com**.
-- X/Twitter links remain intentionally omitted.
+- X/Twitter links remain intentionally omitted and direct X/Twitter URLs are now policy-checked.
 - No author avatar/photo/person image is used.
 - Commercial master DOCX/PDF/EPUB/store-delivery files remain outside the public repository.
 
