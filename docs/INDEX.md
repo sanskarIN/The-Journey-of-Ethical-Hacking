@@ -1,0 +1,54 @@
+# Documentation Index
+
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official Gumroad:** https://ramsandesh.gumroad.com
+
+This page is the central index for public companion-repository documentation.
+
+## Start here
+
+- [`../README.md`](../README.md) — repository overview and quick start.
+- [`GUMROAD.md`](GUMROAD.md) — official storefront and GitHub badge guidance.
+- [`USAGE.md`](USAGE.md) — companion-resource usage guidance.
+- [`OFFLINE_ANALYSIS_EXAMPLES.md`](OFFLINE_ANALYSIS_EXAMPLES.md) — local-only analysis examples.
+- [`../resources/learning_stage_index.md`](../resources/learning_stage_index.md) — complete Parts 1–200 learning navigation.
+
+## Safety, accessibility, and contribution
+
+- [`../SECURITY.md`](../SECURITY.md) — responsible-use and private security reporting.
+- [`../CONTRIBUTING.md`](../CONTRIBUTING.md) — safe contribution requirements.
+- [`ACCESSIBILITY.md`](ACCESSIBILITY.md) — Markdown accessibility guidance.
+- [`RESOURCE_STYLE_GUIDE.md`](RESOURCE_STYLE_GUIDE.md) — dataset/template writing style.
+- [`../CODE_OF_CONDUCT.md`](../CODE_OF_CONDUCT.md) — community conduct.
+
+## Data and validation
+
+- [`../datasets/README.md`](../datasets/README.md) — synthetic dataset catalog.
+- [`../schemas/README.md`](../schemas/README.md) — machine-readable dataset contracts.
+- [`../tools/README.md`](../tools/README.md) — local-only utility catalog.
+- [`../tests/README.md`](../tests/README.md) — test suite guidance.
+- [`../examples/new_dataset_contribution/README.md`](../examples/new_dataset_contribution/README.md) — worked contributor dataset example.
+
+## Exercises and learning resources
+
+- [`../exercises/README.md`](../exercises/README.md) — fictional tabletop exercise packs.
+- [`../resources/README.md`](../resources/README.md) — templates, checklists, mastery resources, and glossary seed.
+
+## Corrections, release, and maintenance
+
+- [`../ERRATA.md`](../ERRATA.md) — public correction log.
+- [`ERRATA_PROCESS.md`](ERRATA_PROCESS.md) — correction workflow.
+- [`RELEASE_CHECKLIST.md`](RELEASE_CHECKLIST.md) — companion release gate.
+- [`RELEASE_NOTES_AUTOMATION.md`](RELEASE_NOTES_AUTOMATION.md) — release-note workflow guidance.
+- [`ANNUAL_EDITION_MAINTENANCE.md`](ANNUAL_EDITION_MAINTENANCE.md) — yearly refresh checklist.
+- [`DEPENDENCY_ACTION_REVIEW.md`](DEPENDENCY_ACTION_REVIEW.md) — dependency/action review decisions.
+- [`../CHANGELOG.md`](../CHANGELOG.md) — notable repository changes.
+- [`../ROADMAP.md`](../ROADMAP.md) — completed and upcoming phases.
+- [`../what_changed.md`](../what_changed.md) — detailed implementation audit.
+
+## Publication boundary
+
+The commercial master manuscript, paid PDF/EPUB, cover, certificate, and store-delivery files are not stored in this public repository.
+
+For the complete publication and current listings, use **https://ramsandesh.gumroad.com**.
