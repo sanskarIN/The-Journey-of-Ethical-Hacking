@@ -6,6 +6,34 @@
 
 All notable companion-repository changes are recorded here.
 
+## 2026-08-18 — Gumroad visibility and release-integrity completion
+
+### Added
+
+- Central documentation index at `docs/INDEX.md`.
+- Consolidated local repository-health command at `tools/repo_health.py` with tests.
+- Public-resource SHA-256 manifest generator at `tools/resource_manifest.py` with tests.
+- Synthetic-data sensitivity linter at `tools/synthetic_safety.py` with tests.
+- Gumroad storefront-presence validator at `tools/gumroad_presence.py` with tests.
+- CLI smoke tests covering every current local tool.
+- Companion release snapshot checklist at `docs/RELEASE_SNAPSHOT.md`.
+
+### Improved
+
+- Enforced the exact direct storefront URL `https://ramsandesh.gumroad.com` in release metadata and core public-facing repository documentation.
+- Highlighted Gumroad with a reusable Shields badge using the Gumroad logo on major reader-facing pages.
+- Expanded README, tools, tests, documentation index, release checklist, structure guide, accessibility guide, errata process, usage guide, and resource style guidance.
+- Added sensitive-looking-value and Gumroad-presence checks to the consolidated repository health command.
+- Added JSON metadata, synthetic-data safety, storefront presence, manifest smoke generation, and consolidated repository-health steps to CI.
+- Completed the release-integrity/discoverability roadmap phase and opened a future-maintenance phase.
+- Bumped companion release metadata to `2026.08.18.4`.
+
+### Publication and privacy boundary
+
+- The paid master manuscript and commercial PDF/EPUB/store-delivery files remain outside the public repository.
+- The public repository continues to omit X/Twitter links.
+- No author avatar/photo/person image is used for the publication-resource design or Gumroad promotion.
+
 ## 2026-08-18 — Maintenance, storefront, and release-integrity expansion
 
 ### Added
