@@ -15,8 +15,10 @@ Official defensive, authorization-first companion repository for **The Journey o
 - [Complete documentation index](docs/INDEX.md)
 - [Gumroad storefront and badge guide](docs/GUMROAD.md)
 - [Complete 200-part learning index](resources/learning_stage_index.md)
+- [Contributor development setup](docs/DEVELOPMENT.md)
 - [First-time contributor onboarding](docs/CONTRIBUTOR_ONBOARDING.md)
 - [Issue triage guidance](docs/ISSUE_TRIAGE.md)
+- [Synthetic dataset data dictionary](docs/DATA_DICTIONARY.md)
 - [Tagged companion releases](docs/TAGGED_RELEASES.md)
 - [Recommended GitHub repository metadata](docs/REPOSITORY_METADATA.md)
 - [Synthetic dataset catalog](datasets/README.md)
@@ -47,7 +49,11 @@ The series index is split into **20 stages covering Parts 1–200**, with correc
 
 ### Synthetic datasets
 
-The repository contains small fictional datasets for asset posture, control evidence, risk signals, cloud posture, privacy controls, endpoint fleets, SaaS governance, resilience exercises, governance controls, and workforce capability. Machine-readable contracts under `schemas/` define expected columns, primary IDs, allowed categorical values, and useful integer constraints.
+The repository contains small fictional datasets for asset posture, control evidence, risk signals, cloud posture, privacy controls, endpoint fleets, SaaS governance, resilience exercises, governance controls, and workforce capability. Machine-readable contracts under `schemas/` define expected columns, primary IDs, allowed categorical values, and useful integer constraints. `docs/DATA_DICTIONARY.md` provides a generated human-readable view of those contracts.
+
+### Repeatable contributor environment
+
+The local/CI baseline is Python **3.12** with pinned test dependencies in `requirements-dev.txt`. See `docs/DEVELOPMENT.md` for Windows, Linux, and macOS setup commands.
 
 ### Offline utilities
 
@@ -59,6 +65,7 @@ Current local-only Python helpers include:
 - `tools/dataset_summary.py`
 - `tools/csv_quality.py`
 - `tools/dataset_contracts.py`
+- `tools/data_dictionary.py`
 - `tools/json_metadata.py`
 - `tools/release_consistency.py`
 - `tools/learning_index_check.py`
@@ -69,6 +76,12 @@ Current local-only Python helpers include:
 - `tools/docs_toc.py`
 - `tools/resource_manifest.py`
 - `tools/repo_health.py`
+
+Install the pinned development dependencies:
+
+```bash
+python -m pip install -r requirements-dev.txt
+```
 
 Run the test suite with coverage reporting:
 
@@ -101,12 +114,13 @@ The repository CI and local health tooling validate:
 - synthetic CSV structure;
 - richer dataset contracts;
 - release/schema JSON metadata;
-- release-version consistency;
+- release/citation-version consistency;
 - Parts 1–200 learning-index integrity;
+- documentation TOC freshness;
 - sensitive-looking values in public synthetic datasets;
 - Markdown accessibility basics;
 - relative Markdown links;
-- the exact official Gumroad storefront URL on core public-facing pages and all 20 learning-stage pages;
+- the exact official Gumroad storefront URL on core public-facing pages, citation/funding metadata, and all 20 learning-stage pages;
 - public-resource manifest generation;
 - unit tests, CLI smoke tests, and test coverage.
 
@@ -114,8 +128,9 @@ A `companion-v*` tag triggers `.github/workflows/release-manifest.yml`, which va
 
 ## Maintenance automation
 
-- GitHub Actions uses current v7 major lines for checkout/setup and release-manifest artifact upload.
-- Dependabot checks GitHub Actions dependencies monthly.
+- GitHub Actions uses v7 major lines for checkout/setup and release-manifest artifact upload.
+- Dependabot checks GitHub Actions and pip development dependencies monthly.
+- CI and contributor machines install the same pinned `requirements-dev.txt`.
 - `docs/DEPENDENCY_ACTION_REVIEW.md` records accepted/deferred maintenance decisions.
 
 ## Safety boundary
