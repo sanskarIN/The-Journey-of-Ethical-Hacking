@@ -17,6 +17,8 @@ def build_checks(root: Path) -> list[list[str]]:
     py = sys.executable
     datasets = [str(path) for path in sorted((root / "datasets").glob("*.csv"))]
     return [
+        [py, "tools/action_pinning.py", "--root", str(root)],
+        [py, "tools/dev_environment.py", "--root", str(root)],
         [py, "tools/csv_quality.py", *datasets],
         [py, "tools/dataset_contracts.py", "schemas/dataset_contracts.json", "datasets"],
         [py, "tools/data_dictionary.py", "schemas/dataset_contracts.json", "--output", "docs/DATA_DICTIONARY.md", "--check"],
