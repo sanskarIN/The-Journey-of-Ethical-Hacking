@@ -63,16 +63,27 @@
 - [x] Add GitHub-native citation metadata, funding/storefront link, and issue-chooser storefront visibility.
 - [x] Add automated Parts 1–200 learning-index integrity validation.
 
-## Long-term repository quality phase
+## Long-term repository quality phase — completed
 
-- [ ] Add a generated dataset data dictionary from `schemas/dataset_contracts.json`.
-- [ ] Add automated freshness validation for `docs/TOC.md`.
-- [ ] Add dedicated issue forms for dataset improvements and tool/test bugs.
-- [ ] Add a contributor-facing development environment file for repeatable local test setup.
-- [ ] Add a GitHub release-note category configuration for companion releases.
-- [ ] Add CODEOWNERS/review-boundary documentation if repository collaboration expands.
-- [ ] Evaluate SHA-pinning policy for third-party/GitHub Actions while preserving maintainability.
-- [ ] Add periodic maintenance evidence to each future companion release snapshot.
+- [x] Add a generated dataset data dictionary from `schemas/dataset_contracts.json`.
+- [x] Add automated freshness validation for `docs/TOC.md`.
+- [x] Add dedicated issue forms for dataset improvements and tool/test bugs.
+- [x] Add a contributor-facing development environment for repeatable local test setup.
+- [x] Add a GitHub release-note category configuration for companion releases.
+- [x] Add CODEOWNERS/review boundaries for `@sanskarIN`.
+- [x] Evaluate and apply full-length SHA pinning for external GitHub Actions while preserving Dependabot maintenance.
+- [x] Record maintenance evidence in the current companion release snapshot.
+- [x] Add automated freshness validation for the generated dataset data dictionary.
+
+## Repository policy automation phase
+
+- [ ] Add a local validator that enforces full-length SHA pinning for external GitHub Actions.
+- [ ] Add a validator for `.python-version`, workflow Python versions, and pinned dev dependency consistency.
+- [ ] Add tests for repository-policy validators and wire them into CI/repository health.
+- [ ] Add a generated repository policy/status summary for release review.
+- [ ] Add validation that required GitHub community files remain present.
+- [ ] Add a lightweight check that commercial publication file types are not committed publicly.
+- [ ] Add release-snapshot evidence for each policy automation result.
 
 The public repository will continue to exclude the paid master manuscript and commercial publication files.
 
