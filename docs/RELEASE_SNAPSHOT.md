@@ -10,7 +10,9 @@ This file records the repository-side validation expectations for the current pu
 
 - Project: **The Journey of Ethical Hacking — Companion Resources**
 - Edition: **2026 Edition**
+- Companion release: **2026.08.18.5**
 - Series coverage: **Parts 1–200**
+- Gumroad highlighted in all 20 learning-stage pages: **Yes**
 - Public companion release metadata: `COMPANION_RELEASE.json`
 - Code/resource license boundary: Apache-2.0 where the repository license applies
 - Commercial book rights: Copyright © 2026 Ram Sandesh. All rights reserved.
@@ -26,6 +28,7 @@ Before a companion release/tag, run:
 ```bash
 python -m pytest --cov=tools --cov-report=term-missing -q
 python tools/repo_health.py --root .
+python tools/release_consistency.py --root .
 python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.json
 ```
 
@@ -34,6 +37,7 @@ The consolidated health command covers:
 - synthetic CSV structural quality;
 - dataset contract validation;
 - release/schema JSON validation;
+- release-version consistency;
 - synthetic-data sensitivity checks;
 - Markdown accessibility basics;
 - relative Markdown links;
@@ -45,7 +49,9 @@ The consolidated health command covers:
 - [ ] Review `what_changed.md`.
 - [ ] Review `ROADMAP.md`.
 - [ ] Confirm `COMPANION_RELEASE.json` has the intended version.
+- [ ] Confirm `CHANGELOG.md` and this snapshot mention the same companion-release version.
 - [ ] Confirm `https://ramsandesh.gumroad.com` is the direct storefront URL.
+- [ ] Confirm all 20 learning-stage pages retain the Gumroad badge/direct URL.
 - [ ] Confirm X/Twitter remains omitted.
 - [ ] Confirm no author avatar/photo/person image was introduced.
 - [ ] Confirm no commercial manuscript/PDF/EPUB/store-delivery file is committed publicly.
