@@ -1,5 +1,9 @@
 # Stage 04 — Parts 31–40
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** Monitoring, SIEM, incident response, forensics, hunting, SOAR, intelligence, exposure, cloud posture, and service trust.
 
 1. **Part 31 — Security Monitoring, SIEM & Detection Engineering**
