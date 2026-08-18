@@ -53,6 +53,8 @@ jobs:
         run: python tools/markdown_links.py README.md docs resources schemas exercises examples ERRATA.md ROADMAP.md CHANGELOG.md what_changed.md
       - name: Check official Gumroad storefront presence
         run: python tools/gumroad_presence.py --root .
+      - name: Check generated repository policy status
+        run: python tools/policy_status.py --root . --output docs/POLICY_STATUS.md --check
       - name: Generate public resource manifest as a smoke test
         run: python tools/resource_manifest.py --root . --output /tmp/public-resource-manifest.json
       - name: Run consolidated repository health check
