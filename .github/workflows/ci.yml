@@ -33,6 +33,8 @@ jobs:
         run: python tools/release_consistency.py --root .
       - name: Validate Parts 1-200 learning index integrity
         run: python tools/learning_index_check.py --root .
+      - name: Check documentation TOC freshness
+        run: python tools/docs_toc.py --docs-dir docs --output docs/TOC.md --check
       - name: Check synthetic data for sensitive-looking values
         run: python tools/synthetic_safety.py datasets/*.csv
       - name: Check documentation accessibility basics
