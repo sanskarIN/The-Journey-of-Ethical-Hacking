@@ -1,0 +1,21 @@
+{
+  "project": "The Journey of Ethical Hacking — Companion Resources",
+  "edition": "2026 Edition",
+  "companion_release": "2026.08.18.2",
+  "author": "Ram Sandesh",
+  "repository": "https://github.com/sanskarIN/The-Journey-of-Ethical-Hacking",
+  "series_parts": 200,
+  "public_scope": [
+    "defensive learning indexes",
+    "synthetic datasets",
+    "offline analysis utilities",
+    "safe templates and checklists",
+    "tests and contribution documentation"
+  ],
+  "code_license": "Apache-2.0",
+  "commercial_book_rights": "Copyright © 2026 Ram Sandesh. All rights reserved.",
+  "commercial_manuscript_in_public_repo": false,
+  "author_avatar_or_photo_used": false,
+  "x_or_twitter_link_included": false,
+  "safety_scope": "lawful, authorized, defensive learning only"
+}
