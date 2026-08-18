@@ -21,18 +21,27 @@ This page is the central index for public companion-repository documentation.
 - [`ACCESSIBILITY.md`](ACCESSIBILITY.md) — Markdown accessibility guidance.
 - [`RESOURCE_STYLE_GUIDE.md`](RESOURCE_STYLE_GUIDE.md) — dataset/template writing style.
 - [`../CODE_OF_CONDUCT.md`](../CODE_OF_CONDUCT.md) — community conduct.
+- [`GIT_COMMIT_IDENTITY.md`](GIT_COMMIT_IDENTITY.md) — requested local commit-email configuration.
 
 ## Data and validation
 
 - [`../datasets/README.md`](../datasets/README.md) — synthetic dataset catalog.
 - [`../schemas/README.md`](../schemas/README.md) — machine-readable dataset contracts.
-- [`../tools/README.md`](../tools/README.md) — local-only utility catalog.
-- [`../tests/README.md`](../tests/README.md) — test suite guidance.
+- [`../tools/README.md`](../tools/README.md) — local-only analysis and release-integrity utility catalog.
+- [`../tests/README.md`](../tests/README.md) — unit and CLI smoke-test guidance.
 - [`../examples/new_dataset_contribution/README.md`](../examples/new_dataset_contribution/README.md) — worked contributor dataset example.
+
+Key validation entry points:
+
+```bash
+python -m pytest --cov=tools --cov-report=term-missing -q
+python tools/repo_health.py --root .
+python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.json
+```
 
 ## Exercises and learning resources
 
-- [`../exercises/README.md`](../exercises/README.md) — fictional tabletop exercise packs.
+- [`../exercises/README.md`](../exercises/README.md) — seven fictional tabletop exercise packs.
 - [`../resources/README.md`](../resources/README.md) — templates, checklists, mastery resources, and glossary seed.
 
 ## Corrections, release, and maintenance
@@ -40,11 +49,14 @@ This page is the central index for public companion-repository documentation.
 - [`../ERRATA.md`](../ERRATA.md) — public correction log.
 - [`ERRATA_PROCESS.md`](ERRATA_PROCESS.md) — correction workflow.
 - [`RELEASE_CHECKLIST.md`](RELEASE_CHECKLIST.md) — companion release gate.
+- [`RELEASE_SNAPSHOT.md`](RELEASE_SNAPSHOT.md) — current release-integrity expectations.
 - [`RELEASE_NOTES_AUTOMATION.md`](RELEASE_NOTES_AUTOMATION.md) — release-note workflow guidance.
 - [`ANNUAL_EDITION_MAINTENANCE.md`](ANNUAL_EDITION_MAINTENANCE.md) — yearly refresh checklist.
 - [`DEPENDENCY_ACTION_REVIEW.md`](DEPENDENCY_ACTION_REVIEW.md) — dependency/action review decisions.
+- [`REPOSITORY_STRUCTURE.md`](REPOSITORY_STRUCTURE.md) — current public repository layout.
+- [`../COMPANION_RELEASE.json`](../COMPANION_RELEASE.json) — machine-readable release/storefront metadata.
 - [`../CHANGELOG.md`](../CHANGELOG.md) — notable repository changes.
-- [`../ROADMAP.md`](../ROADMAP.md) — completed and upcoming phases.
+- [`../ROADMAP.md`](../ROADMAP.md) — completed and future phases.
 - [`../what_changed.md`](../what_changed.md) — detailed implementation audit.
 
 ## Publication boundary
