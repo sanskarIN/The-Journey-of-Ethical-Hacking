@@ -17,19 +17,22 @@ companion-vYYYY.MM.DD.N
 For the current repository snapshot, the matching example is:
 
 ```text
-companion-v2026.08.18.5
+companion-v2026.08.18.6
 ```
 
-The version should match `COMPANION_RELEASE.json`, `CHANGELOG.md`, and `docs/RELEASE_SNAPSHOT.md` before the tag is pushed.
+The version should match `COMPANION_RELEASE.json`, `CHANGELOG.md`, `docs/RELEASE_SNAPSHOT.md`, and `CITATION.cff` before the tag is pushed.
 
 ## Before tagging
 
 Run:
 
 ```bash
+python -m pip install -r requirements-dev.txt
 python -m pytest --cov=tools --cov-report=term-missing -q
 python tools/repo_health.py --root .
 python tools/release_consistency.py --root .
+python tools/learning_index_check.py --root .
+python tools/docs_toc.py --docs-dir docs --output docs/TOC.md --check
 ```
 
 Then verify:
@@ -39,13 +42,14 @@ Then verify:
 - no author avatar/photo/person image was introduced;
 - no commercial PDF/EPUB/DOCX/store-delivery archive is public;
 - synthetic datasets contain no real sensitive data;
-- the changelog and release snapshot describe the intended companion version.
+- Parts 1–200 appear exactly once in the learning-stage index;
+- the changelog, release snapshot, citation metadata, and companion metadata describe the intended version.
 
 ## Create and push a tag locally
 
 ```bash
-git tag -a companion-v2026.08.18.5 -m "Companion release 2026.08.18.5"
-git push origin companion-v2026.08.18.5
+git tag -a companion-v2026.08.18.6 -m "Companion release 2026.08.18.6"
+git push origin companion-v2026.08.18.6
 ```
 
 Use the requested local Git identity before creating command-line commits or tags:
@@ -61,7 +65,7 @@ Pushing a `companion-v*` tag triggers `.github/workflows/release-manifest.yml`.
 That workflow:
 
 1. checks out the tagged repository;
-2. sets up Python;
+2. sets up Python 3.12;
 3. runs the repository health checks;
 4. validates release-version consistency;
 5. generates `PUBLIC_RESOURCE_MANIFEST.json` with SHA-256 hashes for public resources;
