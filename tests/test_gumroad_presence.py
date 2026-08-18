@@ -23,6 +23,13 @@ def make_valid_tree(root: Path) -> None:
         path = learning / f"stage_{stage:02d}_parts_{start:03d}_{end:03d}.md"
         path.write_text(f"# Stage {stage:02d}\n\n{GUMROAD}\n", encoding="utf-8")
 
+    (root / "CITATION.cff").write_text(
+        f'cff-version: 1.2.0\nurl: "{GUMROAD}"\n', encoding="utf-8"
+    )
+    funding = root / ".github" / "FUNDING.yml"
+    funding.parent.mkdir(parents=True, exist_ok=True)
+    funding.write_text(f'custom:\n  - "{GUMROAD}"\n', encoding="utf-8")
+
     (root / "COMPANION_RELEASE.json").write_text(
         json.dumps(
             {
@@ -52,6 +59,20 @@ def test_gumroad_presence_reports_missing_learning_stage_link(tmp_path: Path):
     target.write_text("# Stage 20\n", encoding="utf-8")
     errors = validate(tmp_path)
     assert any("stage_20_parts_191_200.md" in item for item in errors)
+
+
+def test_gumroad_presence_reports_missing_citation_link(tmp_path: Path):
+    make_valid_tree(tmp_path)
+    (tmp_path / "CITATION.cff").write_text("cff-version: 1.2.0\n", encoding="utf-8")
+    errors = validate(tmp_path)
+    assert any("CITATION.cff" in item for item in errors)
+
+
+def test_gumroad_presence_reports_missing_funding_link(tmp_path: Path):
+    make_valid_tree(tmp_path)
+    (tmp_path / ".github" / "FUNDING.yml").write_text("custom: []\n", encoding="utf-8")
+    errors = validate(tmp_path)
+    assert any("FUNDING.yml" in item for item in errors)
 
 
 def test_gumroad_presence_requires_release_metadata_value(tmp_path: Path):
