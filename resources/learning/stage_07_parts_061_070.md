@@ -1,5 +1,9 @@
 # Stage 07 — Parts 61–70
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** Crisis management, intelligence-led defense, validation, exposure management, hardening, control monitoring, risk measurement, architecture, governance, and assurance.
 
 1. **Part 61 — Enterprise Cyber Crisis Management, Incident Command & Communications Engineering**
