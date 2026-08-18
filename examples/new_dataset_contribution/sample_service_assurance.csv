@@ -1,0 +1,5 @@
+service_id,service_class,criticality,owner_group,evidence_age_days,recovery_status,dependency_status,review_status
+SV-001,Internal business service,High,Example Operations,14,Current,Documented,Current
+SV-002,Shared platform,Critical,Example Platform Team,27,Review due,Partial,Review due
+SV-003,Reporting service,Medium,Example Analytics,9,Current,Documented,Current
+SV-004,Partner-facing service,High,Example Service Team,34,Review due,Documented,Review due
