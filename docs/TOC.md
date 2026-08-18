@@ -9,6 +9,7 @@ Generated from the level-1 headings of Markdown files in `docs/`.
 - [Documentation Accessibility Guide](ACCESSIBILITY.md)
 - [Annual Edition Maintenance](ANNUAL_EDITION_MAINTENANCE.md)
 - [First-Time Contributor Onboarding](CONTRIBUTOR_ONBOARDING.md)
+- [Synthetic Dataset Data Dictionary](DATA_DICTIONARY.md)
 - [Dependency and GitHub Actions Review Log](DEPENDENCY_ACTION_REVIEW.md)
 - [Book Errata Process](ERRATA_PROCESS.md)
 - [Git Commit Identity](GIT_COMMIT_IDENTITY.md)
