@@ -1,0 +1,7 @@
+record_id,data_domain,data_classification,retention_status,minimization_review,access_review_age_days,transfer_basis_status,deletion_test_status
+PRV-001,Customer-Profile,Confidential,Current,Complete,14,Documented,Passed
+PRV-002,Support-Logs,Internal,Review-Due,Partial,39,Documented,Passed
+PRV-003,Marketing-Preferences,Confidential,Current,Complete,21,Documented,Needs-Retest
+PRV-004,Workforce-Directory,Confidential,Current,Partial,46,Review-Due,Passed
+PRV-005,Research-Survey,Restricted,Review-Due,Complete,29,Documented,Passed
+PRV-006,Public-Content,Public,Current,Complete,8,Not-Applicable,Passed
