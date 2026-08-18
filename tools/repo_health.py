@@ -19,6 +19,7 @@ def build_checks(root: Path) -> list[list[str]]:
     return [
         [py, "tools/csv_quality.py", *datasets],
         [py, "tools/dataset_contracts.py", "schemas/dataset_contracts.json", "datasets"],
+        [py, "tools/data_dictionary.py", "schemas/dataset_contracts.json", "--output", "docs/DATA_DICTIONARY.md", "--check"],
         [py, "tools/json_metadata.py", "COMPANION_RELEASE.json", "schemas/dataset_contracts.json"],
         [py, "tools/release_consistency.py", "--root", str(root)],
         [py, "tools/learning_index_check.py", "--root", str(root)],
@@ -44,7 +45,7 @@ def run_checks(root: Path) -> int:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run local companion-repository health checks.")
-    parser.add_argument("--root", type=Path, default=Path.cwd(), help="Repository root (default: current directory)")
+    parser.add_argument("--root", type=Path, default=Path.cwd(), help="Repository root (default: current directory")
     args = parser.parse_args()
     raise SystemExit(run_checks(args.root.resolve()))
 
