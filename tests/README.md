@@ -4,7 +4,7 @@
 
 **Official Gumroad:** https://ramsandesh.gumroad.com
 
-This directory validates the repository's local-only defensive utilities.
+This directory validates the repository's local-only defensive and release-integrity utilities.
 
 Run the test suite from the repository root:
 
@@ -13,7 +13,24 @@ python -m pip install pytest pytest-cov
 python -m pytest --cov=tools --cov-report=term-missing -q
 ```
 
-The suite covers offline analysis helpers, CSV quality checks, dataset contracts, JSON metadata, Markdown accessibility, relative-link validation, and dataset summaries.
+## Current coverage areas
+
+The suite includes tests for:
+
+- risk prioritization;
+- evidence freshness;
+- control-review scoring;
+- CSV structure quality;
+- dataset contracts;
+- release/schema JSON metadata;
+- dataset summaries;
+- Markdown accessibility;
+- relative Markdown links;
+- repository health orchestration;
+- public-resource manifest generation;
+- synthetic-data sensitivity linting;
+- Gumroad storefront presence;
+- CLI `--help` smoke coverage for every local tool.
 
 The tests use deterministic local data and do not require network access, accounts, credentials, devices, or external services.
 
