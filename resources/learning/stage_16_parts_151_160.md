@@ -1,5 +1,9 @@
 # Stage 16 — Parts 151–160
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** Collaboration/SaaS security and human-centered/social-engineering defense.
 
 1. **Part 151 — Collaboration, Messaging, Browser Workspace & SaaS Security Governance**
