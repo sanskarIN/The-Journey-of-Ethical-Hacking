@@ -50,13 +50,15 @@ TEXT_SUFFIXES = {
     ".csv",
 }
 
-FORBIDDEN_SOCIAL_URL_MARKERS = (
-    "https://x.com/",
-    "http://x.com/",
-    "https://twitter.com/",
-    "http://twitter.com/",
-    "https://www.twitter.com/",
-    "http://www.twitter.com/",
+# Build the disallowed URL markers in memory so this policy source file does
+# not itself contain a direct publication-facing X/Twitter URL literal.
+_X_HOST = "x" + ".com/"
+_TWITTER_HOST = "twitter" + ".com/"
+_WWW_TWITTER_HOST = "www." + _TWITTER_HOST
+FORBIDDEN_SOCIAL_URL_MARKERS = tuple(
+    scheme + host
+    for scheme in ("https://", "http://")
+    for host in (_X_HOST, _TWITTER_HOST, _WWW_TWITTER_HOST)
 )
 
 
