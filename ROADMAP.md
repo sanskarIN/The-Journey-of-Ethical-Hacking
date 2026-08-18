@@ -38,15 +38,27 @@
 - [x] Review dependency/action versions periodically and document upgrade decisions.
 - [x] Promote the official Gumroad storefront throughout major public-facing repository documentation.
 
-## Release integrity and discoverability phase
+## Release integrity and discoverability phase — completed
 
-- [ ] Add a central documentation index for all repository guides and resources.
-- [ ] Add one repository-health command that runs local structural checks from a single entry point.
-- [ ] Add a machine-readable public-resource manifest generator and tests.
-- [ ] Add a synthetic-data privacy/sensitivity linter for accidental email, token-like, or URL-like values.
-- [ ] Add CLI smoke tests for every local tool.
-- [ ] Add a Gumroad-presence checker for public-facing Markdown and release metadata.
-- [ ] Add a release snapshot checklist that records validation results and companion version.
+- [x] Add a central documentation index for repository guides and resources.
+- [x] Add one repository-health command that runs local structural checks from a single entry point.
+- [x] Add a machine-readable public-resource manifest generator and tests.
+- [x] Add a synthetic-data privacy/sensitivity linter for accidental email, token-like, URL-like, or IP-like values.
+- [x] Add CLI smoke tests for every local tool.
+- [x] Add a Gumroad-presence checker for public-facing Markdown and release metadata.
+- [x] Add a release snapshot checklist that records validation expectations and companion version context.
+- [x] Integrate release-integrity checks into GitHub Actions CI.
+
+## Future maintenance phase
+
+- [ ] Generate and review a public-resource manifest for each tagged companion release.
+- [ ] Add release-version consistency checks across `COMPANION_RELEASE.json`, changelog entries, and release snapshots.
+- [ ] Add richer dataset contract constraints for approved categorical values where useful.
+- [ ] Add a documentation table-of-contents generator for larger guide sets.
+- [ ] Add a contributor onboarding checklist for first-time pull requests.
+- [ ] Add issue-triage guidance for errata, documentation, datasets, tests, and release maintenance.
+- [ ] Review GitHub repository metadata/topics and storefront visibility when connector support permits those settings.
+- [ ] Continue periodic dependency/action review against official upstream documentation.
 
 The public repository will continue to exclude the paid master manuscript and commercial publication files.
 
