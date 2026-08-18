@@ -14,8 +14,10 @@ def test_build_checks_contains_expected_validators(tmp_path: Path):
     assert "tools/csv_quality.py" in text
     assert "tools/dataset_contracts.py" in text
     assert "tools/json_metadata.py" in text
+    assert "tools/synthetic_safety.py" in text
     assert "tools/doc_accessibility.py" in text
     assert "tools/markdown_links.py" in text
+    assert "tools/gumroad_presence.py" in text
     assert "sample.csv" in text
 
 
