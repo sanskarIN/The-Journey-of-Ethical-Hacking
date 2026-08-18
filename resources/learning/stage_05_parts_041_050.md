@@ -1,5 +1,9 @@
 # Stage 05 — Parts 41–50
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** Software supply chain, secrets/PKI, identity governance, privacy, threat modeling, validation, GRC, resilience, and program maturity.
 
 1. **Part 41 — Software Supply-Chain Security & Secure Build Engineering**
