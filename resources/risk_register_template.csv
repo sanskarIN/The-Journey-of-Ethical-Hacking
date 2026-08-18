@@ -1,0 +1,2 @@
+risk_id,title,domain,asset_or_process,likelihood,impact,priority,owner,target_date,status,notes
+R-001,Example outdated evidence,Assurance,Fictional service,Medium,Medium,Medium,Example Owner,2026-09-30,Open,Synthetic example only
