@@ -34,10 +34,8 @@ def test_commercial_publication_format_is_rejected(tmp_path: Path) -> None:
 
 def test_x_url_is_rejected(tmp_path: Path) -> None:
     make_required_files(tmp_path)
-    (tmp_path / "README.md").write_text(
-        "https://x.com/example\n",
-        encoding="utf-8",
-    )
+    disallowed = "https://" + "x" + ".com/example\n"
+    (tmp_path / "README.md").write_text(disallowed, encoding="utf-8")
     assert any("X/Twitter URL" in item for item in validate(tmp_path))
 
 
