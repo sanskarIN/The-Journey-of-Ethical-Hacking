@@ -25,6 +25,7 @@
     "JSON metadata",
     "release version consistency",
     "Parts 1-200 learning index integrity",
+    "documentation TOC freshness",
     "synthetic-data sensitivity",
     "documentation accessibility",
     "relative Markdown links",
@@ -32,11 +33,15 @@
     "public resource manifest generation"
   ],
   "github_maintenance": {
-    "checkout_action_major": 7,
-    "setup_python_action_major": 7,
-    "upload_artifact_action_major": 7,
+    "checkout_release": "v7.0.1",
+    "setup_python_release": "v7.0.0",
+    "upload_artifact_release": "v7.0.1",
+    "actions_pinned_to_full_sha": true,
     "dependabot_github_actions": "monthly",
-    "tagged_manifest_workflow": true
+    "dependabot_pip": "monthly",
+    "tagged_manifest_workflow": true,
+    "codeowners_configured": true,
+    "generated_release_notes_configured": true
   },
   "code_license": "Apache-2.0",
   "commercial_book_rights": "Copyright © 2026 Ram Sandesh. All rights reserved.",
