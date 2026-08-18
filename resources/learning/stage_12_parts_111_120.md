@@ -1,5 +1,9 @@
 # Stage 12 — Parts 111–120
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** AI/ML security governance, agentic AI, model/data supply chains, AI security operations, post-quantum transition, PKI, machine identity, data-protection cryptography, and integrated trust infrastructure.
 
 1. **Part 111 — AI/ML and Autonomous-System Security Governance**
