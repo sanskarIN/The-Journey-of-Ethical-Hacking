@@ -1,5 +1,9 @@
 # Learning Stage Index
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official Gumroad:** https://ramsandesh.gumroad.com
+
 The 200-part series is organized into 20 defensive-learning stages. Each stage below links to a detailed 10-part index containing the exact corrected part titles and safe companion-practice guidance.
 
 1. [Stage 01 — Parts 1–10](learning/stage_01_parts_001_010.md) — foundations, ethics, systems, networking, assessment methodology, and vulnerability-management basics.
@@ -28,3 +32,5 @@ The 200-part series is organized into 20 defensive-learning stages. Each stage b
 This public companion index is designed for authorized, defensive learning. It does not provide instructions for unauthorized access, bypassing controls, credential theft, malware, evasion, destructive actions, or interference with real systems.
 
 Use the commercial book's complete Table of Contents for the full publication context; the paid manuscript itself is intentionally not stored in this public repository.
+
+For the complete publication and current listings, use **https://ramsandesh.gumroad.com**.
