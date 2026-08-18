@@ -13,6 +13,7 @@ This page is the central index for public companion-repository documentation.
 - [`GUMROAD.md`](GUMROAD.md) — official storefront and GitHub badge guidance.
 - [`USAGE.md`](USAGE.md) — companion-resource usage guidance.
 - [`DEVELOPMENT.md`](DEVELOPMENT.md) — repeatable contributor environment and validation setup.
+- [`POLICY_STATUS.md`](POLICY_STATUS.md) — generated repository policy/release review status.
 - [`OFFLINE_ANALYSIS_EXAMPLES.md`](OFFLINE_ANALYSIS_EXAMPLES.md) — local-only analysis examples.
 - [`../resources/learning_stage_index.md`](../resources/learning_stage_index.md) — complete Parts 1–200 learning navigation.
 
@@ -41,9 +42,14 @@ Key validation entry points:
 ```bash
 python -m pytest --cov=tools --cov-report=term-missing -q
 python tools/repo_health.py --root .
+python tools/action_pinning.py --root .
+python tools/dev_environment.py --root .
+python tools/public_repo_policy.py --root .
+python tools/policy_status.py --root . --output docs/POLICY_STATUS.md --check
 python tools/release_consistency.py --root .
 python tools/learning_index_check.py --root .
 python tools/docs_toc.py --docs-dir docs --output docs/TOC.md --check
+python tools/data_dictionary.py schemas/dataset_contracts.json --output docs/DATA_DICTIONARY.md --check
 python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.json
 ```
 
