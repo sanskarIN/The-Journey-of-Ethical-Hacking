@@ -6,6 +6,37 @@
 
 All notable companion-repository changes are recorded here.
 
+## 2026-08-18 — Companion release 2026.08.18.6
+
+### Added
+
+- Tagged companion-release workflow that validates the repository and uploads `PUBLIC_RESOURCE_MANIFEST.json` as a release artifact.
+- Monthly Dependabot checks for GitHub Actions dependencies.
+- Recommended GitHub About metadata/topics guide with Gumroad as the preferred repository website.
+- GitHub `CITATION.cff` metadata for the companion repository and commercial book citation.
+- GitHub custom funding/storefront link pointing to `https://ramsandesh.gumroad.com`.
+- Issue chooser contact links for the official Gumroad storefront and security policy.
+- Parts 1–200 learning-index integrity checker and unit tests.
+- Tagged-release workflow documentation.
+
+### Improved
+
+- Upgraded `actions/checkout` from v4 to v7.
+- Upgraded `actions/setup-python` from v5 to v7.
+- Added `actions/upload-artifact@v7` to tagged-release manifest generation.
+- Strengthened dataset contracts with duplicate-ID, approved categorical-value, and integer-range validation.
+- Updated documentation index, README, tool catalog, and test catalog for the current release-integrity tooling.
+- Added learning-index validation to GitHub Actions and the consolidated repository-health command.
+- Simplified Dependabot configuration so it does not depend on repository labels that cannot be verified by the connected maintenance API.
+- Confirmed the live repository had no open issues or pull requests during this maintenance pass.
+
+### Storefront and publication boundary
+
+- Gumroad remains the official publication storefront: **https://ramsandesh.gumroad.com**.
+- X/Twitter links remain intentionally omitted.
+- No author avatar/photo/person image is used.
+- Commercial master DOCX/PDF/EPUB/store-delivery files remain outside the public repository.
+
 ## 2026-08-18 — Companion release 2026.08.18.5
 
 ### Added
