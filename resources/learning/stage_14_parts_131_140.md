@@ -1,5 +1,9 @@
 # Stage 14 — Parts 131–140
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official book storefront:** https://ramsandesh.gumroad.com
+
 **Theme:** Enterprise data security, DLP, databases/analytics, privacy engineering, data-security posture, OT/ICS, industrial identity, segmentation/monitoring, incident response, and safety-security maturity.
 
 1. **Part 131 — Enterprise Data Security, Information Protection & Data-Lifecycle Governance**
