@@ -12,6 +12,7 @@ This page is the central index for public companion-repository documentation.
 - [`../README.md`](../README.md) — repository overview and quick start.
 - [`GUMROAD.md`](GUMROAD.md) — official storefront and GitHub badge guidance.
 - [`USAGE.md`](USAGE.md) — companion-resource usage guidance.
+- [`DEVELOPMENT.md`](DEVELOPMENT.md) — repeatable contributor environment and validation setup.
 - [`OFFLINE_ANALYSIS_EXAMPLES.md`](OFFLINE_ANALYSIS_EXAMPLES.md) — local-only analysis examples.
 - [`../resources/learning_stage_index.md`](../resources/learning_stage_index.md) — complete Parts 1–200 learning navigation.
 
@@ -30,6 +31,7 @@ This page is the central index for public companion-repository documentation.
 
 - [`../datasets/README.md`](../datasets/README.md) — synthetic dataset catalog.
 - [`../schemas/README.md`](../schemas/README.md) — machine-readable dataset contracts.
+- [`DATA_DICTIONARY.md`](DATA_DICTIONARY.md) — generated field/constraint documentation for all synthetic datasets.
 - [`../tools/README.md`](../tools/README.md) — local-only analysis and release-integrity utility catalog.
 - [`../tests/README.md`](../tests/README.md) — unit and CLI smoke-test guidance.
 - [`../examples/new_dataset_contribution/README.md`](../examples/new_dataset_contribution/README.md) — worked contributor dataset example.
@@ -41,7 +43,7 @@ python -m pytest --cov=tools --cov-report=term-missing -q
 python tools/repo_health.py --root .
 python tools/release_consistency.py --root .
 python tools/learning_index_check.py --root .
-python tools/docs_toc.py --docs-dir docs --output docs/TOC.md
+python tools/docs_toc.py --docs-dir docs --output docs/TOC.md --check
 python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.json
 ```
 
