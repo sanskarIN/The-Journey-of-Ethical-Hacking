@@ -1,6 +1,36 @@
 # Changelog
 
+[![Get the Book on Gumroad](https://img.shields.io/badge/Get%20the%20Book-Gumroad-FF90E8?logo=gumroad&logoColor=000000)](https://ramsandesh.gumroad.com)
+
+**Official Gumroad:** https://ramsandesh.gumroad.com
+
 All notable companion-repository changes are recorded here.
+
+## 2026-08-18 — Maintenance, storefront, and release-integrity expansion
+
+### Added
+
+- Dedicated Gumroad storefront/badge guidance at `docs/GUMROAD.md`.
+- Official Gumroad storefront metadata in `COMPANION_RELEASE.json`.
+- JSON metadata validator and unit tests.
+- Offline dataset-summary utility and tests.
+- Fictional tabletop packs for privacy, SaaS, endpoint, and workforce governance.
+- Worked contributor example for adding a synthetic dataset plus contract.
+- Release-notes automation guidance.
+- Annual edition maintenance checklist.
+- Dependency and GitHub Actions review log.
+
+### Improved
+
+- Highlighted the direct Gumroad storefront across major public-facing repository pages and directory indexes.
+- Expanded offline-analysis documentation to cover dataset summaries.
+- Expanded tools, tests, schemas, datasets, resources, exercises, support, contribution, security, errata, and learning-index documentation.
+- Completed the third repository roadmap phase and opened a release-integrity/discoverability phase.
+- Added CI validation for release/schema JSON metadata.
+
+### Publication boundary
+
+The paid master manuscript, complete commercial PDF/EPUB, cover, certificate, and store-delivery files remain outside this public repository. The repository continues to omit X/Twitter links and author avatar/photo/person imagery.
 
 ## 2026-08-18 — Companion quality expansion
 
