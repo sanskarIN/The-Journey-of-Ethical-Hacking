@@ -14,9 +14,12 @@ REQUIRED = {"timestamp", "category", "summary", "asset"}
 def parse_timestamp(value: str) -> datetime:
     normalized = value[:-1] + "+00:00" if value.endswith("Z") else value
     try:
-        return datetime.fromisoformat(normalized)
+        parsed = datetime.fromisoformat(normalized)
     except ValueError as exc:
         raise ValueError(f"invalid ISO 8601 timestamp: {value!r}") from exc
+    if parsed.tzinfo is None:
+        raise ValueError(f"timestamp must include timezone: {value!r}")
+    return parsed
 
 
 def load_events(path: Path) -> list[dict[str, str]]:
