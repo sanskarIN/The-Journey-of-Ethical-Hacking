@@ -4,7 +4,7 @@
 
 **Official Gumroad:** https://ramsandesh.gumroad.com
 
-**Companion release:** `2026.08.18.6`
+**Companion release:** `2026.08.19.1`
 
 This generated report summarizes deterministic local repository-policy checks used for release review.
 
