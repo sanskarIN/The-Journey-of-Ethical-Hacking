@@ -36,7 +36,10 @@ The utilities in this directory operate only on local repository files.
 - `policy_status.py` — generates/checks `docs/POLICY_STATUS.md` from deterministic local repository-policy results.
 - `release_consistency.py` — verifies the companion release version matches `COMPANION_RELEASE.json`, the changelog, release snapshot, and `CITATION.cff`.
 - `learning_index_check.py` — verifies the 20 stage files cover Parts 1–200 exactly once with ten parts per stage.
+- `tag_preflight.py` — derives and validates the exact `companion-vYYYY.MM.DD.N` tag expected by release metadata.
 - `resource_manifest.py` — generates SHA-256 metadata for public companion resources while excluding commercial publication formats.
+- `manifest_verify.py` — verifies a generated public-resource manifest against the exact local repository snapshot.
+- `release_readiness.py` — generates/checks the deterministic pre-tag release-readiness report.
 - `repo_health.py` — runs the repository's structural and policy validation checks from one command.
 
 ## Common commands
@@ -50,9 +53,12 @@ python tools/dataset_summary.py datasets/*.csv
 python tools/data_dictionary.py schemas/dataset_contracts.json --output docs/DATA_DICTIONARY.md --check
 python tools/learning_index_check.py --root .
 python tools/release_consistency.py --root .
+python tools/tag_preflight.py --root . --tag companion-v2026.08.18.6
 python tools/docs_toc.py --docs-dir docs --output docs/TOC.md --check
 python tools/repo_health.py --root .
+python tools/release_readiness.py --root . --output docs/RELEASE_READINESS.md --check
 python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.json
+python tools/manifest_verify.py --root . PUBLIC_RESOURCE_MANIFEST.json
 ```
 
 ## Safety design
