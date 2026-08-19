@@ -14,6 +14,7 @@ from pathlib import Path
 
 VERSION_RE = re.compile(r"\b\d{4}\.\d{2}\.\d{2}\.\d+\b")
 CITATION_VERSION_RE = re.compile(r'^version:\s*["\']?([^"\'\n]+)', re.MULTILINE)
+CITATION_DATE_RE = re.compile(r'^date-released:\s*["\']?(\d{4}-\d{2}-\d{2})', re.MULTILINE)
 
 
 def load_release_version(release_path: Path) -> str:
@@ -35,14 +36,39 @@ def load_citation_version(citation_path: Path) -> str:
     return value
 
 
+def load_citation_date(citation_path: Path) -> str:
+    text = citation_path.read_text(encoding="utf-8")
+    match = CITATION_DATE_RE.search(text)
+    if not match:
+        raise ValueError("CITATION.cff is missing a date-released value")
+    return match.group(1)
+
+
+def expected_release_date(version: str) -> str:
+    year, month, day, _ = version.split(".", 3)
+    return f"{year}-{month}-{day}"
+
+
 def validate(root: Path) -> list[str]:
     errors: list[str] = []
     release_path = root / "COMPANION_RELEASE.json"
     changelog_path = root / "CHANGELOG.md"
     snapshot_path = root / "docs" / "RELEASE_SNAPSHOT.md"
+    candidate_path = root / "docs" / "RELEASE_CANDIDATE.md"
+    readiness_path = root / "docs" / "RELEASE_READINESS.md"
+    branch_path = root / "docs" / "RELEASE_BRANCH.md"
     citation_path = root / "CITATION.cff"
 
-    for path in (release_path, changelog_path, snapshot_path, citation_path):
+    required_paths = (
+        release_path,
+        changelog_path,
+        snapshot_path,
+        candidate_path,
+        readiness_path,
+        branch_path,
+        citation_path,
+    )
+    for path in required_paths:
         if not path.is_file():
             errors.append(f"missing release consistency file: {path.relative_to(root)}")
     if errors:
@@ -53,13 +79,21 @@ def validate(root: Path) -> list[str]:
     except (json.JSONDecodeError, ValueError) as exc:
         return [str(exc)]
 
-    changelog = changelog_path.read_text(encoding="utf-8")
-    snapshot = snapshot_path.read_text(encoding="utf-8")
-
-    if version not in changelog:
-        errors.append(f"CHANGELOG.md does not mention current companion release {version}")
-    if version not in snapshot:
-        errors.append(f"docs/RELEASE_SNAPSHOT.md does not mention current companion release {version}")
+    expected_tag = f"companion-v{version}"
+    text_checks = (
+        (changelog_path, "CHANGELOG.md", version),
+        (snapshot_path, "docs/RELEASE_SNAPSHOT.md", version),
+        (candidate_path, "docs/RELEASE_CANDIDATE.md", version),
+        (candidate_path, "docs/RELEASE_CANDIDATE.md", expected_tag),
+        (readiness_path, "docs/RELEASE_READINESS.md", version),
+        (readiness_path, "docs/RELEASE_READINESS.md", expected_tag),
+        (branch_path, "docs/RELEASE_BRANCH.md", version),
+        (branch_path, "docs/RELEASE_BRANCH.md", expected_tag),
+    )
+    for path, label, expected in text_checks:
+        text = path.read_text(encoding="utf-8")
+        if expected not in text:
+            errors.append(f"{label} does not mention current release value {expected}")
 
     try:
         citation_version = load_citation_version(citation_path)
@@ -69,6 +103,17 @@ def validate(root: Path) -> list[str]:
         if citation_version != version:
             errors.append(
                 f"CITATION.cff version {citation_version} does not match companion release {version}"
+            )
+
+    try:
+        citation_date = load_citation_date(citation_path)
+    except ValueError as exc:
+        errors.append(str(exc))
+    else:
+        expected_date = expected_release_date(version)
+        if citation_date != expected_date:
+            errors.append(
+                f"CITATION.cff date-released {citation_date} does not match release date {expected_date}"
             )
 
     return errors
