@@ -40,7 +40,7 @@ def discover_projects(suite_dir: Path) -> list[Path]:
     )
 
 
-def validate(suite_dir: Path, minimum_projects: int = 16) -> tuple[list[ProjectStatus], list[str]]:
+def validate(suite_dir: Path, minimum_projects: int = 20) -> tuple[list[ProjectStatus], list[str]]:
     errors: list[str] = []
 
     missing_suite_files = sorted(
@@ -88,7 +88,7 @@ def main() -> int:
         description="Validate the defensive companion-project suite structure."
     )
     parser.add_argument("--root", type=Path, default=Path("."))
-    parser.add_argument("--minimum-projects", type=int, default=16)
+    parser.add_argument("--minimum-projects", type=int, default=20)
     args = parser.parse_args()
 
     if args.minimum_projects < 1:
