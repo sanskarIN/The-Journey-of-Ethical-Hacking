@@ -14,6 +14,7 @@ This page is the central index for public companion-repository documentation.
 - [`USAGE.md`](USAGE.md) — companion-resource usage guidance.
 - [`DEVELOPMENT.md`](DEVELOPMENT.md) — repeatable contributor environment and validation setup.
 - [`POLICY_STATUS.md`](POLICY_STATUS.md) — generated repository policy/release review status.
+- [`RELEASE_READINESS.md`](RELEASE_READINESS.md) — generated deterministic pre-tag release verdict.
 - [`OFFLINE_ANALYSIS_EXAMPLES.md`](OFFLINE_ANALYSIS_EXAMPLES.md) — local-only analysis examples.
 - [`../resources/learning_stage_index.md`](../resources/learning_stage_index.md) — complete Parts 1–200 learning navigation.
 
@@ -50,7 +51,10 @@ python tools/release_consistency.py --root .
 python tools/learning_index_check.py --root .
 python tools/docs_toc.py --docs-dir docs --output docs/TOC.md --check
 python tools/data_dictionary.py schemas/dataset_contracts.json --output docs/DATA_DICTIONARY.md --check
+python tools/tag_preflight.py --root . --tag companion-v2026.08.18.6
+python tools/release_readiness.py --root . --output docs/RELEASE_READINESS.md --check
 python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.json
+python tools/manifest_verify.py --root . PUBLIC_RESOURCE_MANIFEST.json
 ```
 
 ## Exercises and learning resources
@@ -62,14 +66,18 @@ python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.jso
 
 - [`../ERRATA.md`](../ERRATA.md) — public correction log.
 - [`ERRATA_PROCESS.md`](ERRATA_PROCESS.md) — correction workflow.
+- [`RELEASE_CANDIDATE.md`](RELEASE_CANDIDATE.md) — current `2026.08.18.6` candidate and manual tag procedure.
 - [`RELEASE_CHECKLIST.md`](RELEASE_CHECKLIST.md) — companion release gate.
+- [`RELEASE_READINESS.md`](RELEASE_READINESS.md) — generated pre-tag readiness report.
 - [`RELEASE_SNAPSHOT.md`](RELEASE_SNAPSHOT.md) — current release-integrity expectations.
 - [`TAGGED_RELEASES.md`](TAGGED_RELEASES.md) — tag naming and automatic release-manifest workflow.
-- [`PUBLIC_RESOURCE_MANIFEST.md`](PUBLIC_RESOURCE_MANIFEST.md) — manifest generation/review guidance.
+- [`PUBLIC_RESOURCE_MANIFEST.md`](PUBLIC_RESOURCE_MANIFEST.md) — manifest generation guidance.
+- [`MANIFEST_REVIEW.md`](MANIFEST_REVIEW.md) — downloaded manifest verification and review steps.
 - [`RELEASE_NOTES_AUTOMATION.md`](RELEASE_NOTES_AUTOMATION.md) — release-note workflow guidance.
 - [`ANNUAL_EDITION_MAINTENANCE.md`](ANNUAL_EDITION_MAINTENANCE.md) — yearly refresh checklist.
 - [`DEPENDENCY_ACTION_REVIEW.md`](DEPENDENCY_ACTION_REVIEW.md) — dependency/action review decisions.
-- [`REPOSITORY_METADATA.md`](REPOSITORY_METADATA.md) — recommended GitHub About description, website, and topics.
+- [`DEPENDABOT_REVIEW.md`](DEPENDABOT_REVIEW.md) — review procedure for future dependency PRs.
+- [`REPOSITORY_METADATA.md`](REPOSITORY_METADATA.md) — recommended GitHub About description, Gumroad website, and topics.
 - [`REPOSITORY_STRUCTURE.md`](REPOSITORY_STRUCTURE.md) — current public repository layout.
 - [`../CITATION.cff`](../CITATION.cff) — repository and book citation metadata.
 - [`../COMPANION_RELEASE.json`](../COMPANION_RELEASE.json) — machine-readable release/storefront metadata.
