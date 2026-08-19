@@ -14,7 +14,7 @@ Official defensive, authorization-first companion repository for **The Journey o
 - [Get the book on Gumroad](https://ramsandesh.gumroad.com)
 - [Complete documentation index](docs/INDEX.md)
 - [Defensive companion project suite](docs/COMPANION_PROJECTS.md)
-- [16-project companion matrix](companion-projects/PROJECT_MATRIX.md)
+- [20-project companion matrix](companion-projects/PROJECT_MATRIX.md)
 - [Repository policy status](docs/POLICY_STATUS.md)
 - [Current release readiness](docs/RELEASE_READINESS.md)
 - [Current release candidate](docs/RELEASE_CANDIDATE.md)
@@ -64,9 +64,9 @@ The local/CI baseline is Python **3.12** with pinned test dependencies in `requi
 
 ### Defensive companion projects
 
-The repository now includes **16 complete offline companion projects** under `companion-projects/`. Each project has its own README, focused Python implementation, and deterministic unit tests.
+The repository now includes **20 complete offline companion projects** under `companion-projects/`. Each project has its own README, focused Python implementation, and deterministic unit tests.
 
-Current projects cover local log summarization, file integrity, indicator normalization, incident timelines, saved email-header review, secrets redaction, evidence inventory, access review, configuration drift, asset inventories, checklist progress, backup verification, JSONL event validation, data-retention review, change-control notes, and permission-matrix auditing.
+Current projects cover local log summarization, file integrity, indicator normalization, incident timelines, saved email-header review, secrets redaction, evidence inventory, access review, configuration drift, asset inventories, checklist progress, backup verification, JSONL event validation, data-retention review, change-control notes, permission-matrix auditing, control/evidence mapping, exception-register validation, patch-register reporting, and recovery-exercise reporting.
 
 List the suite tests:
 
@@ -80,7 +80,13 @@ Run every companion-project test:
 python companion-projects/run_tests.py
 ```
 
-See `docs/COMPANION_PROJECTS.md` and `companion-projects/PROJECT_MATRIX.md` for the full catalog, architecture, safety model, contribution rules, and roadmap.
+Validate the complete 20-project structure:
+
+```bash
+python tools/companion_projects_check.py --root .
+```
+
+See `docs/COMPANION_PROJECTS.md` and `companion-projects/PROJECT_MATRIX.md` for the full catalog, architecture, safety model, contribution rules, maintenance checklist, changelog, and roadmap.
 
 ### Offline utilities
 
@@ -99,6 +105,7 @@ Current local-only Python helpers include:
 - `tools/action_pinning.py`
 - `tools/dev_environment.py`
 - `tools/public_repo_policy.py`
+- `tools/companion_projects_check.py`
 - `tools/policy_status.py`
 - `tools/tag_preflight.py`
 - `tools/resource_manifest.py`
@@ -158,6 +165,7 @@ The repository CI and local health tooling validate:
 - required public community/governance files;
 - exclusion of commercial publication/archive file types from the public repository;
 - exclusion of direct X/Twitter URLs;
+- the 20-project companion-suite structure and project-owned tests;
 - synthetic CSV structure and richer dataset contracts;
 - generated data-dictionary freshness;
 - release/schema JSON metadata and release/citation-version consistency;
