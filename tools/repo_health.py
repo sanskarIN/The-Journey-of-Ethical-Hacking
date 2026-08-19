@@ -32,6 +32,7 @@ def build_checks(root: Path) -> list[list[str]]:
         [py, "tools/markdown_links.py", "README.md", "docs", "resources", "schemas", "exercises", "examples", "ERRATA.md", "ROADMAP.md", "CHANGELOG.md", "what_changed.md"],
         [py, "tools/gumroad_presence.py", "--root", str(root)],
         [py, "tools/policy_status.py", "--root", str(root), "--output", "docs/POLICY_STATUS.md", "--check"],
+        [py, "tools/release_readiness.py", "--root", str(root), "--output", "docs/RELEASE_READINESS.md", "--check"],
     ]
 
 
