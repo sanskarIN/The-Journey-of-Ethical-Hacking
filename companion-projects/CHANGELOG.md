@@ -2,6 +2,27 @@
 
 This changelog tracks the dedicated `companion-projects/` suite separately from the repository-wide `CHANGELOG.md`.
 
+## 2026-08-19 — Final engineering hardening
+
+### Added
+
+- `CLI_CONTRACT.md` with shared input, output, exit-status, validation, determinism, privacy, and safety conventions.
+- `TESTING.md` with compilation, pytest, project-owned test, suite validation, and repository-health commands.
+
+### Improved
+
+- The structure validator now checks the README catalog against actual project directories.
+- The validator checks that the project matrix has exactly one row per current project.
+- Current matrix rows must remain marked offline (`No`) and tested (`Yes`).
+- Every project README must begin with a level-1 heading.
+- Python source compilation is part of normal CI and repository health.
+- Main CLI smoke tests now cover every discovered companion-project implementation with a timeout.
+- Generated policy status now includes companion-project suite integrity.
+- Machine-readable release metadata records 20 current companion projects and offline scope.
+- Manual release-candidate and tagged-release workflows run compilation, pytest, project-owned tests, and suite validation.
+- Release-readiness validation requires those workflow quality gates to remain present.
+- Active release metadata moved to `2026.08.19.1`; the earlier `2026.08.18.6` release branch remains historical evidence.
+
 ## 2026-08-19 — Expanded to 20 projects
 
 ### Added projects
