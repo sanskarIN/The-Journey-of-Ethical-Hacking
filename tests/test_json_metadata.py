@@ -10,7 +10,9 @@ def valid_release():
         "repository": "https://github.com/sanskarIN/The-Journey-of-Ethical-Hacking",
         "official_gumroad": "https://ramsandesh.gumroad.com",
         "series_parts": 200,
-        "public_scope": ["synthetic datasets"],
+        "companion_projects": 20,
+        "companion_projects_offline": True,
+        "public_scope": ["synthetic datasets", "offline defensive companion projects"],
         "code_license": "Apache-2.0",
         "commercial_book_rights": "Copyright © 2026 Ram Sandesh. All rights reserved.",
         "commercial_manuscript_in_public_repo": False,
@@ -28,6 +30,27 @@ def test_release_metadata_rejects_wrong_storefront():
     data = valid_release()
     data["official_gumroad"] = "https://example.invalid"
     assert any("official_gumroad" in item for item in validate_release(data))
+
+
+def test_release_metadata_enforces_companion_project_count():
+    data = valid_release()
+    data["companion_projects"] = 19
+    errors = validate_release(data)
+    assert any("companion_projects must equal 20" in item for item in errors)
+
+
+def test_release_metadata_enforces_offline_companion_scope():
+    data = valid_release()
+    data["companion_projects_offline"] = False
+    errors = validate_release(data)
+    assert any("companion_projects_offline" in item for item in errors)
+
+
+def test_release_metadata_requires_non_empty_public_scope():
+    data = valid_release()
+    data["public_scope"] = []
+    errors = validate_release(data)
+    assert any("public_scope" in item for item in errors)
 
 
 def test_release_metadata_enforces_publication_boundaries():
