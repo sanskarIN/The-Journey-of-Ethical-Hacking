@@ -6,6 +6,36 @@
 
 All notable companion-repository changes are recorded here.
 
+## 2026-08-19 — Defensive companion project expansion
+
+### Added
+
+- Dedicated `companion-projects/` suite with **20 complete offline defensive mini-projects**.
+- Project-specific README, focused Python implementation, and deterministic unit tests for every project.
+- Suite architecture, project engineering standard, authorization/safety policy, threat model, synthetic-data guide, contribution guide, maintenance checklist, dedicated changelog, and roadmap.
+- Central `companion-projects/run_tests.py` runner for project-owned tests.
+- `tools/companion_projects_check.py` plus unit tests to enforce required suite files, a 20-project minimum, and per-project README/implementation/test presence.
+- Control Evidence Mapper, Exception Register Validator, Patch Register Summary, and Recovery Exercise Reporter as projects 17–20.
+
+### Improved
+
+- Added companion-project tests and structure validation to GitHub Actions CI.
+- Added the complete companion-project tree to Markdown accessibility and relative-link checks.
+- Added companion-suite structure validation to `tools/repo_health.py`.
+- Expanded README, docs index, tools catalog, tests catalog, and repository roadmap for the 20-project suite.
+- Added a dedicated project matrix and public companion-suite overview.
+
+### Fixed and hardened
+
+- Incident Timeline now requires timezone-aware timestamps.
+- Access Review Helper now rejects an empty approved-role policy.
+- Integrity Manifest, Evidence Inventory, and Backup Verify ignore symbolic links during recursive file walks.
+- Removed an unused import from IOC Normalizer.
+
+### Safety and publication boundary
+
+All companion projects remain local/offline and authorization-first. They intentionally avoid exploit delivery, credential collection, malware behavior, persistence, evasion, destructive actions, live-target discovery, and unauthorized scanning. Commercial manuscript and paid publication files remain outside the public repository.
+
 ## 2026-08-18 — Companion release 2026.08.18.6
 
 ### Added
