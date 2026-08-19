@@ -24,7 +24,9 @@ def snapshot(root: Path) -> dict[str, str]:
         raise ValueError(f"not a directory: {root}")
     return {
         path.relative_to(root).as_posix(): sha256_file(path)
-        for path in sorted(p for p in root.rglob("*") if p.is_file())
+        for path in sorted(
+            p for p in root.rglob("*") if p.is_file() and not p.is_symlink()
+        )
     }
 
 
