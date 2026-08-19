@@ -8,13 +8,32 @@
 
 This phase continued the public companion repository from general quality improvements into a release-ready, policy-checked maintenance model. The repository remains defensive, authorization-first, and intentionally separate from the commercial book delivery files.
 
+### Pre-tag release hardening continuation
+
+- Added `tools/tag_preflight.py` plus tests to derive and validate the exact `companion-vYYYY.MM.DD.N` tag expected from `COMPANION_RELEASE.json`.
+- Added `tools/manifest_verify.py` plus tests to verify public-resource manifest format, resource counts, duplicate/unsafe paths, excluded commercial formats, exact public-file coverage, byte sizes, and SHA-256 hashes.
+- Fixed direct CLI execution of `tools/manifest_verify.py` by ensuring the repository package root is available when the file is run as `python tools/manifest_verify.py ...`.
+- Added `tools/release_readiness.py` plus tests to generate a deterministic pre-tag readiness report from repository policy checks, generated policy-status freshness, expected tag naming, manifest integrity, tagged-release workflow configuration, and manual release-candidate workflow configuration.
+- Added generated `docs/RELEASE_READINESS.md`; the current repository-local verdict is **READY** for `companion-v2026.08.18.6` with all six release gates marked PASS.
+- Added `.github/workflows/release-candidate.yml`, a manual pre-tag workflow that runs pinned-environment tests, repository health, policy/readiness checks, generates and verifies the public manifest, and uploads a candidate evidence bundle without creating a tag.
+- Strengthened `.github/workflows/release-manifest.yml` so a pushed `companion-v*` tag is checked against release metadata and the generated manifest is verified before artifact upload.
+- Strengthened normal `.github/workflows/ci.yml` so it checks release-readiness freshness, generates a smoke-test manifest, verifies that manifest, and then runs the consolidated repository-health command.
+- Added release-readiness freshness to `tools/repo_health.py` and expanded its unit test to cover the complete current validator set.
+- Added `docs/RELEASE_CANDIDATE.md`, `docs/MANIFEST_REVIEW.md`, and `docs/DEPENDABOT_REVIEW.md`.
+- Consolidated GitHub About/settings guidance into canonical `docs/REPOSITORY_METADATA.md` and removed the duplicate About-settings document instead of keeping redundant documentation.
+- Updated `tools/README.md`, `tests/README.md`, README, `docs/INDEX.md`, `docs/TAGGED_RELEASES.md`, `docs/PUBLIC_RESOURCE_MANIFEST.md`, `docs/RELEASE_CHECKLIST.md`, and `docs/RELEASE_SNAPSHOT.md` to make the pre-tag, tag, manifest, and post-tag operations discoverable.
+- Regenerated `docs/TOC.md` after the documentation expansion.
+- Expanded `tools/gumroad_presence.py` so all newly added public release-operation documentation and the generated documentation TOC must retain the official Gumroad storefront URL.
+- Confirmed the repository had no open issues or pull requests during this release-candidate pass.
+- Git tag creation and GitHub About/topics writes remain explicit manual operations because the connected repository-maintenance API does not expose those write actions.
+
 ### Gumroad storefront visibility
 
 - Retained `https://ramsandesh.gumroad.com` as the canonical publication storefront.
 - Added/retained the Gumroad Shields badge on the README and major reader-facing documentation.
 - Added the Gumroad badge/direct link to **all 20 learning-stage pages**, covering Parts 1–200.
-- Added the storefront to `CITATION.cff`, `.github/FUNDING.yml`, the GitHub issue chooser, release metadata, release snapshot, policy status, and public documentation indexes.
-- Expanded `tools/gumroad_presence.py` so CI verifies the official Gumroad URL across core public docs, all 20 learning stages, citation/funding metadata, and `COMPANION_RELEASE.json`.
+- Added the storefront to `CITATION.cff`, `.github/FUNDING.yml`, the GitHub issue chooser, release metadata, release snapshot, policy status, release readiness, and public documentation indexes.
+- Expanded `tools/gumroad_presence.py` so CI verifies the official Gumroad URL across core public docs, all 20 learning stages, citation/funding metadata, release-operation documentation, generated documentation navigation, and `COMPANION_RELEASE.json`.
 - Kept URL shorteners and X/Twitter profile links out of the publication-facing repository path.
 
 ### Repository release metadata
@@ -27,8 +46,8 @@ This phase continued the public companion repository from general quality improv
 ### Tagged release manifest automation
 
 - Added `.github/workflows/release-manifest.yml`.
-- `companion-v*` tags and manual dispatch can run repository health/version checks, generate `PUBLIC_RESOURCE_MANIFEST.json`, and upload it as an Actions artifact.
-- Added `docs/PUBLIC_RESOURCE_MANIFEST.md` and release guidance for manifest review.
+- `companion-v*` tags and manual dispatch can run repository health/version checks, generate `PUBLIC_RESOURCE_MANIFEST.json`, verify it against the tagged repository snapshot, and upload it as an Actions artifact.
+- Added `docs/PUBLIC_RESOURCE_MANIFEST.md` and `docs/MANIFEST_REVIEW.md` for generation, verification, and post-tag review.
 - Kept commercial publication formats outside the manifest by design.
 
 ### Immutable GitHub Actions policy
@@ -49,6 +68,7 @@ This phase continued the public companion repository from general quality improv
 - Updated CI to install the same pinned development requirements used by contributors.
 - Added `tools/dev_environment.py` plus tests to enforce workflow Python-version alignment and exact dependency pins.
 - Added monthly Dependabot monitoring for both GitHub Actions and pip development dependencies.
+- Added `docs/DEPENDABOT_REVIEW.md` describing review gates for future dependency pull requests.
 
 ### Dataset contracts and generated documentation
 
@@ -66,6 +86,7 @@ This phase continued the public companion repository from general quality improv
 - Added `--check` mode so adding/removing/renaming documentation without regenerating the TOC fails validation.
 - Expanded `docs/INDEX.md`, README, tools catalog, and test catalog for the current repository structure.
 - Added `docs/CONTRIBUTOR_ONBOARDING.md` and `docs/ISSUE_TRIAGE.md`.
+- Regenerated the TOC after adding the release-candidate, release-readiness, manifest-review, and Dependabot-review documentation.
 
 ### GitHub community and collaboration improvements
 
@@ -127,7 +148,10 @@ The main CI and `tools/repo_health.py` now cover the policy/release layers in ad
 - relative Markdown-link checks;
 - official Gumroad storefront presence;
 - generated policy-status freshness;
-- public-resource manifest smoke generation.
+- generated release-readiness freshness;
+- public-resource manifest generation and verification.
+
+The release-specific gate additionally validates exact companion tag naming plus both tagged-release and manual release-candidate workflow configuration.
 
 ### Publication/privacy decisions retained
 
