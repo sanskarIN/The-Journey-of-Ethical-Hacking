@@ -20,6 +20,10 @@ All projects in this matrix are designed for local files, synthetic data, owned 
 | Data Retention Planner | Data governance | CSV | No | Yes |
 | Change Review Notes | Change control | CSV | No | Yes |
 | Permission Matrix Auditor | Least-privilege review | CSV + JSON policy | No | Yes |
+| Control Evidence Mapper | Control/evidence governance | CSV + JSON policy | No | Yes |
+| Exception Register Validator | Exception governance | CSV | No | Yes |
+| Patch Register Summary | Patch governance | CSV | No | Yes |
+| Recovery Exercise Reporter | Resilience exercises | CSV | No | Yes |
 
 ## Design characteristics
 
