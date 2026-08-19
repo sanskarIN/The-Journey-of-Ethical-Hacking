@@ -14,23 +14,40 @@ From the repository root:
 python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.json
 ```
 
+## Verify the manifest
+
+Verify that the artifact still matches the exact repository snapshot:
+
+```bash
+python tools/manifest_verify.py --root . PUBLIC_RESOURCE_MANIFEST.json
+```
+
+The verifier checks resource count, duplicate/unsafe paths, excluded commercial formats, missing or unexpected files, byte sizes, and SHA-256 hashes.
+
 ## Review before a tag
 
 - [ ] Confirm the generated manifest contains only public companion resources.
 - [ ] Confirm commercial `.pdf`, `.epub`, `.docx`, and `.zip` publication files are excluded.
-- [ ] Confirm each listed file has a SHA-256 digest.
+- [ ] Confirm every listed file passes byte-size and SHA-256 verification.
 - [ ] Review additions/removals compared with the previous tagged companion release.
 - [ ] Confirm `COMPANION_RELEASE.json` has the intended companion version.
 - [ ] Run `python tools/release_consistency.py --root .`.
+- [ ] Run `python tools/release_readiness.py --root . --output docs/RELEASE_READINESS.md --check`.
 - [ ] Run `python tools/repo_health.py --root .`.
 - [ ] Confirm the official storefront remains `https://ramsandesh.gumroad.com`.
 - [ ] Confirm X/Twitter remains omitted from publication-facing files.
 - [ ] Confirm no author avatar/photo/person image has been introduced.
 
+## Tagged workflow
+
+The `Companion Release Manifest` workflow generates and verifies the manifest before uploading it. A failed verification prevents the artifact-upload step from being treated as a valid release record.
+
+For manual review after a workflow run, use `MANIFEST_REVIEW.md`.
+
 ## Tagging policy
 
-The committed manifest should describe public repository resources only. It is not a delivery manifest for the paid commercial eBook package.
+The manifest describes public repository resources only. It is not a delivery manifest for the paid commercial eBook package.
 
-For each tagged companion release, regenerate the manifest after the final validated commit so hashes represent the exact release contents.
+For each tagged companion release, generate the manifest from the final validated tag so hashes represent the exact release contents.
 
 **Publication storefront:** https://ramsandesh.gumroad.com
