@@ -34,6 +34,15 @@ Using the official Gumroad storefront as the repository website gives readers a 
 - `education`
 - `cyber-resilience`
 
+## About-panel checklist
+
+- [ ] Description is concise and clearly defensive in scope.
+- [ ] Website is exactly `https://ramsandesh.gumroad.com`.
+- [ ] Topics are relevant and do not imply unauthorized/offensive use.
+- [ ] X/Twitter remains omitted.
+- [ ] No author avatar/photo/person image is added for publication promotion.
+- [ ] The public companion repository remains clearly separated from paid publication files.
+
 ## Visibility rules
 
 - Keep the repository public as the companion-resource project.
@@ -41,6 +50,10 @@ Using the official Gumroad storefront as the repository website gives readers a 
 - Keep the direct Gumroad storefront prominent in reader-facing documentation.
 - Keep X/Twitter links omitted from publication-facing content.
 - Do not add an author avatar/photo/person image to repository publication assets.
+
+## Storefront consistency
+
+The README and public documentation already use the official Gumroad badge and direct URL. The About-panel website should use the same direct storefront URL rather than a URL shortener or social-profile redirect.
 
 ## Review cadence
 
