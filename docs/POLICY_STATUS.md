@@ -13,6 +13,7 @@ This generated report summarizes deterministic local repository-policy checks us
 | Immutable GitHub Actions references | PASS |
 | Development environment consistency | PASS |
 | Public repository boundary | PASS |
+| Companion project suite integrity | PASS |
 | Release and citation version consistency | PASS |
 | Parts 1–200 learning index integrity | PASS |
 | Official Gumroad storefront presence | PASS |
