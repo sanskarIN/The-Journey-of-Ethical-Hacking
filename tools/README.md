@@ -33,6 +33,7 @@ The utilities in this directory operate only on local repository files.
 - `action_pinning.py` — rejects movable external GitHub Actions references and requires full 40-character SHAs.
 - `dev_environment.py` — checks `.python-version`, workflow Python versions, and exact development dependency pins.
 - `public_repo_policy.py` — requires core community/governance files and blocks commercial publication formats and direct X/Twitter URLs from the public repository.
+- `companion_projects_check.py` — validates the companion-suite project floor, required suite files, per-project README, implementation, and test presence.
 - `policy_status.py` — generates/checks `docs/POLICY_STATUS.md` from deterministic local repository-policy results.
 - `release_consistency.py` — verifies the companion release version matches `COMPANION_RELEASE.json`, the changelog, release snapshot, and `CITATION.cff`.
 - `learning_index_check.py` — verifies the 20 stage files cover Parts 1–200 exactly once with ten parts per stage.
@@ -40,7 +41,7 @@ The utilities in this directory operate only on local repository files.
 - `resource_manifest.py` — generates SHA-256 metadata for public companion resources while excluding commercial publication formats.
 - `manifest_verify.py` — verifies a generated public-resource manifest against the exact local repository snapshot.
 - `release_readiness.py` — generates/checks the deterministic pre-tag release-readiness report.
-- `repo_health.py` — runs the repository's structural and policy validation checks from one command.
+- `repo_health.py` — runs the repository's structural and policy validation checks from one command, including companion-project structure and documentation checks.
 
 ## Common commands
 
@@ -48,6 +49,8 @@ The utilities in this directory operate only on local repository files.
 python tools/action_pinning.py --root .
 python tools/dev_environment.py --root .
 python tools/public_repo_policy.py --root .
+python tools/companion_projects_check.py --root .
+python companion-projects/run_tests.py
 python tools/policy_status.py --root . --output docs/POLICY_STATUS.md --check
 python tools/dataset_summary.py datasets/*.csv
 python tools/data_dictionary.py schemas/dataset_contracts.json --output docs/DATA_DICTIONARY.md --check
