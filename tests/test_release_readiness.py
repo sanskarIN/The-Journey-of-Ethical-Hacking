@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import tools.release_readiness as release_readiness
 from tools.release_readiness import candidate_workflow_issues, workflow_issues
 
 
@@ -81,3 +82,21 @@ def test_candidate_workflow_missing_readiness_is_reported(tmp_path: Path) -> Non
     )
     issues = candidate_workflow_issues(tmp_path)
     assert any("release readiness step" in item for item in issues)
+
+
+def test_render_uses_release_branch_for_ready_candidate(tmp_path: Path, monkeypatch) -> None:
+    (tmp_path / "COMPANION_RELEASE.json").write_text(
+        '{"companion_release":"2026.08.19.1"}', encoding="utf-8"
+    )
+    monkeypatch.setattr(release_readiness, "collect", lambda root: [])
+    monkeypatch.setattr(
+        release_readiness,
+        "expected_tag",
+        lambda root: "companion-v2026.08.19.1",
+    )
+
+    text = release_readiness.render(tmp_path)
+
+    assert "release/companion-v2026.08.19.1" in text
+    assert "reviewed release-branch commit" in text
+    assert "does not create a Git branch, Git tag" in text
