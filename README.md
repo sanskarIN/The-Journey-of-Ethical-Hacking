@@ -13,6 +13,8 @@ Official defensive, authorization-first companion repository for **The Journey o
 
 - [Get the book on Gumroad](https://ramsandesh.gumroad.com)
 - [Complete documentation index](docs/INDEX.md)
+- [Defensive companion project suite](docs/COMPANION_PROJECTS.md)
+- [16-project companion matrix](companion-projects/PROJECT_MATRIX.md)
 - [Repository policy status](docs/POLICY_STATUS.md)
 - [Current release readiness](docs/RELEASE_READINESS.md)
 - [Current release candidate](docs/RELEASE_CANDIDATE.md)
@@ -59,6 +61,26 @@ The repository contains small fictional datasets for asset posture, control evid
 ### Repeatable contributor environment
 
 The local/CI baseline is Python **3.12** with pinned test dependencies in `requirements-dev.txt`. See `docs/DEVELOPMENT.md` for Windows, Linux, and macOS setup commands. CI validates that workflow Python versions match `.python-version` and that development dependencies remain exactly pinned.
+
+### Defensive companion projects
+
+The repository now includes **16 complete offline companion projects** under `companion-projects/`. Each project has its own README, focused Python implementation, and deterministic unit tests.
+
+Current projects cover local log summarization, file integrity, indicator normalization, incident timelines, saved email-header review, secrets redaction, evidence inventory, access review, configuration drift, asset inventories, checklist progress, backup verification, JSONL event validation, data-retention review, change-control notes, and permission-matrix auditing.
+
+List the suite tests:
+
+```bash
+python companion-projects/run_tests.py --list
+```
+
+Run every companion-project test:
+
+```bash
+python companion-projects/run_tests.py
+```
+
+See `docs/COMPANION_PROJECTS.md` and `companion-projects/PROJECT_MATRIX.md` for the full catalog, architecture, safety model, contribution rules, and roadmap.
 
 ### Offline utilities
 
@@ -168,6 +190,8 @@ The manual `.github/workflows/release-candidate.yml` workflow can run the same p
 ## Safety boundary
 
 Use these resources only for lawful, authorized, defensive learning. The repository intentionally excludes credential attacks, malware, stealth/evasion, unauthorized scanning, destructive actions, instructions for bypassing security controls, and sensitive real-world target data.
+
+The `companion-projects/` suite follows the same boundary and is intentionally offline: it accepts explicit local files or directories and does not perform live-target discovery or network access.
 
 ## Licensing
 
