@@ -4,7 +4,7 @@
 
 **Official Gumroad:** https://ramsandesh.gumroad.com
 
-This directory validates the repository's local-only defensive, release-integrity, and repository-policy utilities.
+This directory validates the repository's local-only defensive, release-integrity, repository-policy, and companion-project quality utilities.
 
 ## Repeatable test environment
 
@@ -16,10 +16,16 @@ Install them with:
 python -m pip install -r requirements-dev.txt
 ```
 
-Run the test suite from the repository root:
+Run the main test suite from the repository root:
 
 ```bash
 python -m pytest --cov=tools --cov-report=term-missing -q
+```
+
+Run all project-owned companion tests:
+
+```bash
+python companion-projects/run_tests.py
 ```
 
 ## Current coverage areas
@@ -44,6 +50,8 @@ The suite includes tests for:
 - contributor/CI Python and dependency consistency;
 - public repository governance/publication boundaries;
 - generated repository policy status;
+- companion-project suite structure, required suite files, project floor, README, implementation, and test presence;
+- 16 project-owned defensive utility test files under `companion-projects/`;
 - Markdown accessibility;
 - relative Markdown links;
 - repository health orchestration;
