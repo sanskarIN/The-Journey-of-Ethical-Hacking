@@ -126,17 +126,20 @@
 - [x] Add `companion-projects/CLI_CONTRACT.md` and `companion-projects/TESTING.md`.
 - [x] Add Python source compilation to normal CI and `tools/repo_health.py`.
 - [x] Expand CLI smoke tests from repository tools to every discovered companion-project CLI with timeouts.
+- [x] Add per-test-file timeouts and optional fail-fast behavior to the project-owned test runner, with regression tests.
 - [x] Add companion-suite integrity to the generated policy-status report and release-readiness aggregation.
 - [x] Add machine-readable `companion_projects: 20` and `companion_projects_offline: true` release metadata.
 - [x] Strengthen release consistency across changelog, snapshot, candidate, readiness, release-branch guide, citation version, and citation release date.
 - [x] Require compilation, pytest, project-owned tests, and companion structure validation in both manual candidate and tagged-release workflows.
 - [x] Require the readiness checker to detect removal of those release-workflow quality gates.
+- [x] Add a canonical `docs/FINAL_REPOSITORY_AUDIT.md` and complete repository-structure documentation.
 - [x] Advance the active `main` candidate to `2026.08.19.1` / `companion-v2026.08.19.1`.
 - [x] Preserve `release/companion-v2026.08.18.6` as historical evidence instead of moving it to the new state.
+- [x] Freeze the reviewed `2026.08.19.1` candidate on `release/companion-v2026.08.19.1`.
 
 ## Remaining manual and recurring release operations
 
-- [ ] Freeze the final reviewed `2026.08.19.1` snapshot on `release/companion-v2026.08.19.1`.
+- [ ] Run/confirm the complete CI and release-candidate gate on `release/companion-v2026.08.19.1`.
 - [ ] Create `companion-v2026.08.19.1` only after the release branch passes the complete gate.
 - [ ] Review the generated manifest artifact from the tagged-release workflow after tagging.
 - [ ] Apply the documented GitHub About description, Gumroad website, and recommended topics manually if repository-settings API support remains unavailable.
