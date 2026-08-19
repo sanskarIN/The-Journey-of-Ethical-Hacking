@@ -6,24 +6,31 @@
 
 All notable companion-repository changes are recorded here.
 
-## 2026-08-19 — Defensive companion project expansion
+## 2026-08-19 — Companion release 2026.08.19.1
 
 ### Added
 
 - Dedicated `companion-projects/` suite with **20 complete offline defensive mini-projects**.
 - Project-specific README, focused Python implementation, and deterministic unit tests for every project.
 - Suite architecture, project engineering standard, authorization/safety policy, threat model, synthetic-data guide, contribution guide, maintenance checklist, dedicated changelog, and roadmap.
+- `companion-projects/CLI_CONTRACT.md` for shared CLI, output, error, and exit-code conventions.
+- `companion-projects/TESTING.md` for the full local validation workflow.
 - Central `companion-projects/run_tests.py` runner for project-owned tests.
-- `tools/companion_projects_check.py` plus unit tests to enforce required suite files, a 20-project minimum, and per-project README/implementation/test presence.
+- `tools/companion_projects_check.py` plus unit tests to enforce required suite files, a 20-project minimum, README catalog consistency, project-matrix consistency, and per-project README/implementation/test presence.
 - Control Evidence Mapper, Exception Register Validator, Patch Register Summary, and Recovery Exercise Reporter as projects 17–20.
 
 ### Improved
 
+- Added Python `compileall` validation to normal CI and the consolidated repository-health gate.
+- Expanded CLI smoke coverage to every discovered companion-project implementation.
 - Added companion-project tests and structure validation to GitHub Actions CI.
 - Added the complete companion-project tree to Markdown accessibility and relative-link checks.
+- Added companion-suite integrity to the generated repository policy status.
+- Strengthened release consistency so candidate, readiness, release-branch, citation-version, and citation-date records must align with `COMPANION_RELEASE.json`.
+- Added machine-readable `companion_projects: 20` and `companion_projects_offline: true` release metadata and validator coverage.
 - Added companion-suite structure validation to `tools/repo_health.py`.
-- Expanded README, docs index, tools catalog, tests catalog, and repository roadmap for the 20-project suite.
-- Added a dedicated project matrix and public companion-suite overview.
+- Expanded README, docs index, tools catalog, tests catalog, release checklist, release snapshot, and repository roadmap for the 20-project suite.
+- Advanced the active `main` candidate to **2026.08.19.1** while preserving `release/companion-v2026.08.18.6` as the earlier frozen candidate.
 
 ### Fixed and hardened
 
@@ -91,7 +98,7 @@ All companion projects remain local/offline and authorization-first. They intent
 
 ### Policy and release automation
 
-Release `2026.08.18.6` now enforces deterministic local checks for:
+Release `2026.08.18.6` enforces deterministic local checks for:
 
 - full-SHA external GitHub Actions references;
 - Python/development-environment consistency;
@@ -109,7 +116,7 @@ Release `2026.08.18.6` now enforces deterministic local checks for:
 - synthetic dataset quality/contracts/sensitivity;
 - Markdown accessibility and relative links.
 
-The current generated release-readiness result is **READY** for `companion-v2026.08.18.6`. Git tag creation and repository About/topics writes remain manual because the connected maintenance API does not expose those operations.
+The generated release-readiness result for that snapshot was **READY** for `companion-v2026.08.18.6`. Repository About/topics writes remain manual where the connected maintenance API does not expose those operations.
 
 ### Storefront and publication boundary
 
