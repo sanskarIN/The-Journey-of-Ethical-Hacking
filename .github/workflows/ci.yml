@@ -55,7 +55,11 @@ jobs:
         run: python tools/gumroad_presence.py --root .
       - name: Check generated repository policy status
         run: python tools/policy_status.py --root . --output docs/POLICY_STATUS.md --check
+      - name: Check generated release readiness
+        run: python tools/release_readiness.py --root . --output docs/RELEASE_READINESS.md --check
       - name: Generate public resource manifest as a smoke test
         run: python tools/resource_manifest.py --root . --output /tmp/public-resource-manifest.json
+      - name: Verify generated public resource manifest
+        run: python tools/manifest_verify.py --root . /tmp/public-resource-manifest.json
       - name: Run consolidated repository health check
         run: python tools/repo_health.py --root .
