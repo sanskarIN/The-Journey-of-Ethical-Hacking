@@ -10,6 +10,8 @@ This page is the central index for public companion-repository documentation.
 
 - [`TOC.md`](TOC.md) — generated table of contents for files in `docs/`.
 - [`../README.md`](../README.md) — repository overview and quick start.
+- [`COMPANION_PROJECTS.md`](COMPANION_PROJECTS.md) — overview of the 16-project offline defensive companion suite.
+- [`../companion-projects/PROJECT_MATRIX.md`](../companion-projects/PROJECT_MATRIX.md) — project-by-project skill, input, network, and test matrix.
 - [`GUMROAD.md`](GUMROAD.md) — official storefront and GitHub badge guidance.
 - [`USAGE.md`](USAGE.md) — companion-resource usage guidance.
 - [`DEVELOPMENT.md`](DEVELOPMENT.md) — repeatable contributor environment and validation setup.
@@ -22,6 +24,10 @@ This page is the central index for public companion-repository documentation.
 
 - [`../SECURITY.md`](../SECURITY.md) — responsible-use and private security reporting.
 - [`../CONTRIBUTING.md`](../CONTRIBUTING.md) — safe contribution requirements.
+- [`../companion-projects/SAFETY.md`](../companion-projects/SAFETY.md) — companion-suite authorization and data-handling boundary.
+- [`../companion-projects/THREAT_MODEL.md`](../companion-projects/THREAT_MODEL.md) — companion-suite threat model and non-goals.
+- [`../companion-projects/CONTRIBUTING.md`](../companion-projects/CONTRIBUTING.md) — project proposal and testing requirements.
+- [`../companion-projects/SYNTHETIC_DATA_GUIDE.md`](../companion-projects/SYNTHETIC_DATA_GUIDE.md) — safe synthetic fixture guidance.
 - [`CONTRIBUTOR_ONBOARDING.md`](CONTRIBUTOR_ONBOARDING.md) — first-time contributor checklist.
 - [`ISSUE_TRIAGE.md`](ISSUE_TRIAGE.md) — issue classification and maintenance guidance.
 - [`ACCESSIBILITY.md`](ACCESSIBILITY.md) — Markdown accessibility guidance.
@@ -36,12 +42,15 @@ This page is the central index for public companion-repository documentation.
 - [`DATA_DICTIONARY.md`](DATA_DICTIONARY.md) — generated field/constraint documentation for all synthetic datasets.
 - [`../tools/README.md`](../tools/README.md) — local-only analysis and release-integrity utility catalog.
 - [`../tests/README.md`](../tests/README.md) — unit and CLI smoke-test guidance.
+- [`../companion-projects/ARCHITECTURE.md`](../companion-projects/ARCHITECTURE.md) — companion-suite architecture and testing model.
+- [`../companion-projects/PROJECT_STANDARD.md`](../companion-projects/PROJECT_STANDARD.md) — engineering baseline for every companion project.
 - [`../examples/new_dataset_contribution/README.md`](../examples/new_dataset_contribution/README.md) — worked contributor dataset example.
 
 Key validation entry points:
 
 ```bash
 python -m pytest --cov=tools --cov-report=term-missing -q
+python companion-projects/run_tests.py
 python tools/repo_health.py --root .
 python tools/action_pinning.py --root .
 python tools/dev_environment.py --root .
@@ -61,6 +70,8 @@ python tools/manifest_verify.py --root . PUBLIC_RESOURCE_MANIFEST.json
 
 - [`../exercises/README.md`](../exercises/README.md) — seven fictional tabletop exercise packs.
 - [`../resources/README.md`](../resources/README.md) — templates, checklists, mastery resources, and glossary seed.
+- [`../companion-projects/README.md`](../companion-projects/README.md) — 16 local defensive mini-projects with independent documentation, code, and tests.
+- [`../companion-projects/ROADMAP.md`](../companion-projects/ROADMAP.md) — safe future project and quality roadmap.
 
 ## Corrections, release, and maintenance
 
