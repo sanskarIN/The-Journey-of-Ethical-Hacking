@@ -32,6 +32,8 @@ Every project is designed for local files, synthetic data, owned systems, or exp
 - [`THREAT_MODEL.md`](THREAT_MODEL.md) — risks, controls, and non-goals.
 - [`SYNTHETIC_DATA_GUIDE.md`](SYNTHETIC_DATA_GUIDE.md) — safe fixture guidance.
 - [`CONTRIBUTING.md`](CONTRIBUTING.md) — contribution and testing requirements.
+- [`MAINTENANCE_CHECKLIST.md`](MAINTENANCE_CHECKLIST.md) — review checklist for future changes.
+- [`CHANGELOG.md`](CHANGELOG.md) — dedicated suite history.
 - [`ROADMAP.md`](ROADMAP.md) — safe future project ideas and quality work.
 
 ## Design rules
@@ -62,6 +64,12 @@ Run the complete companion-project test suite:
 
 ```bash
 python companion-projects/run_tests.py
+```
+
+Validate the suite structure:
+
+```bash
+python tools/companion_projects_check.py --root .
 ```
 
 Run only against local data you own or are explicitly authorized to process.
