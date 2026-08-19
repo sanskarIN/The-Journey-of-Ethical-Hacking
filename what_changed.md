@@ -4,6 +4,78 @@
 
 **Official Gumroad:** https://ramsandesh.gumroad.com
 
+## 2026-08-19 — 20-project defensive companion suite expansion
+
+This continuation moved beyond release hardening and added a dedicated, maintainable project suite to the public companion repository while preserving the commercial-publication boundary.
+
+### Twenty complete companion projects
+
+Added `companion-projects/` with these local/offline defensive projects:
+
+1. Log Sifter
+2. Integrity Manifest
+3. IOC Normalizer
+4. Incident Timeline Builder
+5. Header Safety Report
+6. Secrets Redactor
+7. Evidence Inventory
+8. Access Review Helper
+9. Configuration Baseline Diff
+10. Asset Inventory Summary
+11. Security Checklist Tracker
+12. Backup Verify
+13. JSONL Event Validator
+14. Data Retention Planner
+15. Change Review Notes
+16. Permission Matrix Auditor
+17. Control Evidence Mapper
+18. Exception Register Validator
+19. Patch Register Summary
+20. Recovery Exercise Reporter
+
+Every project has its own README, focused Python implementation, and deterministic unit tests. The suite uses explicit local inputs, synthetic or authorized data, and no live-target discovery or network access.
+
+### Suite engineering and governance
+
+Added:
+
+- `companion-projects/README.md`;
+- `companion-projects/PROJECT_MATRIX.md`;
+- `companion-projects/PROJECT_STANDARD.md`;
+- `companion-projects/ARCHITECTURE.md`;
+- `companion-projects/SAFETY.md`;
+- `companion-projects/THREAT_MODEL.md`;
+- `companion-projects/SYNTHETIC_DATA_GUIDE.md`;
+- `companion-projects/CONTRIBUTING.md`;
+- `companion-projects/MAINTENANCE_CHECKLIST.md`;
+- `companion-projects/CHANGELOG.md`;
+- `companion-projects/ROADMAP.md`;
+- `companion-projects/run_tests.py`.
+
+### Repository validation and CI integration
+
+- Added `tools/companion_projects_check.py` plus unit tests.
+- The structure validator enforces required suite files, a 20-project minimum, and README/implementation/test presence for every project.
+- Added the validator to `tools/repo_health.py` and normal GitHub Actions CI.
+- Added `python companion-projects/run_tests.py` to CI.
+- Extended accessibility and relative Markdown-link checks across `companion-projects/`.
+- Updated the root README, docs index, tools catalog, tests catalog, project matrix, top-level roadmap, repository changelog, and companion-suite documentation for the 20-project milestone.
+
+### Correctness and scope hardening
+
+- Incident Timeline now requires timezone-aware timestamps and has regression coverage.
+- Access Review Helper rejects an empty approved-role policy and has regression coverage.
+- Integrity Manifest ignores symbolic links during recursive local inventory.
+- Evidence Inventory ignores symbolic links during recursive local inventory.
+- Backup Verify ignores symbolic links during recursive comparison.
+- Removed an unused IOC Normalizer import.
+
+### Safety and publication boundary retained
+
+- No exploit delivery, credential collection, malware behavior, persistence, evasion, destructive actions, live-target discovery, or unauthorized scanning was added.
+- The paid master manuscript and commercial publication/store-delivery files remain outside the public companion repository.
+- Companion project code remains part of the repository's open companion-code surface where the repository license applies.
+
 ## 2026-08-18 — Companion release 2026.08.18.6 and repository policy automation
 
 This phase continued the public companion repository from general quality improvements into a release-ready, policy-checked maintenance model. The repository remains defensive, authorization-first, and intentionally separate from the commercial book delivery files.
