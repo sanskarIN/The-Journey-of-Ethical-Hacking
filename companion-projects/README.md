@@ -22,6 +22,10 @@ Every project is designed for local files, synthetic data, owned systems, or exp
 14. `data-retention-planner` — calculate advisory review dates from a local retention register.
 15. `change-review-notes` — render local change-control exports as Markdown review notes.
 16. `permission-matrix-auditor` — compare local permission assignments with an explicit policy.
+17. `control-evidence-mapper` — map local evidence records to recognized defensive controls.
+18. `exception-register-validator` — review local governance exceptions for expiry and approval.
+19. `patch-register-summary` — summarize an explicit local patch-status export without scanning systems.
+20. `recovery-exercise-reporter` — summarize fictional or authorized tabletop recovery exercises.
 
 ## Suite documentation
 
