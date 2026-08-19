@@ -17,6 +17,7 @@ def build_checks(root: Path) -> list[list[str]]:
     py = sys.executable
     datasets = [str(path) for path in sorted((root / "datasets").glob("*.csv"))]
     return [
+        [py, "-m", "compileall", "-q", "tools", "tests", "companion-projects"],
         [py, "tools/action_pinning.py", "--root", str(root)],
         [py, "tools/dev_environment.py", "--root", str(root)],
         [py, "tools/public_repo_policy.py", "--root", str(root)],
