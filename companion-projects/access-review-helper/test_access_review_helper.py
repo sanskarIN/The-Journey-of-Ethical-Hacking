@@ -30,6 +30,13 @@ class AccessReviewHelperTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 access_review_helper.review(path, {"reader"})
 
+    def test_empty_role_policy_is_rejected(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "policy.json"
+            path.write_text('{"approved_roles": []}', encoding="utf-8")
+            with self.assertRaises(ValueError):
+                access_review_helper.load_policy(path)
+
 
 if __name__ == "__main__":
     unittest.main()
