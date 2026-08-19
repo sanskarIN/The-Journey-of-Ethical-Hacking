@@ -10,7 +10,7 @@ This document is the canonical final-maintenance audit for the public companion 
 
 - Companion release: `2026.08.19.1`
 - Expected tag: `companion-v2026.08.19.1`
-- Intended frozen branch: `release/companion-v2026.08.19.1`
+- Frozen release branch: `release/companion-v2026.08.19.1`
 - Previous frozen branch retained: `release/companion-v2026.08.18.6`
 - Learning series coverage: Parts 1–200
 - Companion projects: 20
@@ -64,6 +64,8 @@ python tools/repo_health.py --root .
 
 The main pytest suite smoke-tests `--help` for every local repository tool and every discovered companion-project implementation with a timeout.
 
+The project-owned runner uses isolated Python processes, a default 30-second per-test-file timeout, configurable `--timeout`, and optional `--fail-fast`; repository tests cover success, non-zero failure, timeout, fail-fast, and invalid-timeout behavior.
+
 ## Repository policy gates
 
 The repository health/release policy covers:
@@ -116,6 +118,7 @@ The final project-maintenance work includes:
 - symlink exclusion in recursive integrity, evidence-inventory, and backup-verification walks;
 - deterministic suite/catalog/matrix validation;
 - CLI smoke coverage for all companion implementations;
+- bounded project-owned test execution with timeout/fail-fast support;
 - release metadata consistency expanded to candidate/readiness/branch/citation date;
 - machine-readable 20-project/offline-scope metadata.
 
@@ -125,21 +128,26 @@ The repository intentionally does not add exploit delivery, credential collectio
 
 Projects should process only synthetic data, user-owned data, or data the user is explicitly authorized to review.
 
-## Final release operations
+## Release status
 
-After all automated checks succeed:
+Completed repository operation:
 
-1. Freeze the reviewed candidate on `release/companion-v2026.08.19.1`.
-2. Re-run the complete gate on that branch.
-3. Create `companion-v2026.08.19.1` from the reviewed release-branch commit.
-4. Confirm the tagged-release workflow succeeds.
-5. Download and review `PUBLIC_RESOURCE_MANIFEST.json`.
-6. Apply documented GitHub About/topics settings manually if still needed.
+- [x] Frozen reviewed candidate branch: `release/companion-v2026.08.19.1`.
+
+Remaining acceptance/release operations:
+
+1. Run/confirm the complete CI and release-candidate gate on the frozen branch.
+2. Create `companion-v2026.08.19.1` from the reviewed release-branch commit only after those checks succeed.
+3. Confirm the tagged-release workflow succeeds.
+4. Download and review `PUBLIC_RESOURCE_MANIFEST.json`.
+5. Apply documented GitHub About/topics settings manually if still needed.
 
 The earlier `release/companion-v2026.08.18.6` branch should remain unchanged as historical evidence for the older snapshot.
 
 ## Accuracy note
 
 Automated checks substantially reduce the risk of syntax errors, regressions, stale documentation, and release inconsistencies, but no software process can prove that every possible bug is absent. New changes should continue to follow the same test, review, and release gates.
+
+At this maintenance checkpoint, the connected GitHub status endpoint did not expose a combined CI status for the newest commit, so this audit does not claim an independently observed Actions pass for the frozen branch.
 
 **Publication storefront:** https://ramsandesh.gumroad.com
