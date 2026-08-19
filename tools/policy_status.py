@@ -16,6 +16,7 @@ if __package__ in (None, ""):
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from tools.action_pinning import validate as validate_actions
+from tools.companion_projects_check import validate as validate_companion_projects
 from tools.data_dictionary import is_current as data_dictionary_is_current
 from tools.dev_environment import validate as validate_dev_environment
 from tools.docs_toc import is_current as docs_toc_is_current
@@ -39,6 +40,8 @@ def collect(root: Path) -> list[tuple[str, bool, list[str]]]:
     add("Immutable GitHub Actions references", validate_actions(root))
     add("Development environment consistency", validate_dev_environment(root))
     add("Public repository boundary", validate_public_repo(root))
+    _, companion_issues = validate_companion_projects(root / "companion-projects")
+    add("Companion project suite integrity", companion_issues)
     add("Release and citation version consistency", validate_release(root))
     add("Parts 1–200 learning index integrity", validate_learning_index(root))
     add("Official Gumroad storefront presence", validate_gumroad(root))
