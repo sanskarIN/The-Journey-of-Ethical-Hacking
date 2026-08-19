@@ -11,9 +11,12 @@ def test_build_checks_contains_expected_validators(tmp_path: Path):
     commands = build_checks(tmp_path)
     text = "\n".join(" ".join(command) for command in commands)
 
+    assert "compileall" in text
+    assert "companion-projects" in text
     assert "tools/action_pinning.py" in text
     assert "tools/dev_environment.py" in text
     assert "tools/public_repo_policy.py" in text
+    assert "tools/companion_projects_check.py" in text
     assert "tools/csv_quality.py" in text
     assert "tools/dataset_contracts.py" in text
     assert "tools/data_dictionary.py" in text
