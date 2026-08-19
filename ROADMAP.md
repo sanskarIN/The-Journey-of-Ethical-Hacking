@@ -101,7 +101,7 @@
 - [x] Surface the release-readiness/manifest workflow in README, docs index, release checklist, tagged-release guide, and release snapshot.
 - [x] Enforce Gumroad storefront presence across the newly added public release-operation documentation.
 - [x] Keep the generated documentation TOC current after the release-operation documentation expansion.
-- [x] Record a generated `READY` verdict for `companion-v2026.08.18.6`.
+- [x] Record a generated `READY` verdict for the reviewed candidate snapshot.
 
 ## Defensive companion projects phase — completed 2026-08-19
 
@@ -109,7 +109,9 @@
 - [x] Give every project its own README, focused Python implementation, and deterministic unit tests.
 - [x] Add suite architecture, engineering standard, safety boundary, threat model, synthetic-data guidance, contribution guidance, roadmap, changelog, and maintenance checklist.
 - [x] Add a centralized runner for all project-owned tests.
-- [x] Add a repository-level structure validator that enforces required suite files, a 20-project floor, per-project README files, implementations, and tests.
+- [x] Add a repository-level structure validator with a 20-project floor.
+- [x] Validate README catalog coverage and project-matrix row count/offline/test status.
+- [x] Require per-project H1 README files, implementations, and tests.
 - [x] Wire companion tests and structure validation into GitHub Actions CI.
 - [x] Include the companion suite in repository-health accessibility and relative-link checks.
 - [x] Add companion-project navigation to the root README, docs index, tools catalog, and tests catalog.
@@ -119,14 +121,28 @@
 - [x] Add control/evidence mapping, exception-register validation, patch-register reporting, and recovery-exercise reporting as the 17th–20th projects.
 - [x] Keep the complete companion suite local/offline with explicit input paths and synthetic/authorized data.
 
+## Final 2026.08.19.1 hardening phase — completed
+
+- [x] Add `companion-projects/CLI_CONTRACT.md` and `companion-projects/TESTING.md`.
+- [x] Add Python source compilation to normal CI and `tools/repo_health.py`.
+- [x] Expand CLI smoke tests from repository tools to every discovered companion-project CLI with timeouts.
+- [x] Add companion-suite integrity to the generated policy-status report and release-readiness aggregation.
+- [x] Add machine-readable `companion_projects: 20` and `companion_projects_offline: true` release metadata.
+- [x] Strengthen release consistency across changelog, snapshot, candidate, readiness, release-branch guide, citation version, and citation release date.
+- [x] Require compilation, pytest, project-owned tests, and companion structure validation in both manual candidate and tagged-release workflows.
+- [x] Require the readiness checker to detect removal of those release-workflow quality gates.
+- [x] Advance the active `main` candidate to `2026.08.19.1` / `companion-v2026.08.19.1`.
+- [x] Preserve `release/companion-v2026.08.18.6` as historical evidence instead of moving it to the new state.
+
 ## Remaining manual and recurring release operations
 
-- [ ] Create the first `companion-v2026.08.18.6` tag when the release snapshot is intentionally ready to freeze.
-- [ ] Review the generated manifest artifact from the tagged-release workflow after the first tag.
+- [ ] Freeze the final reviewed `2026.08.19.1` snapshot on `release/companion-v2026.08.19.1`.
+- [ ] Create `companion-v2026.08.19.1` only after the release branch passes the complete gate.
+- [ ] Review the generated manifest artifact from the tagged-release workflow after tagging.
 - [ ] Apply the documented GitHub About description, Gumroad website, and recommended topics manually if repository-settings API support remains unavailable.
 - [ ] Review future Dependabot PRs for Actions and pip updates before merging.
 - [ ] Record future errata and edition-refresh changes without publishing paid manuscript text.
-- [ ] Re-run the complete policy/test/release gate before every tagged companion release.
+- [ ] Re-run the complete compilation/test/policy/release gate before every tagged companion release.
 
 The public repository will continue to exclude the paid master manuscript and commercial publication files.
 
