@@ -87,7 +87,23 @@
 - [x] Add release-snapshot evidence for the repository policy automation results.
 - [x] Enforce generated policy-status freshness in CI and the consolidated health command.
 
-## Next maintenance and release-operations phase
+## Pre-tag release hardening phase — completed
+
+- [x] Add exact `companion-vYYYY.MM.DD.N` tag preflight validation and tests.
+- [x] Add public-resource manifest verification for path coverage, byte sizes, SHA-256 hashes, duplicates, and excluded commercial formats.
+- [x] Add deterministic generated release-readiness reporting and freshness enforcement.
+- [x] Validate both the tagged-release workflow and manual release-candidate workflow in the readiness gate.
+- [x] Add a manual GitHub Actions release-candidate workflow that uploads pre-tag evidence without creating a tag.
+- [x] Validate pushed companion tags against `COMPANION_RELEASE.json` before tagged manifest generation.
+- [x] Verify tagged manifests before artifact upload.
+- [x] Verify smoke-test manifests and release-readiness freshness in normal CI.
+- [x] Add release-candidate, manifest-review, Dependabot-review, and consolidated repository metadata guidance.
+- [x] Surface the release-readiness/manifest workflow in README, docs index, release checklist, tagged-release guide, and release snapshot.
+- [x] Enforce Gumroad storefront presence across the newly added public release-operation documentation.
+- [x] Keep the generated documentation TOC current after the release-operation documentation expansion.
+- [x] Record a generated `READY` verdict for `companion-v2026.08.18.6`.
+
+## Remaining manual and recurring release operations
 
 - [ ] Create the first `companion-v2026.08.18.6` tag when the release snapshot is intentionally ready to freeze.
 - [ ] Review the generated manifest artifact from the tagged-release workflow after the first tag.
