@@ -16,6 +16,7 @@ This generated report records deterministic local pre-tag checks. It does not cr
 | Expected companion tag naming | PASS |
 | Public resource manifest integrity | PASS |
 | Tagged release workflow configuration | PASS |
+| Release candidate workflow configuration | PASS |
 
 ## Result: READY
 
