@@ -21,6 +21,14 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Show expected companion tag
+        if: ${{ !startsWith(github.ref, 'refs/tags/companion-v') }}
+        run: python tools/tag_preflight.py --root .
+
+      - name: Validate pushed companion tag
+        if: ${{ startsWith(github.ref, 'refs/tags/companion-v') }}
+        run: python tools/tag_preflight.py --root . --tag "${GITHUB_REF_NAME}"
+
       - name: Run repository health checks
         run: python tools/repo_health.py --root .
 
@@ -29,6 +37,9 @@ jobs:
 
       - name: Generate public resource manifest
         run: python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.json
+
+      - name: Verify public resource manifest
+        run: python tools/manifest_verify.py --root . PUBLIC_RESOURCE_MANIFEST.json
 
       - name: Upload release manifest artifact
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
