@@ -7,7 +7,8 @@ Official defensive, authorization-first companion repository for **The Journey o
 **Author:** Ram Sandesh  
 **Repository:** https://github.com/sanskarIN/The-Journey-of-Ethical-Hacking  
 **Official Gumroad:** https://ramsandesh.gumroad.com  
-**Contact:** sanskarin@outlook.in
+**Contact:** sanskarin@outlook.in  
+**Current companion candidate:** `2026.08.19.1`
 
 ## Quick navigation
 
@@ -15,9 +16,12 @@ Official defensive, authorization-first companion repository for **The Journey o
 - [Complete documentation index](docs/INDEX.md)
 - [Defensive companion project suite](docs/COMPANION_PROJECTS.md)
 - [20-project companion matrix](companion-projects/PROJECT_MATRIX.md)
+- [Companion CLI contract](companion-projects/CLI_CONTRACT.md)
+- [Companion testing guide](companion-projects/TESTING.md)
 - [Repository policy status](docs/POLICY_STATUS.md)
 - [Current release readiness](docs/RELEASE_READINESS.md)
 - [Current release candidate](docs/RELEASE_CANDIDATE.md)
+- [Current release-branch policy](docs/RELEASE_BRANCH.md)
 - [Gumroad storefront and badge guide](docs/GUMROAD.md)
 - [Complete 200-part learning index](resources/learning_stage_index.md)
 - [Contributor development setup](docs/DEVELOPMENT.md)
@@ -56,25 +60,33 @@ The series index is split into **20 stages covering Parts 1–200**, with correc
 
 ### Synthetic datasets
 
-The repository contains small fictional datasets for asset posture, control evidence, risk signals, cloud posture, privacy controls, endpoint fleets, SaaS governance, resilience exercises, governance controls, and workforce capability. Machine-readable contracts under `schemas/` define expected columns, primary IDs, allowed categorical values, and useful integer constraints. `docs/DATA_DICTIONARY.md` provides a generated human-readable view of those contracts and is freshness-checked by CI.
+The repository contains small fictional datasets for asset posture, control evidence, risk signals, cloud posture, privacy controls, endpoint fleets, SaaS governance, resilience exercises, governance controls, and workforce capability. Machine-readable contracts under `schemas/` define expected columns, primary IDs, approved categorical values, and useful integer constraints. `docs/DATA_DICTIONARY.md` provides a generated human-readable view of those contracts and is freshness-checked by CI.
 
 ### Repeatable contributor environment
 
-The local/CI baseline is Python **3.12** with pinned test dependencies in `requirements-dev.txt`. See `docs/DEVELOPMENT.md` for Windows, Linux, and macOS setup commands. CI validates that workflow Python versions match `.python-version` and that development dependencies remain exactly pinned.
+The local/CI baseline is Python **3.12** with pinned development dependencies in `requirements-dev.txt`. See `docs/DEVELOPMENT.md` for Windows, Linux, and macOS setup commands. CI validates that workflow Python versions match `.python-version`, that development dependencies remain pinned, and that every Python source compiles before the deeper test gates run.
 
 ### Defensive companion projects
 
-The repository now includes **20 complete offline companion projects** under `companion-projects/`. Each project has its own README, focused Python implementation, and deterministic unit tests.
+The repository includes **20 complete offline companion projects** under `companion-projects/`. Each project has its own README, focused Python implementation, and deterministic unit tests.
 
 Current projects cover local log summarization, file integrity, indicator normalization, incident timelines, saved email-header review, secrets redaction, evidence inventory, access review, configuration drift, asset inventories, checklist progress, backup verification, JSONL event validation, data-retention review, change-control notes, permission-matrix auditing, control/evidence mapping, exception-register validation, patch-register reporting, and recovery-exercise reporting.
 
-List the suite tests:
+The suite structure validator checks the 20-project floor, required suite documentation, README catalog coverage, project-matrix row count, offline/tested matrix status, per-project README headings, implementations, and tests.
+
+Compile every Python source:
+
+```bash
+python -m compileall -q tools tests companion-projects
+```
+
+List the project-owned tests:
 
 ```bash
 python companion-projects/run_tests.py --list
 ```
 
-Run every companion-project test:
+Run every project-owned companion test:
 
 ```bash
 python companion-projects/run_tests.py
@@ -86,7 +98,7 @@ Validate the complete 20-project structure:
 python tools/companion_projects_check.py --root .
 ```
 
-See `docs/COMPANION_PROJECTS.md` and `companion-projects/PROJECT_MATRIX.md` for the full catalog, architecture, safety model, contribution rules, maintenance checklist, changelog, and roadmap.
+See `docs/COMPANION_PROJECTS.md`, `companion-projects/PROJECT_MATRIX.md`, `companion-projects/CLI_CONTRACT.md`, and `companion-projects/TESTING.md` for the complete project catalog and engineering rules.
 
 ### Offline utilities
 
@@ -124,7 +136,7 @@ Install the pinned development dependencies:
 python -m pip install -r requirements-dev.txt
 ```
 
-Run the test suite with coverage reporting:
+Run the main pytest suite with coverage reporting and CLI smoke tests:
 
 ```bash
 python -m pytest --cov=tools --cov-report=term-missing -q
@@ -146,7 +158,7 @@ python tools/release_readiness.py --root . --output docs/RELEASE_READINESS.md --
 Validate the intended companion tag:
 
 ```bash
-python tools/tag_preflight.py --root . --tag companion-v2026.08.18.6
+python tools/tag_preflight.py --root . --tag companion-v2026.08.19.1
 ```
 
 Generate and verify a machine-readable public-resource manifest:
@@ -160,15 +172,19 @@ python tools/manifest_verify.py --root . PUBLIC_RESOURCE_MANIFEST.json
 
 The repository CI and local health tooling validate:
 
+- Python source compilation across `tools/`, `tests/`, and `companion-projects/`;
+- main pytest/coverage and CLI smoke tests, including every discovered companion-project CLI;
+- all project-owned companion tests;
 - immutable full-SHA GitHub Actions references;
 - contributor/CI Python and pinned development dependency consistency;
 - required public community/governance files;
 - exclusion of commercial publication/archive file types from the public repository;
 - exclusion of direct X/Twitter URLs;
-- the 20-project companion-suite structure and project-owned tests;
+- the 20-project companion-suite structure, catalog, project matrix, documentation, implementations, and tests;
 - synthetic CSV structure and richer dataset contracts;
 - generated data-dictionary freshness;
-- release/schema JSON metadata and release/citation-version consistency;
+- release/schema JSON metadata, including `companion_projects: 20` and offline scope;
+- release/citation/candidate/readiness/release-branch version consistency;
 - Parts 1–200 learning-index integrity;
 - documentation TOC freshness;
 - sensitive-looking values in public synthetic datasets;
@@ -177,12 +193,15 @@ The repository CI and local health tooling validate:
 - generated repository policy-status freshness;
 - generated release-readiness freshness;
 - exact `companion-vYYYY.MM.DD.N` tag naming against release metadata;
-- public-resource manifest generation and SHA-256 verification;
-- unit tests, CLI smoke tests, and test coverage.
+- public-resource manifest generation and SHA-256 verification.
 
-A `companion-v*` tag triggers `.github/workflows/release-manifest.yml`, which validates the tag, runs the repository gate, generates and verifies the SHA-256 public-resource manifest, and uploads the verified artifact.
+Both the manual release-candidate workflow and the tagged-release workflow run the strengthened compilation/test/20-project gates before accepting release evidence.
 
-The manual `.github/workflows/release-candidate.yml` workflow can run the same pre-tag evidence gate without creating a tag.
+## Current release candidate
+
+The active `main` candidate is **`2026.08.19.1`**, expected tag **`companion-v2026.08.19.1`**. The reviewed candidate should be frozen on **`release/companion-v2026.08.19.1`** before tagging.
+
+The earlier `release/companion-v2026.08.18.6` branch is retained as historical evidence for the pre-expansion snapshot and should not be moved to the newer state.
 
 ## Maintenance automation
 
