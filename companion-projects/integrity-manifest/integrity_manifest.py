@@ -23,7 +23,9 @@ def inventory(root: Path) -> dict[str, dict[str, object]]:
     if not root.is_dir():
         raise ValueError(f"not a directory: {root}")
     result: dict[str, dict[str, object]] = {}
-    for path in sorted(p for p in root.rglob("*") if p.is_file()):
+    for path in sorted(
+        p for p in root.rglob("*") if p.is_file() and not p.is_symlink()
+    ):
         relative = path.relative_to(root).as_posix()
         result[relative] = {
             "size": path.stat().st_size,
