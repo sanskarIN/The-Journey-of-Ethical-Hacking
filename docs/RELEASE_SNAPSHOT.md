@@ -12,6 +12,7 @@ This file records the repository-side validation expectations for the current pu
 - Edition: **2026 Edition**
 - Companion release: **2026.08.18.6**
 - Previous companion release: **2026.08.18.5**
+- Intended first tag: **`companion-v2026.08.18.6`**
 - Series coverage: **Parts 1–200**
 - Gumroad highlighted in all 20 learning-stage pages: **Yes**
 - Public companion release metadata: `COMPANION_RELEASE.json`
@@ -41,9 +42,12 @@ The current release includes deterministic local validators for:
 - generated data dictionary freshness (`tools/data_dictionary.py --check`);
 - generated docs TOC freshness (`tools/docs_toc.py --check`);
 - official Gumroad storefront presence (`tools/gumroad_presence.py`);
-- generated repository policy summary freshness (`tools/policy_status.py --check`).
+- generated repository policy summary freshness (`tools/policy_status.py --check`);
+- expected companion tag naming (`tools/tag_preflight.py`);
+- generated manifest content/hash integrity (`tools/manifest_verify.py`);
+- generated pre-tag release readiness (`tools/release_readiness.py --check`).
 
-`docs/POLICY_STATUS.md` provides the generated reviewer-facing summary of these repository policy results.
+`docs/POLICY_STATUS.md` provides the generated reviewer-facing policy summary. `docs/RELEASE_READINESS.md` provides the deterministic pre-tag verdict.
 
 ## Validation gate
 
@@ -54,11 +58,14 @@ python -m pip install -r requirements-dev.txt
 python -m pytest --cov=tools --cov-report=term-missing -q
 python tools/repo_health.py --root .
 python tools/policy_status.py --root . --output docs/POLICY_STATUS.md --check
+python tools/release_readiness.py --root . --output docs/RELEASE_READINESS.md --check
 python tools/release_consistency.py --root .
+python tools/tag_preflight.py --root . --tag companion-v2026.08.18.6
 python tools/learning_index_check.py --root .
 python tools/docs_toc.py --docs-dir docs --output docs/TOC.md --check
 python tools/data_dictionary.py schemas/dataset_contracts.json --output docs/DATA_DICTIONARY.md --check
 python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.json
+python tools/manifest_verify.py --root . PUBLIC_RESOURCE_MANIFEST.json
 ```
 
 The consolidated health command covers:
@@ -77,7 +84,8 @@ The consolidated health command covers:
 - Markdown accessibility basics;
 - relative Markdown links;
 - official Gumroad storefront presence across core public pages, citation/funding metadata, and all 20 learning stages;
-- generated policy-status freshness.
+- generated policy-status freshness;
+- generated release-readiness freshness.
 
 ## GitHub Actions and release automation
 
@@ -89,8 +97,11 @@ External GitHub-maintained actions are pinned to verified full release SHAs:
 
 Additional release/maintenance controls:
 
+- `.github/workflows/ci.yml` verifies generated release readiness and a smoke-test public manifest on normal `main`/PR CI.
+- `.github/workflows/release-candidate.yml` can be dispatched manually before tagging; it runs tests, repository health, policy/readiness checks, generates and verifies the manifest, then uploads a candidate evidence bundle.
 - `.github/workflows/release-manifest.yml` runs for `companion-v*` tags and manual dispatch.
-- The release-manifest workflow runs health/version checks, generates `PUBLIC_RESOURCE_MANIFEST.json`, and uploads it as an artifact.
+- Tagged runs validate the pushed tag against `COMPANION_RELEASE.json`.
+- The tagged workflow generates `PUBLIC_RESOURCE_MANIFEST.json`, verifies every path/size/hash, and uploads the verified artifact.
 - `.github/release.yml` configures generated GitHub release notes.
 - `.github/CODEOWNERS` identifies `@sanskarIN` as the default review owner.
 - Dependabot checks GitHub Actions and pip dependencies monthly.
@@ -103,6 +114,8 @@ Additional release/maintenance controls:
 - [ ] Confirm `COMPANION_RELEASE.json` has the intended version.
 - [ ] Confirm `CHANGELOG.md` and this snapshot mention the same companion-release version.
 - [ ] Confirm `CITATION.cff` records the intended companion version.
+- [ ] Confirm `docs/RELEASE_READINESS.md` reports **READY**.
+- [ ] Confirm `tools/tag_preflight.py` accepts the intended tag.
 - [ ] Confirm external actions remain pinned to verified full upstream SHAs.
 - [ ] Confirm `.python-version`, workflow Python versions, and `requirements-dev.txt` remain aligned.
 - [ ] Confirm `docs/POLICY_STATUS.md`, `docs/TOC.md`, and `docs/DATA_DICTIONARY.md` pass their freshness checks.
@@ -117,8 +130,12 @@ Additional release/maintenance controls:
 
 ## Manifest note
 
-Pushing a `companion-v*` tag automatically generates the public-resource manifest as a GitHub Actions artifact. The generator excludes commercial publication formats (`.pdf`, `.epub`, `.docx`, `.zip`) by design.
+Pushing a `companion-v*` tag automatically generates and verifies the public-resource manifest before uploading it as a GitHub Actions artifact. The generator excludes commercial publication formats (`.pdf`, `.epub`, `.docx`, `.zip`) by design.
 
-See `docs/TAGGED_RELEASES.md` for the release-tag workflow.
+See `docs/RELEASE_CANDIDATE.md`, `docs/TAGGED_RELEASES.md`, and `docs/MANIFEST_REVIEW.md` for the pre-tag, tag, and post-tag workflows.
+
+## Remaining manual operations
+
+The connected repository-maintenance API does not expose Git tag creation or repository About/topics writes. The repository-local automated gate is ready; creating the tag and applying the documented About/Gumroad website/topics remain explicit GitHub UI or local-Git operations.
 
 **Publication storefront:** https://ramsandesh.gumroad.com
