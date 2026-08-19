@@ -14,13 +14,13 @@ Use:
 companion-vYYYY.MM.DD.N
 ```
 
-For the current repository snapshot, the matching example is:
+For the current repository snapshot, the matching tag is:
 
 ```text
 companion-v2026.08.18.6
 ```
 
-The version should match `COMPANION_RELEASE.json`, `CHANGELOG.md`, `docs/RELEASE_SNAPSHOT.md`, and `CITATION.cff` before the tag is pushed.
+The version must match `COMPANION_RELEASE.json`, `CHANGELOG.md`, `docs/RELEASE_SNAPSHOT.md`, and `CITATION.cff` before the tag is pushed.
 
 ## Before tagging
 
@@ -30,10 +30,14 @@ Run:
 python -m pip install -r requirements-dev.txt
 python -m pytest --cov=tools --cov-report=term-missing -q
 python tools/repo_health.py --root .
-python tools/release_consistency.py --root .
-python tools/learning_index_check.py --root .
-python tools/docs_toc.py --docs-dir docs --output docs/TOC.md --check
+python tools/policy_status.py --root . --output docs/POLICY_STATUS.md --check
+python tools/release_readiness.py --root . --output docs/RELEASE_READINESS.md --check
+python tools/tag_preflight.py --root . --tag companion-v2026.08.18.6
 ```
+
+The generated readiness report should show **READY** before tagging.
+
+You can also run the manual **Companion Release Candidate** workflow in GitHub Actions. It runs tests, repository health, readiness checks, manifest generation, manifest verification, and uploads a candidate evidence bundle without creating a tag.
 
 Then verify:
 
@@ -66,10 +70,12 @@ That workflow:
 
 1. checks out the tagged repository;
 2. sets up Python 3.12;
-3. runs the repository health checks;
-4. validates release-version consistency;
-5. generates `PUBLIC_RESOURCE_MANIFEST.json` with SHA-256 hashes for public resources;
-6. uploads the manifest as a GitHub Actions artifact for release review.
+3. validates the pushed tag against `COMPANION_RELEASE.json`;
+4. runs repository health checks;
+5. validates release-version consistency;
+6. generates `PUBLIC_RESOURCE_MANIFEST.json` with SHA-256 hashes for public resources;
+7. verifies the manifest against the tagged repository snapshot;
+8. uploads the verified manifest as a GitHub Actions artifact for release review.
 
 The manifest intentionally excludes `.pdf`, `.epub`, `.docx`, and `.zip` publication formats.
 
@@ -77,8 +83,13 @@ The manifest intentionally excludes `.pdf`, `.epub`, `.docx`, and `.zip` publica
 
 - Download the manifest artifact from the workflow run.
 - Confirm the workflow completed successfully.
-- Review the manifest resource count and expected paths.
+- Run `python tools/manifest_verify.py --root . PUBLIC_RESOURCE_MANIFEST.json` against the same tag checkout.
+- Follow `MANIFEST_REVIEW.md` for the manual review points.
 - Retain the artifact with the release record if useful.
 - Publish companion release notes without attaching paid book files.
+
+## API limitation
+
+The connected repository-maintenance API used for this project does not currently expose Git tag creation or GitHub repository About/topics writes. Those final GitHub operations remain manual; the repository-local release gate is automated and documented.
 
 For current publication listings and purchasing, use **https://ramsandesh.gumroad.com**.
