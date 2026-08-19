@@ -15,6 +15,7 @@ Generated from the level-1 headings of Markdown files in `docs/`.
 - [Dependency and GitHub Actions Review Log](DEPENDENCY_ACTION_REVIEW.md)
 - [Contributor Development Setup](DEVELOPMENT.md)
 - [Book Errata Process](ERRATA_PROCESS.md)
+- [Final Repository Audit — 2026.08.19.1](FINAL_REPOSITORY_AUDIT.md)
 - [Git Commit Identity](GIT_COMMIT_IDENTITY.md)
 - [Gumroad Storefront](GUMROAD.md)
 - [Documentation Index](INDEX.md)
