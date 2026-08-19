@@ -28,6 +28,11 @@ All notable companion-repository changes are recorded here.
 - Contributor/CI environment consistency validator and tests.
 - Public repository boundary validator and tests.
 - Generated `docs/POLICY_STATUS.md` plus freshness validation.
+- Exact `companion-vYYYY.MM.DD.N` tag-preflight validator and tests.
+- Public-resource manifest verifier with path, byte-size, SHA-256, duplicate, and excluded-format checks plus tests.
+- Deterministic generated `docs/RELEASE_READINESS.md` with repository-policy, tag, manifest, tagged-workflow, and release-candidate workflow gates.
+- Manual `.github/workflows/release-candidate.yml` workflow for pre-tag tests, health checks, readiness checks, manifest generation/verification, and candidate evidence upload.
+- Release-candidate guide, manifest-review guide, and Dependabot review procedure.
 
 ### Improved
 
@@ -36,14 +41,23 @@ All notable companion-repository changes are recorded here.
 - Added `actions/upload-artifact` release v7.0.1 to tagged-release manifest generation, pinned to full SHA `043fb46d1a93c77aae656e7c1c64a875d1fc6a0a`.
 - Strengthened dataset contracts with duplicate-ID, approved categorical-value, and integer-range validation.
 - Synchronized `CITATION.cff` with the active companion release and added citation-version checking.
-- Updated documentation index, README, tool catalog, test catalog, tagged-release guide, and dependency/action review documentation.
-- Added learning-index, generated-data-dictionary, documentation-TOC, repository-policy, and policy-status checks to GitHub Actions and the consolidated repository-health command.
+- Updated documentation index, README, tool catalog, test catalog, tagged-release guide, manifest guide, release checklist, release snapshot, and dependency/action review documentation.
+- Added learning-index, generated-data-dictionary, documentation-TOC, repository-policy, policy-status, and release-readiness checks to GitHub Actions and the consolidated repository-health command.
 - CI now installs the same pinned `requirements-dev.txt` used by contributors.
+- CI now verifies the generated smoke-test public-resource manifest instead of only generating it.
+- Tagged-release runs now validate the pushed tag against `COMPANION_RELEASE.json` and verify the generated manifest before artifact upload.
+- The generated readiness gate now validates both tagged-release and manual release-candidate workflow configuration.
+- Gumroad presence enforcement now includes all newly added public release-operation docs plus all 20 learning-stage pages.
+- Consolidated duplicate GitHub About/settings guidance into the canonical `docs/REPOSITORY_METADATA.md`.
 - Simplified Dependabot configuration so it does not depend on custom repository labels.
 - Added direct public-repository enforcement for required governance/community files, commercial publication/archive exclusion, and direct X/Twitter URL exclusion.
 - Removed literal disallowed social-URL fixtures from the policy validator/tests so the repository can enforce the no-direct-X/Twitter-URL rule without self-matching.
 - Confirmed GitHub code search returned no stored direct X/Twitter URL matches after the policy fixture cleanup.
 - Confirmed the live repository had no open issues or pull requests during this maintenance pass.
+
+### Fixed
+
+- Fixed `tools/manifest_verify.py` so direct CLI execution (`python tools/manifest_verify.py ...`) reliably resolves the repository package path as well as module-based unit tests.
 
 ### Policy and release automation
 
@@ -58,13 +72,19 @@ Release `2026.08.18.6` now enforces deterministic local checks for:
 - generated documentation-TOC freshness;
 - Gumroad storefront presence;
 - generated repository policy-status freshness;
+- generated release-readiness freshness;
+- exact companion tag naming;
+- public-resource manifest completeness and SHA-256 integrity;
+- tagged-release and manual release-candidate workflow configuration;
 - synthetic dataset quality/contracts/sensitivity;
 - Markdown accessibility and relative links.
+
+The current generated release-readiness result is **READY** for `companion-v2026.08.18.6`. Git tag creation and repository About/topics writes remain manual because the connected maintenance API does not expose those operations.
 
 ### Storefront and publication boundary
 
 - Gumroad remains the official publication storefront: **https://ramsandesh.gumroad.com**.
-- X/Twitter links remain intentionally omitted and direct X/Twitter URLs are now policy-checked.
+- X/Twitter links remain intentionally omitted and direct X/Twitter URLs are policy-checked.
 - No author avatar/photo/person image is used.
 - Commercial master DOCX/PDF/EPUB/store-delivery files remain outside the public repository.
 
