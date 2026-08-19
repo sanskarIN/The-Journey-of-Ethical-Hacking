@@ -35,6 +35,11 @@ def workflow_issues(root: Path) -> list[str]:
     issues: list[str] = []
     required_fragments = {
         '"companion-v*"': "tag trigger companion-v*",
+        "requirements-dev.txt": "pinned development dependency install",
+        "python -m compileall": "Python compilation step",
+        "python -m pytest": "main test suite step",
+        "companion-projects/run_tests.py": "project-owned companion tests",
+        "tools/companion_projects_check.py": "companion structure validation",
         "tools/tag_preflight.py": "tag preflight step",
         "tools/resource_manifest.py": "manifest generation step",
         "tools/manifest_verify.py": "manifest verification step",
@@ -53,6 +58,11 @@ def candidate_workflow_issues(root: Path) -> list[str]:
     issues: list[str] = []
     required_fragments = {
         "workflow_dispatch": "manual dispatch trigger",
+        "requirements-dev.txt": "pinned development dependency install",
+        "python -m compileall": "Python compilation step",
+        "python -m pytest": "main test suite step",
+        "companion-projects/run_tests.py": "project-owned companion tests",
+        "tools/companion_projects_check.py": "companion structure validation",
         "tools/release_readiness.py": "release readiness step",
         "tools/resource_manifest.py": "manifest generation step",
         "tools/manifest_verify.py": "manifest verification step",
