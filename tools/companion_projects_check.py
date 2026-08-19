@@ -12,6 +12,8 @@ REQUIRED_SUITE_FILES = {
     "PROJECT_MATRIX.md",
     "PROJECT_STANDARD.md",
     "ARCHITECTURE.md",
+    "CLI_CONTRACT.md",
+    "TESTING.md",
     "SAFETY.md",
     "THREAT_MODEL.md",
     "SYNTHETIC_DATA_GUIDE.md",
