@@ -24,6 +24,10 @@ class IncidentTimelineTests(unittest.TestCase):
         self.assertEqual(events[0]["summary"], "First")
         self.assertEqual(events[1]["summary"], "Second")
 
+    def test_naive_timestamp_is_rejected(self) -> None:
+        with self.assertRaises(ValueError):
+            incident_timeline.parse_timestamp("2026-08-19T01:00:00")
+
     def test_markdown_escapes_pipes(self) -> None:
         markdown = incident_timeline.render_markdown([
             {"timestamp": "2026-08-19T01:00:00Z", "category": "note", "summary": "a|b", "asset": "lab"}
