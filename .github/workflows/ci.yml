@@ -27,6 +27,8 @@ jobs:
         run: python -m pytest --cov=tools --cov-report=term-missing -q
       - name: Run defensive companion project tests
         run: python companion-projects/run_tests.py
+      - name: Validate companion project structure
+        run: python tools/companion_projects_check.py --root .
       - name: Validate immutable GitHub Actions references
         run: python tools/action_pinning.py --root .
       - name: Validate contributor and CI environment consistency
