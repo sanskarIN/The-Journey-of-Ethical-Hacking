@@ -23,6 +23,7 @@ Generated from the level-1 headings of Markdown files in `docs/`.
 - [Offline Analysis Examples](OFFLINE_ANALYSIS_EXAMPLES.md)
 - [Repository Policy Status](POLICY_STATUS.md)
 - [Public Resource Manifest](PUBLIC_RESOURCE_MANIFEST.md)
+- [Companion Release Branch](RELEASE_BRANCH.md)
 - [Companion Release Candidate — 2026.08.18.6](RELEASE_CANDIDATE.md)
 - [Companion Release Checklist](RELEASE_CHECKLIST.md)
 - [Release Notes Automation Guidance](RELEASE_NOTES_AUTOMATION.md)
