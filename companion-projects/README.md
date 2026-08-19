@@ -2,7 +2,7 @@
 
 This directory contains small, authorization-first cybersecurity projects that complement **The Journey of Ethical Hacking** without publishing the paid book manuscript.
 
-Every project is designed for local files, synthetic data, owned systems, or explicitly authorized environments. The projects intentionally avoid exploit delivery, credential theft, destructive actions, stealth, persistence, or unauthorized scanning.
+Every project is designed for local files, synthetic data, owned systems, or explicitly authorized environments. The current suite is intentionally offline and avoids exploit delivery, credential theft, destructive actions, stealth, persistence, or unauthorized scanning.
 
 ## Project catalog
 
@@ -14,11 +14,31 @@ Every project is designed for local files, synthetic data, owned systems, or exp
 6. `secrets-redactor` — redact common secret-like values from text before sharing logs.
 7. `evidence-inventory` — inventory evidence files with metadata and hashes.
 8. `access-review-helper` — compare account exports with an approved-role policy.
+9. `config-baseline-diff` — compare two local JSON configuration snapshots for drift.
+10. `asset-inventory-summary` — summarize an explicit local asset inventory export.
+11. `security-checklist-tracker` — measure progress in Markdown defensive checklists.
+12. `backup-verify` — compare primary and backup directories with SHA-256 hashes.
+13. `jsonl-event-validator` — validate structured defensive event records.
+14. `data-retention-planner` — calculate advisory review dates from a local retention register.
+15. `change-review-notes` — render local change-control exports as Markdown review notes.
+16. `permission-matrix-auditor` — compare local permission assignments with an explicit policy.
+
+## Suite documentation
+
+- [`PROJECT_MATRIX.md`](PROJECT_MATRIX.md) — project-by-project feature and test matrix.
+- [`PROJECT_STANDARD.md`](PROJECT_STANDARD.md) — required engineering baseline.
+- [`ARCHITECTURE.md`](ARCHITECTURE.md) — suite layout and runtime model.
+- [`SAFETY.md`](SAFETY.md) — authorization and data-handling boundaries.
+- [`THREAT_MODEL.md`](THREAT_MODEL.md) — risks, controls, and non-goals.
+- [`SYNTHETIC_DATA_GUIDE.md`](SYNTHETIC_DATA_GUIDE.md) — safe fixture guidance.
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) — contribution and testing requirements.
+- [`ROADMAP.md`](ROADMAP.md) — safe future project ideas and quality work.
 
 ## Design rules
 
 - Python standard library only where practical.
-- No network access by default.
+- No network access in the current suite.
+- Explicit input paths instead of automatic device discovery.
 - Deterministic output suitable for tests.
 - Clear `--help` output.
 - Synthetic examples only.
@@ -26,8 +46,22 @@ Every project is designed for local files, synthetic data, owned systems, or exp
 
 ## Quick start
 
+Inspect any project:
+
 ```bash
 python companion-projects/<project>/<tool>.py --help
 ```
 
-Run only against data you own or are authorized to process.
+List every discovered unit-test file:
+
+```bash
+python companion-projects/run_tests.py --list
+```
+
+Run the complete companion-project test suite:
+
+```bash
+python companion-projects/run_tests.py
+```
+
+Run only against local data you own or are explicitly authorized to process.
