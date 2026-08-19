@@ -10,9 +10,12 @@ This file records the repository-side validation expectations for the current pu
 
 - Project: **The Journey of Ethical Hacking — Companion Resources**
 - Edition: **2026 Edition**
-- Companion release: **2026.08.18.6**
-- Previous companion release: **2026.08.18.5**
-- Intended first tag: **`companion-v2026.08.18.6`**
+- Companion release: **2026.08.19.1**
+- Previous companion release/candidate: **2026.08.18.6**
+- Intended tag: **`companion-v2026.08.19.1`**
+- Previous frozen tag target: **`companion-v2026.08.18.6`**
+- Companion projects: **20**
+- Current companion projects offline/local: **Yes**
 - Series coverage: **Parts 1–200**
 - Gumroad highlighted in all 20 learning-stage pages: **Yes**
 - Public companion release metadata: `COMPANION_RELEASE.json`
@@ -27,17 +30,22 @@ This file records the repository-side validation expectations for the current pu
 
 - Python baseline: **3.12** via `.python-version`.
 - Pinned development dependencies: `requirements-dev.txt`.
+- CI compiles all Python sources before running tests.
 - CI installs the same pinned development requirements used locally.
+- The main pytest suite smoke-tests every discovered repository and companion-project CLI.
+- The project-owned test runner executes all 20 companion-project test files.
 - Dependabot checks both GitHub Actions and pip dependencies monthly.
 
 ## Repository policy automation evidence
 
 The current release includes deterministic local validators for:
 
+- Python source compilation (`python -m compileall -q tools tests companion-projects`);
 - immutable full-SHA external GitHub Actions references (`tools/action_pinning.py`);
 - local/CI Python and exact development dependency consistency (`tools/dev_environment.py`);
 - required community/governance files, commercial publication-file exclusion, and direct X/Twitter URL exclusion (`tools/public_repo_policy.py`);
-- release/citation version consistency (`tools/release_consistency.py`);
+- 20-project suite structure, catalog, project matrix, required documentation, implementations, and tests (`tools/companion_projects_check.py`);
+- release/citation/candidate/readiness/branch version consistency (`tools/release_consistency.py`);
 - exact Parts 1–200 learning-stage coverage (`tools/learning_index_check.py`);
 - generated data dictionary freshness (`tools/data_dictionary.py --check`);
 - generated docs TOC freshness (`tools/docs_toc.py --check`);
@@ -55,12 +63,15 @@ Before a companion release/tag, run:
 
 ```bash
 python -m pip install -r requirements-dev.txt
+python -m compileall -q tools tests companion-projects
 python -m pytest --cov=tools --cov-report=term-missing -q
+python companion-projects/run_tests.py
+python tools/companion_projects_check.py --root .
 python tools/repo_health.py --root .
 python tools/policy_status.py --root . --output docs/POLICY_STATUS.md --check
 python tools/release_readiness.py --root . --output docs/RELEASE_READINESS.md --check
 python tools/release_consistency.py --root .
-python tools/tag_preflight.py --root . --tag companion-v2026.08.18.6
+python tools/tag_preflight.py --root . --tag companion-v2026.08.19.1
 python tools/learning_index_check.py --root .
 python tools/docs_toc.py --docs-dir docs --output docs/TOC.md --check
 python tools/data_dictionary.py schemas/dataset_contracts.json --output docs/DATA_DICTIONARY.md --check
@@ -70,14 +81,16 @@ python tools/manifest_verify.py --root . PUBLIC_RESOURCE_MANIFEST.json
 
 The consolidated health command covers:
 
+- Python source compilation;
 - immutable action references;
 - contributor/CI environment consistency;
 - public repository publication/governance boundaries;
+- 20-project companion-suite structure and documentation consistency;
 - synthetic CSV structural quality;
 - richer dataset contract validation;
 - generated data dictionary freshness;
 - release/schema JSON validation;
-- release/citation-version consistency;
+- complete release/citation/candidate/readiness/branch version consistency;
 - Parts 1–200 learning-index integrity;
 - documentation TOC freshness;
 - synthetic-data sensitivity checks;
@@ -97,7 +110,7 @@ External GitHub-maintained actions are pinned to verified full release SHAs:
 
 Additional release/maintenance controls:
 
-- `.github/workflows/ci.yml` verifies generated release readiness and a smoke-test public manifest on normal `main`/PR CI.
+- `.github/workflows/ci.yml` compiles Python, runs the main tests, runs all companion-project tests, validates the suite, verifies generated release readiness, and verifies a smoke-test public manifest on normal `main`/PR CI.
 - `.github/workflows/release-candidate.yml` can be dispatched manually before tagging; it runs tests, repository health, policy/readiness checks, generates and verifies the manifest, then uploads a candidate evidence bundle.
 - `.github/workflows/release-manifest.yml` runs for `companion-v*` tags and manual dispatch.
 - Tagged runs validate the pushed tag against `COMPANION_RELEASE.json`.
@@ -111,11 +124,15 @@ Additional release/maintenance controls:
 - [ ] Review `CHANGELOG.md`.
 - [ ] Review `what_changed.md`.
 - [ ] Review `ROADMAP.md`.
-- [ ] Confirm `COMPANION_RELEASE.json` has the intended version.
+- [ ] Confirm `COMPANION_RELEASE.json` has the intended version and `companion_projects: 20`.
 - [ ] Confirm `CHANGELOG.md` and this snapshot mention the same companion-release version.
-- [ ] Confirm `CITATION.cff` records the intended companion version.
+- [ ] Confirm `CITATION.cff` records the intended companion version and release date.
+- [ ] Confirm `docs/RELEASE_CANDIDATE.md`, `docs/RELEASE_READINESS.md`, and `docs/RELEASE_BRANCH.md` match the intended release/tag.
 - [ ] Confirm `docs/RELEASE_READINESS.md` reports **READY**.
 - [ ] Confirm `tools/tag_preflight.py` accepts the intended tag.
+- [ ] Confirm `python -m compileall -q tools tests companion-projects` succeeds.
+- [ ] Confirm `python companion-projects/run_tests.py` succeeds.
+- [ ] Confirm `tools/companion_projects_check.py` reports 20 valid projects.
 - [ ] Confirm external actions remain pinned to verified full upstream SHAs.
 - [ ] Confirm `.python-version`, workflow Python versions, and `requirements-dev.txt` remain aligned.
 - [ ] Confirm `docs/POLICY_STATUS.md`, `docs/TOC.md`, and `docs/DATA_DICTIONARY.md` pass their freshness checks.
@@ -136,6 +153,6 @@ See `docs/RELEASE_CANDIDATE.md`, `docs/TAGGED_RELEASES.md`, and `docs/MANIFEST_R
 
 ## Remaining manual operations
 
-The connected repository-maintenance API does not expose Git tag creation or repository About/topics writes. The repository-local automated gate is ready; creating the tag and applying the documented About/Gumroad website/topics remain explicit GitHub UI or local-Git operations.
+The previous `release/companion-v2026.08.18.6` branch remains a frozen historical candidate. The current `2026.08.19.1` candidate should be frozen on `release/companion-v2026.08.19.1` before tagging. Repository About/topics settings still require explicit GitHub UI or supported API operations.
 
 **Publication storefront:** https://ramsandesh.gumroad.com
