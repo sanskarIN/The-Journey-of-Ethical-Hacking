@@ -26,7 +26,9 @@ def collect(root: Path) -> list[dict[str, str | int]]:
         raise ValueError(f"not a directory: {root}")
 
     rows: list[dict[str, str | int]] = []
-    for path in sorted(p for p in root.rglob("*") if p.is_file()):
+    for path in sorted(
+        p for p in root.rglob("*") if p.is_file() and not p.is_symlink()
+    ):
         stat = path.stat()
         rows.append(
             {
