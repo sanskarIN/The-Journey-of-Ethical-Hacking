@@ -8,6 +8,11 @@ def configure_passing_checks(monkeypatch) -> None:
     monkeypatch.setattr(policy_status, "validate_actions", lambda root: [])
     monkeypatch.setattr(policy_status, "validate_dev_environment", lambda root: [])
     monkeypatch.setattr(policy_status, "validate_public_repo", lambda root: [])
+    monkeypatch.setattr(
+        policy_status,
+        "validate_companion_projects",
+        lambda suite_dir: ([], []),
+    )
     monkeypatch.setattr(policy_status, "validate_release", lambda root: [])
     monkeypatch.setattr(policy_status, "validate_learning_index", lambda root: [])
     monkeypatch.setattr(policy_status, "validate_gumroad", lambda root: [])
@@ -25,6 +30,7 @@ def test_render_reports_passing_policies(tmp_path: Path, monkeypatch) -> None:
     assert "# Repository Policy Status" in text
     assert "`2026.08.18.6`" in text
     assert "| Immutable GitHub Actions references | PASS |" in text
+    assert "| Companion project suite integrity | PASS |" in text
     assert "https://ramsandesh.gumroad.com" in text
 
 
@@ -42,6 +48,22 @@ def test_render_includes_failure_details(tmp_path: Path, monkeypatch) -> None:
     text = policy_status.render(tmp_path)
     assert "| Immutable GitHub Actions references | FAIL |" in text
     assert "workflow uses a movable tag" in text
+
+
+def test_render_includes_companion_suite_failure(tmp_path: Path, monkeypatch) -> None:
+    configure_passing_checks(monkeypatch)
+    monkeypatch.setattr(
+        policy_status,
+        "validate_companion_projects",
+        lambda suite_dir: ([], ["expected at least 20 companion projects, found 19"]),
+    )
+    (tmp_path / "COMPANION_RELEASE.json").write_text(
+        json.dumps({"companion_release": "2026.08.18.6"}),
+        encoding="utf-8",
+    )
+    text = policy_status.render(tmp_path)
+    assert "| Companion project suite integrity | FAIL |" in text
+    assert "expected at least 20 companion projects" in text
 
 
 def test_is_current_detects_stale_report(tmp_path: Path, monkeypatch) -> None:
