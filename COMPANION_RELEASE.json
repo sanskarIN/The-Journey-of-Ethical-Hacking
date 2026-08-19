@@ -8,10 +8,13 @@
   "gumroad_highlighted_in_public_docs": true,
   "gumroad_highlighted_in_all_learning_stages": true,
   "series_parts": 200,
+  "companion_projects": 20,
+  "companion_projects_offline": true,
   "public_scope": [
     "defensive learning indexes",
     "synthetic datasets",
     "offline analysis utilities",
+    "20 offline defensive companion projects",
     "safe templates and checklists",
     "fictional tabletop exercises",
     "release integrity validators",
@@ -20,7 +23,10 @@
     "tests and contribution documentation"
   ],
   "release_integrity_checks": [
+    "Python source compilation",
     "unit tests and coverage",
+    "20-project companion suite structure",
+    "companion project CLI smoke tests",
     "immutable GitHub Actions SHA pinning",
     "development environment consistency",
     "public repository publication boundary",
