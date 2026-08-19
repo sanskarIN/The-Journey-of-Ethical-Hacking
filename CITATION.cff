@@ -5,8 +5,8 @@ type: software
 authors:
   - family-names: "Sandesh"
     given-names: "Ram"
-version: "2026.08.18.6"
-date-released: "2026-08-18"
+version: "2026.08.19.1"
+date-released: "2026-08-19"
 repository-code: "https://github.com/sanskarIN/The-Journey-of-Ethical-Hacking"
 url: "https://ramsandesh.gumroad.com"
 license: "Apache-2.0"
