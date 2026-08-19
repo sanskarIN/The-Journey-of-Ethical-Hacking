@@ -17,6 +17,8 @@ REQUIRED_SUITE_FILES = {
     "SYNTHETIC_DATA_GUIDE.md",
     "CONTRIBUTING.md",
     "ROADMAP.md",
+    "CHANGELOG.md",
+    "MAINTENANCE_CHECKLIST.md",
     "run_tests.py",
 }
 
