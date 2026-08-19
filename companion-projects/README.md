@@ -32,6 +32,8 @@ Every project is designed for local files, synthetic data, owned systems, or exp
 - [`PROJECT_MATRIX.md`](PROJECT_MATRIX.md) — project-by-project feature and test matrix.
 - [`PROJECT_STANDARD.md`](PROJECT_STANDARD.md) — required engineering baseline.
 - [`ARCHITECTURE.md`](ARCHITECTURE.md) — suite layout and runtime model.
+- [`CLI_CONTRACT.md`](CLI_CONTRACT.md) — shared command-line, output, error, and exit-code conventions.
+- [`TESTING.md`](TESTING.md) — complete local validation and test workflow.
 - [`SAFETY.md`](SAFETY.md) — authorization and data-handling boundaries.
 - [`THREAT_MODEL.md`](THREAT_MODEL.md) — risks, controls, and non-goals.
 - [`SYNTHETIC_DATA_GUIDE.md`](SYNTHETIC_DATA_GUIDE.md) — safe fixture guidance.
@@ -56,6 +58,12 @@ Inspect any project:
 
 ```bash
 python companion-projects/<project>/<tool>.py --help
+```
+
+Compile all Python sources:
+
+```bash
+python -m compileall -q tools tests companion-projects
 ```
 
 List every discovered unit-test file:
