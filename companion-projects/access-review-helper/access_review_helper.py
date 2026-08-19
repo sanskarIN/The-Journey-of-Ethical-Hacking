@@ -16,7 +16,11 @@ FALSE_VALUES = {"false", "0", "no"}
 def load_policy(path: Path) -> set[str]:
     payload = json.loads(path.read_text(encoding="utf-8"))
     roles = payload.get("approved_roles") if isinstance(payload, dict) else None
-    if not isinstance(roles, list) or not all(isinstance(role, str) and role.strip() for role in roles):
+    if (
+        not isinstance(roles, list)
+        or not roles
+        or not all(isinstance(role, str) and role.strip() for role in roles)
+    ):
         raise ValueError("policy must contain a non-empty string list named approved_roles")
     return {role.strip().lower() for role in roles}
 
