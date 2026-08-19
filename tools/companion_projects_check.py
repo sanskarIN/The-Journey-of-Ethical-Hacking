@@ -40,6 +40,18 @@ def discover_projects(suite_dir: Path) -> list[Path]:
     )
 
 
+def matrix_project_rows(text: str) -> list[str]:
+    rows: list[str] = []
+    for line in text.splitlines():
+        stripped = line.strip()
+        if not stripped.startswith("| "):
+            continue
+        if stripped.startswith("| Project ") or stripped.startswith("|---"):
+            continue
+        rows.append(stripped)
+    return rows
+
+
 def validate(suite_dir: Path, minimum_projects: int = 20) -> tuple[list[ProjectStatus], list[str]]:
     errors: list[str] = []
 
@@ -55,10 +67,34 @@ def validate(suite_dir: Path, minimum_projects: int = 20) -> tuple[list[ProjectS
             f"expected at least {minimum_projects} companion projects, found {len(projects)}"
         )
 
+    suite_readme = suite_dir / "README.md"
+    matrix_path = suite_dir / "PROJECT_MATRIX.md"
+    suite_readme_text = suite_readme.read_text(encoding="utf-8") if suite_readme.is_file() else ""
+    matrix_text = matrix_path.read_text(encoding="utf-8") if matrix_path.is_file() else ""
+    matrix_rows = matrix_project_rows(matrix_text)
+
+    if matrix_path.is_file() and len(matrix_rows) != len(projects):
+        errors.append(
+            "PROJECT_MATRIX.md project row count does not match project directories: "
+            f"rows={len(matrix_rows)} directories={len(projects)}"
+        )
+
+    for row in matrix_rows:
+        if "| No | Yes |" not in row:
+            errors.append(f"PROJECT_MATRIX.md must keep current projects offline and tested: {row}")
+
     statuses: list[ProjectStatus] = []
     for project in projects:
-        if not (project / "README.md").is_file():
+        readme = project / "README.md"
+        if not readme.is_file():
             errors.append(f"{project.name}: missing README.md")
+        else:
+            readme_text = readme.read_text(encoding="utf-8")
+            if not readme_text.startswith("# "):
+                errors.append(f"{project.name}: README.md must start with a level-1 heading")
+
+        if suite_readme.is_file() and f"`{project.name}`" not in suite_readme_text:
+            errors.append(f"{project.name}: missing from companion-projects/README.md catalog")
 
         implementations = tuple(
             path.name
