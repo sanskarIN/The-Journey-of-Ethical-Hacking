@@ -4,7 +4,7 @@ The repository includes a dedicated `companion-projects/` collection of small, o
 
 ## Current milestone
 
-**16 complete projects**, each with:
+**20 complete projects**, each with:
 
 - project-specific README;
 - focused Python implementation;
@@ -21,12 +21,14 @@ The repository includes a dedicated `companion-projects/` collection of small, o
 - Incident Timeline Builder
 - Evidence Inventory
 - JSONL Event Validator
+- Control Evidence Mapper
 
 ### Integrity and resilience
 
 - Integrity Manifest
 - Backup Verify
 - Configuration Baseline Diff
+- Recovery Exercise Reporter
 
 ### Data hygiene and privacy
 
@@ -42,6 +44,8 @@ The repository includes a dedicated `companion-projects/` collection of small, o
 - Data Retention Planner
 - Change Review Notes
 - Permission Matrix Auditor
+- Exception Register Validator
+- Patch Register Summary
 
 ## Run all companion tests
 
@@ -55,6 +59,12 @@ List discovered companion tests without executing them:
 python companion-projects/run_tests.py --list
 ```
 
+Validate project structure and the 20-project floor:
+
+```bash
+python tools/companion_projects_check.py --root .
+```
+
 ## Suite documentation
 
 - `companion-projects/README.md`
@@ -65,6 +75,8 @@ python companion-projects/run_tests.py --list
 - `companion-projects/THREAT_MODEL.md`
 - `companion-projects/SYNTHETIC_DATA_GUIDE.md`
 - `companion-projects/CONTRIBUTING.md`
+- `companion-projects/MAINTENANCE_CHECKLIST.md`
+- `companion-projects/CHANGELOG.md`
 - `companion-projects/ROADMAP.md`
 
 ## Public/commercial boundary
