@@ -20,6 +20,8 @@ RELEASE_REQUIRED = {
     "repository",
     "official_gumroad",
     "series_parts",
+    "companion_projects",
+    "companion_projects_offline",
     "public_scope",
     "code_license",
     "commercial_book_rights",
@@ -49,6 +51,10 @@ def validate_release(data: Any) -> list[str]:
 
     if data.get("series_parts") != 200:
         errors.append("series_parts must equal 200")
+    if data.get("companion_projects") != 20:
+        errors.append("companion_projects must equal 20")
+    if data.get("companion_projects_offline") is not True:
+        errors.append("companion_projects_offline must be true")
     if data.get("official_gumroad") != "https://ramsandesh.gumroad.com":
         errors.append("official_gumroad must use the approved direct storefront URL")
     if data.get("commercial_manuscript_in_public_repo") is not False:
@@ -59,8 +65,12 @@ def validate_release(data: Any) -> list[str]:
         errors.append("x_or_twitter_link_included must be false")
 
     scope = data.get("public_scope")
-    if scope is not None and (not isinstance(scope, list) or not all(isinstance(item, str) for item in scope)):
-        errors.append("public_scope must be a list of strings")
+    if scope is not None and (
+        not isinstance(scope, list)
+        or not scope
+        or not all(isinstance(item, str) and item.strip() for item in scope)
+    ):
+        errors.append("public_scope must be a non-empty list of strings")
 
     return errors
 
