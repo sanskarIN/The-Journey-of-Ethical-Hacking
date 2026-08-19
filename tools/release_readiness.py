@@ -45,6 +45,25 @@ def workflow_issues(root: Path) -> list[str]:
     return issues
 
 
+def candidate_workflow_issues(root: Path) -> list[str]:
+    path = root / ".github" / "workflows" / "release-candidate.yml"
+    if not path.is_file():
+        return ["missing .github/workflows/release-candidate.yml"]
+    text = path.read_text(encoding="utf-8")
+    issues: list[str] = []
+    required_fragments = {
+        "workflow_dispatch": "manual dispatch trigger",
+        "tools/release_readiness.py": "release readiness step",
+        "tools/resource_manifest.py": "manifest generation step",
+        "tools/manifest_verify.py": "manifest verification step",
+        "actions/upload-artifact@": "candidate evidence upload step",
+    }
+    for fragment, label in required_fragments.items():
+        if fragment not in text:
+            issues.append(f"release candidate workflow missing {label}")
+    return issues
+
+
 def collect(root: Path) -> list[tuple[str, bool, list[str]]]:
     checks: list[tuple[str, bool, list[str]]] = []
 
@@ -77,6 +96,9 @@ def collect(root: Path) -> list[tuple[str, bool, list[str]]]:
 
     workflow_errors = workflow_issues(root)
     checks.append(("Tagged release workflow configuration", not workflow_errors, workflow_errors))
+
+    candidate_errors = candidate_workflow_issues(root)
+    checks.append(("Release candidate workflow configuration", not candidate_errors, candidate_errors))
 
     return checks
 
