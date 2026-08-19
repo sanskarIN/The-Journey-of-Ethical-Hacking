@@ -4,8 +4,8 @@
 
 **Official Gumroad:** https://ramsandesh.gumroad.com
 
-**Companion release:** `2026.08.18.6`
-**Expected tag:** `companion-v2026.08.18.6`
+**Companion release:** `2026.08.19.1`
+**Expected tag:** `companion-v2026.08.19.1`
 
 This generated report records deterministic local pre-tag checks. It does not create a Git tag or GitHub Release.
 
@@ -20,16 +20,16 @@ This generated report records deterministic local pre-tag checks. It does not cr
 
 ## Result: READY
 
-The repository-local automated release gate is clean for `companion-v2026.08.18.6`. The remaining operation is to create the tag in GitHub and review the generated manifest artifact.
+The repository-local automated release gate is clean for `companion-v2026.08.19.1`. The remaining operation is to create the tag in GitHub and review the generated manifest artifact.
 
 ## Manual GitHub operations
 
-1. Create the lightweight or annotated tag `companion-v2026.08.18.6` from the intended `main` commit.
+1. Create the lightweight or annotated tag `companion-v2026.08.19.1` from the intended reviewed release-branch commit.
 2. Confirm the tagged-release workflow completes successfully.
 3. Download and review the generated `PUBLIC_RESOURCE_MANIFEST.json` artifact.
 4. Apply the documented repository About description, Gumroad website, and topics if those settings have not yet been configured manually.
 
-The connected maintenance API used for automated repository work does not expose Git tag creation or repository About/topics writes, so those actions remain explicit manual GitHub operations.
+The previous `release/companion-v2026.08.18.6` branch remains a historical frozen candidate. The current candidate should be frozen on `release/companion-v2026.08.19.1` before tagging.
 
 ## Publication boundary
 
