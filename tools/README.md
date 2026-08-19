@@ -17,7 +17,7 @@ The utilities in this directory operate only on local repository files.
 
 - `csv_quality.py` — checks structural quality of synthetic CSV files.
 - `dataset_contracts.py` — validates datasets against machine-readable contracts, including required columns, duplicate IDs, approved categorical values, and bounded integer ranges.
-- `json_metadata.py` — validates release and dataset-contract JSON structure.
+- `json_metadata.py` — validates release/dataset-contract JSON, including the 20-project count and offline companion-project scope.
 - `synthetic_safety.py` — flags sensitive-looking values such as email, URL, IP, or token-like strings in public synthetic CSV files.
 - `data_dictionary.py` — generates `docs/DATA_DICTIONARY.md` and can fail when the committed dictionary is stale.
 
@@ -33,30 +33,32 @@ The utilities in this directory operate only on local repository files.
 - `action_pinning.py` — rejects movable external GitHub Actions references and requires full 40-character SHAs.
 - `dev_environment.py` — checks `.python-version`, workflow Python versions, and exact development dependency pins.
 - `public_repo_policy.py` — requires core community/governance files and blocks commercial publication formats and direct X/Twitter URLs from the public repository.
-- `companion_projects_check.py` — validates the companion-suite project floor, required suite files, per-project README, implementation, and test presence.
-- `policy_status.py` — generates/checks `docs/POLICY_STATUS.md` from deterministic local repository-policy results.
-- `release_consistency.py` — verifies the companion release version matches `COMPANION_RELEASE.json`, the changelog, release snapshot, and `CITATION.cff`.
+- `companion_projects_check.py` — validates the 20-project floor, required suite docs, README catalog, project matrix, offline/tested matrix rows, per-project H1 README, implementations, and tests.
+- `policy_status.py` — generates/checks `docs/POLICY_STATUS.md`, including companion-project suite integrity.
+- `release_consistency.py` — verifies the active companion release across `COMPANION_RELEASE.json`, changelog, snapshot, candidate, readiness, release-branch guide, citation version, and citation release date.
 - `learning_index_check.py` — verifies the 20 stage files cover Parts 1–200 exactly once with ten parts per stage.
 - `tag_preflight.py` — derives and validates the exact `companion-vYYYY.MM.DD.N` tag expected by release metadata.
 - `resource_manifest.py` — generates SHA-256 metadata for public companion resources while excluding commercial publication formats.
 - `manifest_verify.py` — verifies a generated public-resource manifest against the exact local repository snapshot.
-- `release_readiness.py` — generates/checks the deterministic pre-tag release-readiness report.
-- `repo_health.py` — runs the repository's structural and policy validation checks from one command, including companion-project structure and documentation checks.
+- `release_readiness.py` — generates/checks the deterministic pre-tag release-readiness report and verifies both release workflows retain compilation/tests/suite validation/manifest gates.
+- `repo_health.py` — runs Python compilation plus the repository's structural and policy validation checks from one command.
 
 ## Common commands
 
 ```bash
+python -m compileall -q tools tests companion-projects
+python -m pytest --cov=tools --cov-report=term-missing -q
+python companion-projects/run_tests.py
 python tools/action_pinning.py --root .
 python tools/dev_environment.py --root .
 python tools/public_repo_policy.py --root .
 python tools/companion_projects_check.py --root .
-python companion-projects/run_tests.py
 python tools/policy_status.py --root . --output docs/POLICY_STATUS.md --check
 python tools/dataset_summary.py datasets/*.csv
 python tools/data_dictionary.py schemas/dataset_contracts.json --output docs/DATA_DICTIONARY.md --check
 python tools/learning_index_check.py --root .
 python tools/release_consistency.py --root .
-python tools/tag_preflight.py --root . --tag companion-v2026.08.18.6
+python tools/tag_preflight.py --root . --tag companion-v2026.08.19.1
 python tools/docs_toc.py --docs-dir docs --output docs/TOC.md --check
 python tools/repo_health.py --root .
 python tools/release_readiness.py --root . --output docs/RELEASE_READINESS.md --check
