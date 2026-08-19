@@ -103,6 +103,21 @@
 - [x] Keep the generated documentation TOC current after the release-operation documentation expansion.
 - [x] Record a generated `READY` verdict for `companion-v2026.08.18.6`.
 
+## Defensive companion projects phase — completed 2026-08-19
+
+- [x] Add a dedicated `companion-projects/` suite with 16 offline, authorization-first defensive mini-projects.
+- [x] Give every project its own README, focused Python implementation, and deterministic unit tests.
+- [x] Add suite architecture, engineering standard, safety boundary, threat model, synthetic-data guidance, contribution guidance, roadmap, changelog, and maintenance checklist.
+- [x] Add a centralized runner for all project-owned tests.
+- [x] Add a repository-level structure validator that enforces required suite files, a 16-project floor, per-project README files, implementations, and tests.
+- [x] Wire companion tests and structure validation into GitHub Actions CI.
+- [x] Include the companion suite in repository-health accessibility and relative-link checks.
+- [x] Add companion-project navigation to the root README, docs index, tools catalog, and tests catalog.
+- [x] Require timezone-aware timestamps in the incident timeline utility.
+- [x] Reject empty approved-role policies in the access-review utility.
+- [x] Ignore symbolic links in recursive integrity, evidence-inventory, and backup-verification walks.
+- [x] Keep the complete companion suite local/offline with explicit input paths and synthetic/authorized data.
+
 ## Remaining manual and recurring release operations
 
 - [ ] Create the first `companion-v2026.08.18.6` tag when the release snapshot is intentionally ready to freeze.
