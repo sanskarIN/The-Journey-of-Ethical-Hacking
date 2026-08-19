@@ -2,6 +2,21 @@
 
 This changelog tracks the dedicated `companion-projects/` suite separately from the repository-wide `CHANGELOG.md`.
 
+## 2026-08-19 — Expanded to 20 projects
+
+### Added projects
+
+17. Control Evidence Mapper
+18. Exception Register Validator
+19. Patch Register Summary
+20. Recovery Exercise Reporter
+
+### Improved
+
+- Raised the repository structure-validator floor from 16 to 20 projects.
+- Expanded the project matrix and reader-facing catalogs to the 20-project milestone.
+- Kept all four new projects read-only/offline and based on explicit local exports or fictional tabletop data.
+
 ## 2026-08-19 — Initial 16-project suite
 
 ### Added projects
@@ -35,6 +50,8 @@ Each project includes a project README, focused Python implementation, and deter
 - `SYNTHETIC_DATA_GUIDE.md`
 - `CONTRIBUTING.md`
 - `ROADMAP.md`
+- `CHANGELOG.md`
+- `MAINTENANCE_CHECKLIST.md`
 - `run_tests.py`
 
 ### Repository integration
