@@ -77,6 +77,7 @@ python tools/manifest_verify.py --root . PUBLIC_RESOURCE_MANIFEST.json
 
 - [`../ERRATA.md`](../ERRATA.md) — public correction log.
 - [`ERRATA_PROCESS.md`](ERRATA_PROCESS.md) — correction workflow.
+- [`RELEASE_BRANCH.md`](RELEASE_BRANCH.md) — stable release-branch policy before creating the final tag.
 - [`RELEASE_CANDIDATE.md`](RELEASE_CANDIDATE.md) — current `2026.08.18.6` candidate and manual tag procedure.
 - [`RELEASE_CHECKLIST.md`](RELEASE_CHECKLIST.md) — companion release gate.
 - [`RELEASE_READINESS.md`](RELEASE_READINESS.md) — generated pre-tag readiness report.
