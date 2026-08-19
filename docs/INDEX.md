@@ -12,6 +12,8 @@ This page is the central index for public companion-repository documentation.
 - [`../README.md`](../README.md) — repository overview and quick start.
 - [`COMPANION_PROJECTS.md`](COMPANION_PROJECTS.md) — overview of the 20-project offline defensive companion suite.
 - [`../companion-projects/PROJECT_MATRIX.md`](../companion-projects/PROJECT_MATRIX.md) — project-by-project skill, input, network, and test matrix.
+- [`../companion-projects/CLI_CONTRACT.md`](../companion-projects/CLI_CONTRACT.md) — shared CLI, output, errors, and exit-code conventions.
+- [`../companion-projects/TESTING.md`](../companion-projects/TESTING.md) — full companion-project validation workflow.
 - [`GUMROAD.md`](GUMROAD.md) — official storefront and GitHub badge guidance.
 - [`USAGE.md`](USAGE.md) — companion-resource usage guidance.
 - [`DEVELOPMENT.md`](DEVELOPMENT.md) — repeatable contributor environment and validation setup.
@@ -51,6 +53,7 @@ This page is the central index for public companion-repository documentation.
 Key validation entry points:
 
 ```bash
+python -m compileall -q tools tests companion-projects
 python -m pytest --cov=tools --cov-report=term-missing -q
 python companion-projects/run_tests.py
 python tools/companion_projects_check.py --root .
@@ -63,7 +66,7 @@ python tools/release_consistency.py --root .
 python tools/learning_index_check.py --root .
 python tools/docs_toc.py --docs-dir docs --output docs/TOC.md --check
 python tools/data_dictionary.py schemas/dataset_contracts.json --output docs/DATA_DICTIONARY.md --check
-python tools/tag_preflight.py --root . --tag companion-v2026.08.18.6
+python tools/tag_preflight.py --root . --tag companion-v2026.08.19.1
 python tools/release_readiness.py --root . --output docs/RELEASE_READINESS.md --check
 python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.json
 python tools/manifest_verify.py --root . PUBLIC_RESOURCE_MANIFEST.json
@@ -80,9 +83,9 @@ python tools/manifest_verify.py --root . PUBLIC_RESOURCE_MANIFEST.json
 
 - [`../ERRATA.md`](../ERRATA.md) — public correction log.
 - [`ERRATA_PROCESS.md`](ERRATA_PROCESS.md) — correction workflow.
-- [`RELEASE_BRANCH.md`](RELEASE_BRANCH.md) — stable release-branch policy before creating the final tag.
-- [`RELEASE_CANDIDATE.md`](RELEASE_CANDIDATE.md) — current `2026.08.18.6` candidate and manual tag procedure.
-- [`RELEASE_CHECKLIST.md`](RELEASE_CHECKLIST.md) — companion release gate.
+- [`RELEASE_BRANCH.md`](RELEASE_BRANCH.md) — current `release/companion-v2026.08.19.1` freeze policy plus preservation of the earlier frozen candidate.
+- [`RELEASE_CANDIDATE.md`](RELEASE_CANDIDATE.md) — current `2026.08.19.1` candidate and tag procedure.
+- [`RELEASE_CHECKLIST.md`](RELEASE_CHECKLIST.md) — complete companion release gate.
 - [`RELEASE_READINESS.md`](RELEASE_READINESS.md) — generated pre-tag readiness report.
 - [`RELEASE_SNAPSHOT.md`](RELEASE_SNAPSHOT.md) — current release-integrity expectations.
 - [`TAGGED_RELEASES.md`](TAGGED_RELEASES.md) — tag naming and automatic release-manifest workflow.
@@ -95,7 +98,7 @@ python tools/manifest_verify.py --root . PUBLIC_RESOURCE_MANIFEST.json
 - [`REPOSITORY_METADATA.md`](REPOSITORY_METADATA.md) — recommended GitHub About description, Gumroad website, and topics.
 - [`REPOSITORY_STRUCTURE.md`](REPOSITORY_STRUCTURE.md) — current public repository layout.
 - [`../CITATION.cff`](../CITATION.cff) — repository and book citation metadata.
-- [`../COMPANION_RELEASE.json`](../COMPANION_RELEASE.json) — machine-readable release/storefront metadata.
+- [`../COMPANION_RELEASE.json`](../COMPANION_RELEASE.json) — machine-readable release/storefront/project-count metadata.
 - [`../CHANGELOG.md`](../CHANGELOG.md) — notable repository changes.
 - [`../ROADMAP.md`](../ROADMAP.md) — completed and future phases.
 - [`../what_changed.md`](../what_changed.md) — detailed implementation audit.
