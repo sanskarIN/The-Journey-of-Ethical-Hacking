@@ -2,7 +2,7 @@
 """Generate or validate a deterministic companion release-readiness report.
 
 All checks operate on local repository files only. The tool performs no
-network access, Git tag mutation, account action, or production-system access.
+network access, Git ref mutation, account action, or production-system access.
 """
 
 from __future__ import annotations
@@ -107,6 +107,7 @@ def render(root: Path) -> str:
     checks = collect(root)
     version = release_version(root)
     tag = expected_tag(root)
+    release_branch = f"release/{tag}"
     lines = [
         "# Companion Release Readiness",
         "",
@@ -117,7 +118,7 @@ def render(root: Path) -> str:
         f"**Companion release:** `{version}`",
         f"**Expected tag:** `{tag}`",
         "",
-        "This generated report records deterministic local pre-tag checks. It does not create a Git tag or GitHub Release.",
+        "This generated report records deterministic local pre-tag checks. It does not create a Git branch, Git tag, or GitHub Release.",
         "",
         "| Release gate | Status |",
         "|---|---|",
@@ -138,7 +139,7 @@ def render(root: Path) -> str:
             lines.append("")
     else:
         lines.append(
-            f"The repository-local automated release gate is clean for `{tag}`. The remaining operation is to create the tag in GitHub and review the generated manifest artifact."
+            f"The repository-local automated release gate is clean for `{tag}`. Freeze the reviewed snapshot on `{release_branch}` before creating the tag and reviewing the generated manifest artifact."
         )
         lines.append("")
 
@@ -146,12 +147,13 @@ def render(root: Path) -> str:
         [
             "## Manual GitHub operations",
             "",
-            f"1. Create the lightweight or annotated tag `{tag}` from the intended `main` commit.",
-            "2. Confirm the tagged-release workflow completes successfully.",
-            "3. Download and review the generated `PUBLIC_RESOURCE_MANIFEST.json` artifact.",
-            "4. Apply the documented repository About description, Gumroad website, and topics if those settings have not yet been configured manually.",
+            f"1. Freeze the reviewed candidate on branch `{release_branch}`.",
+            f"2. Create the lightweight or annotated tag `{tag}` from the reviewed release-branch commit.",
+            "3. Confirm the tagged-release workflow completes successfully.",
+            "4. Download and review the generated `PUBLIC_RESOURCE_MANIFEST.json` artifact.",
+            "5. Apply the documented repository About description, Gumroad website, and topics if those settings have not yet been configured manually.",
             "",
-            "The connected maintenance API used for automated repository work does not expose Git tag creation or repository About/topics writes, so those actions remain explicit manual GitHub operations.",
+            "This generated report does not mutate Git refs or repository settings, so those remain explicit release operations.",
             "",
             "## Publication boundary",
             "",
