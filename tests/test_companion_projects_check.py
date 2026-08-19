@@ -43,9 +43,9 @@ class CompanionProjectsCheckTests(unittest.TestCase):
     def test_project_floor_prevents_silent_deletion(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             suite = self.make_suite(Path(temp_dir))
-            _, errors = validate(suite, minimum_projects=16)
+            _, errors = validate(suite, minimum_projects=20)
 
-        self.assertIn("expected at least 16 companion projects, found 0", errors)
+        self.assertIn("expected at least 20 companion projects, found 0", errors)
 
 
 if __name__ == "__main__":
