@@ -8,6 +8,7 @@ Generated from the level-1 headings of Markdown files in `docs/`.
 
 - [Documentation Accessibility Guide](ACCESSIBILITY.md)
 - [Annual Edition Maintenance](ANNUAL_EDITION_MAINTENANCE.md)
+- [Defensive Companion Project Suite](COMPANION_PROJECTS.md)
 - [First-Time Contributor Onboarding](CONTRIBUTOR_ONBOARDING.md)
 - [Synthetic Dataset Data Dictionary](DATA_DICTIONARY.md)
 - [Dependabot Review Procedure](DEPENDABOT_REVIEW.md)
