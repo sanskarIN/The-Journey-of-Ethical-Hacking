@@ -14,6 +14,8 @@ Official defensive, authorization-first companion repository for **The Journey o
 - [Get the book on Gumroad](https://ramsandesh.gumroad.com)
 - [Complete documentation index](docs/INDEX.md)
 - [Repository policy status](docs/POLICY_STATUS.md)
+- [Current release readiness](docs/RELEASE_READINESS.md)
+- [Current release candidate](docs/RELEASE_CANDIDATE.md)
 - [Gumroad storefront and badge guide](docs/GUMROAD.md)
 - [Complete 200-part learning index](resources/learning_stage_index.md)
 - [Contributor development setup](docs/DEVELOPMENT.md)
@@ -21,7 +23,9 @@ Official defensive, authorization-first companion repository for **The Journey o
 - [Issue triage guidance](docs/ISSUE_TRIAGE.md)
 - [Synthetic dataset data dictionary](docs/DATA_DICTIONARY.md)
 - [Tagged companion releases](docs/TAGGED_RELEASES.md)
+- [Manifest review guide](docs/MANIFEST_REVIEW.md)
 - [Recommended GitHub repository metadata](docs/REPOSITORY_METADATA.md)
+- [Dependabot review procedure](docs/DEPENDABOT_REVIEW.md)
 - [Synthetic dataset catalog](datasets/README.md)
 - [Dataset contract schemas](schemas/README.md)
 - [Fictional tabletop exercises](exercises/README.md)
@@ -74,12 +78,15 @@ Current local-only Python helpers include:
 - `tools/dev_environment.py`
 - `tools/public_repo_policy.py`
 - `tools/policy_status.py`
+- `tools/tag_preflight.py`
+- `tools/resource_manifest.py`
+- `tools/manifest_verify.py`
+- `tools/release_readiness.py`
 - `tools/synthetic_safety.py`
 - `tools/doc_accessibility.py`
 - `tools/markdown_links.py`
 - `tools/gumroad_presence.py`
 - `tools/docs_toc.py`
-- `tools/resource_manifest.py`
 - `tools/repo_health.py`
 
 Install the pinned development dependencies:
@@ -100,16 +107,24 @@ Run all repository structural and policy checks from one entry point:
 python tools/repo_health.py --root .
 ```
 
-Review the generated policy summary:
+Review the generated policy summary and pre-tag release verdict:
 
 ```bash
 python tools/policy_status.py --root . --output docs/POLICY_STATUS.md --check
+python tools/release_readiness.py --root . --output docs/RELEASE_READINESS.md --check
 ```
 
-Generate a machine-readable public-resource manifest:
+Validate the intended companion tag:
+
+```bash
+python tools/tag_preflight.py --root . --tag companion-v2026.08.18.6
+```
+
+Generate and verify a machine-readable public-resource manifest:
 
 ```bash
 python tools/resource_manifest.py --root . --output PUBLIC_RESOURCE_MANIFEST.json
+python tools/manifest_verify.py --root . PUBLIC_RESOURCE_MANIFEST.json
 ```
 
 ## Release integrity and repository policy
@@ -128,12 +143,16 @@ The repository CI and local health tooling validate:
 - documentation TOC freshness;
 - sensitive-looking values in public synthetic datasets;
 - Markdown accessibility basics and relative links;
-- the exact official Gumroad storefront URL on core public-facing pages, citation/funding metadata, and all 20 learning-stage pages;
+- the exact official Gumroad storefront URL on core public-facing pages, citation/funding metadata, generated docs, and all 20 learning-stage pages;
 - generated repository policy-status freshness;
-- public-resource manifest generation;
+- generated release-readiness freshness;
+- exact `companion-vYYYY.MM.DD.N` tag naming against release metadata;
+- public-resource manifest generation and SHA-256 verification;
 - unit tests, CLI smoke tests, and test coverage.
 
-A `companion-v*` tag triggers `.github/workflows/release-manifest.yml`, which validates the tagged snapshot and uploads a SHA-256 public-resource manifest artifact.
+A `companion-v*` tag triggers `.github/workflows/release-manifest.yml`, which validates the tag, runs the repository gate, generates and verifies the SHA-256 public-resource manifest, and uploads the verified artifact.
+
+The manual `.github/workflows/release-candidate.yml` workflow can run the same pre-tag evidence gate without creating a tag.
 
 ## Maintenance automation
 
@@ -143,6 +162,8 @@ A `companion-v*` tag triggers `.github/workflows/release-manifest.yml`, which va
 - `.github/CODEOWNERS` assigns `@sanskarIN` as the default review owner.
 - `.github/release.yml` configures generated release notes.
 - `docs/DEPENDENCY_ACTION_REVIEW.md` records accepted/deferred maintenance decisions.
+- `docs/DEPENDABOT_REVIEW.md` documents review rules for future dependency PRs.
+- `docs/REPOSITORY_METADATA.md` records the recommended About description, Gumroad website, and topics for manual GitHub settings.
 
 ## Safety boundary
 
