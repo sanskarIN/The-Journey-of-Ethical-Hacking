@@ -34,6 +34,9 @@ The suite includes tests for:
 - generated dataset data dictionaries and freshness;
 - release/schema JSON metadata;
 - release-version and citation-version consistency;
+- exact companion tag preflight validation;
+- public-resource manifest generation and manifest verification;
+- deterministic release-readiness workflow checks;
 - dataset summaries;
 - Parts 1–200 learning-index integrity;
 - documentation TOC generation and freshness;
@@ -44,10 +47,9 @@ The suite includes tests for:
 - Markdown accessibility;
 - relative Markdown links;
 - repository health orchestration;
-- public-resource manifest generation;
 - synthetic-data sensitivity linting;
 - Gumroad storefront presence across core docs, citation/funding metadata, and all learning stages;
-- CLI `--help` smoke coverage for local tools.
+- CLI `--help` smoke coverage for every local tool discovered under `tools/`.
 
 The tests use deterministic local data and do not require network access, accounts, credentials, devices, or external services.
 
