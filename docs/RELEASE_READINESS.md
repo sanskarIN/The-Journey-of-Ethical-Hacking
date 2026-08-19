@@ -7,7 +7,7 @@
 **Companion release:** `2026.08.19.1`
 **Expected tag:** `companion-v2026.08.19.1`
 
-This generated report records deterministic local pre-tag checks. It does not create a Git tag or GitHub Release.
+This generated report records deterministic local pre-tag checks. It does not create a Git branch, Git tag, or GitHub Release.
 
 | Release gate | Status |
 |---|---|
@@ -20,16 +20,17 @@ This generated report records deterministic local pre-tag checks. It does not cr
 
 ## Result: READY
 
-The repository-local automated release gate is clean for `companion-v2026.08.19.1`. The remaining operation is to create the tag in GitHub and review the generated manifest artifact.
+The repository-local automated release gate is clean for `companion-v2026.08.19.1`. Freeze the reviewed snapshot on `release/companion-v2026.08.19.1` before creating the tag and reviewing the generated manifest artifact.
 
 ## Manual GitHub operations
 
-1. Create the lightweight or annotated tag `companion-v2026.08.19.1` from the intended reviewed release-branch commit.
-2. Confirm the tagged-release workflow completes successfully.
-3. Download and review the generated `PUBLIC_RESOURCE_MANIFEST.json` artifact.
-4. Apply the documented repository About description, Gumroad website, and topics if those settings have not yet been configured manually.
+1. Freeze the reviewed candidate on branch `release/companion-v2026.08.19.1`.
+2. Create the lightweight or annotated tag `companion-v2026.08.19.1` from the reviewed release-branch commit.
+3. Confirm the tagged-release workflow completes successfully.
+4. Download and review the generated `PUBLIC_RESOURCE_MANIFEST.json` artifact.
+5. Apply the documented repository About description, Gumroad website, and topics if those settings have not yet been configured manually.
 
-The previous `release/companion-v2026.08.18.6` branch remains a historical frozen candidate. The current candidate should be frozen on `release/companion-v2026.08.19.1` before tagging.
+This generated report does not mutate Git refs or repository settings, so those remain explicit release operations.
 
 ## Publication boundary
 
