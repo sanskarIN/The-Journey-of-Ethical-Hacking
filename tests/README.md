@@ -50,8 +50,8 @@ The suite includes tests for:
 - contributor/CI Python and dependency consistency;
 - public repository governance/publication boundaries;
 - generated repository policy status;
-- companion-project suite structure, required suite files, project floor, README, implementation, and test presence;
-- 16 project-owned defensive utility test files under `companion-projects/`;
+- companion-project suite structure, required suite files, 20-project floor, README, implementation, and test presence;
+- 20 project-owned defensive utility test files under `companion-projects/`;
 - Markdown accessibility;
 - relative Markdown links;
 - repository health orchestration;
